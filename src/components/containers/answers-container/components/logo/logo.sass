@@ -1,0 +1,26 @@
+.logo
+    position: relative
+    padding: 4rem 0
+    margin: auto
+    width: 18rem
+
+    &__animation-box
+        position: absolute
+        z-index: 0
+        width: 9rem
+        height: 9rem
+        top: 4.3rem
+        left: 4.4rem
+        border-radius: 50%
+        animation: logo-glow 2s both linear infinite alternate
+
+    img
+        width: 100%
+
+@keyframes logo-glow
+    from
+        box-shadow: 0 0 1rem 0.9rem #1e88e5
+
+    to
+        box-shadow: 0 0 2rem 1.4rem #1e88e5
+  

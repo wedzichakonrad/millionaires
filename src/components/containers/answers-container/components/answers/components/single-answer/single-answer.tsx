@@ -1,4 +1,5 @@
 import './single-answer.sass'
+import Tile from "../../../../../../common/tile/tile";
 
 interface AnswerProps {
   text: string,
@@ -7,10 +8,12 @@ interface AnswerProps {
 
 const SingleAnswer = ({ text, isCorrect }: AnswerProps) => {
   return (
-    <div className='single-answer'>
-      <span>{isCorrect.toString()}</span>
-      <p>{text}</p>
-    </div>
+      <Tile className='single-answer' tileTag='li'>
+          <>
+              <span>{isCorrect.toString()}</span>
+              <p>{text}</p>
+          </>
+      </Tile>
   )
 }
 

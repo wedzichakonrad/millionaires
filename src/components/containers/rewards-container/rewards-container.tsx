@@ -1,10 +1,13 @@
 import './rewards-container.sass'
+import Lifebuoys from "./components/lifebuoys/lifebuoys";
+import Rewards from "./components/rewards/rewards";
 
 const RewardsContainer = () => {
   return (
-    <div className='rewards-container'>
-      rewards-container
-    </div>
+    <section className='rewards-container'>
+      <Lifebuoys/>
+      <Rewards/>
+    </section>
   )
 }
 

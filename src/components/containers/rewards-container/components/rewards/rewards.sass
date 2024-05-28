@@ -1,0 +1,55 @@
+@import "../../../../../style/variables/variables"
+
+.rewards
+  @include flex-center-center
+
+  &__list
+    display: flex
+    flex-direction: column-reverse
+    color: $c-yellow
+    font-size: 32px
+    margin-bottom: 40px
+
+
+.reward
+  &--white-theme
+    color: $c-white
+
+  &__number
+    display: inline-block
+    text-align: right
+    width: 2.5rem
+    height: 2rem
+
+  &__diamond
+    position: relative
+    margin: 0 1rem
+
+    &:before
+      content: ""
+      position: absolute
+      top: 0.6rem
+      right: -0.02rem
+      border-top: 0.6rem solid transparent
+      border-bottom: 0.6rem solid transparent
+      border-right: 0.5rem solid $c-white
+      width: 0
+      height: 0
+      z-index: 2
+
+    &:after
+      content: ""
+      position: absolute
+      top: 0.6rem
+      left: -0.01rem
+      border-top: 0.6rem solid transparent
+      border-bottom: 0.6rem solid transparent
+      border-left: 0.5rem solid $c-white
+      width: 0
+      height: 0
+      z-index: 2
+
+  &__prize
+    padding-right: 0.5rem
+
+  &__currency

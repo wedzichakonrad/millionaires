@@ -12,7 +12,7 @@ interface Answers {
 
 const Answers = ({answers}: Answers) => {
   return (
-    <div className='answers'>
+    <ul className='answers'>
       {answers.map((answer, index) => {
         return (
           <SingleAnswer
@@ -22,7 +22,7 @@ const Answers = ({answers}: Answers) => {
           />
         )
       })}
-    </div>
+    </ul>
   )
 }
 

@@ -1,5 +1,5 @@
 export const mockAnswers = {
-    question: 'Some question about your social life which doesn t exist',
+    question: 'Some question about your social life that doesn t exist',
     answers: [
       {
         content: 'IDK',

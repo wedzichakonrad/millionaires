@@ -1,4 +1,5 @@
 import './question.sass'
+import Tile from "../../../../common/tile/tile";
 
 interface QuestionProps {
   question: string,
@@ -6,7 +7,11 @@ interface QuestionProps {
 
 const Question = ({ question }: QuestionProps) => {
   return (
-    <div className='question'>{question}</div>
+      <div className='question-container'>
+          <Tile className='question' tileTag='div'>
+              <span>{question}</span>
+          </Tile>
+      </div>
   )
 }
 

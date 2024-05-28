@@ -6,11 +6,11 @@ import { mockAnswers } from '../../../utils/game-data/questions'
 
 const AnswersContainer = () => {
   return (
-    <div className='answers-container'>
+    <section className='answers-container'>
         <Logo/>
         <Question question={mockAnswers.question}/>
         <Answers answers={mockAnswers.answers}/>
-    </div>
+    </section>
   )
 }
 

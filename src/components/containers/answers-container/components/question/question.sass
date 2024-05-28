@@ -1,5 +1,30 @@
+@import '../../../../../style/variables/variables'
+
+.question-container
+  +flex-center-center
+  width: 100%
+
+  +xxl
+    position: relative
+
 .question
-    background: red
-    width: 80%
-    border: 4px solid white
-    height: 80px
+  +xxl
+    position: static !important
+
+    .tile
+      &__line-break-through
+        width: 100%
+        left: 0
+        top: 5.9rem
+
+      &__inner
+        &:before, &:after
+          width: 6.6rem
+          height: 6.6rem
+          top: 1.42rem
+
+        &:before
+          left: -3.7rem
+
+        &:after
+          right: -3.7rem

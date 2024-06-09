@@ -1,7 +1,7 @@
 import './phone-friend.sass'
 
 const PhoneFriend = () => {
-    return <li className='lifebuoy'>Lifebuoy</li>
+    return <li className='lifebuoy phone-friend'/>
 }
 
 export default PhoneFriend

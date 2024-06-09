@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7629cb43-546d-4b5c-9612-2251ec511348" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/api/get-game-data.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/common/preloaders/preloader.sass" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/common/preloaders/preloader.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/game-data/game-data.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/tile/tile.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/tile/tile.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/containers/answers-container/answers-container.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/answers-container/answers-container.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/containers/answers-container/answers-container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/answers-container/answers-container.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/containers/answers-container/components/answers/answers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/answers-container/components/answers/answers.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/containers/answers-container/components/answers/components/single-answer/single-answer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/answers-container/components/answers/components/single-answer/single-answer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/containers/rewards-container/components/lifebuoys/components/ask-audience/ask-audience.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/rewards-container/components/lifebuoys/components/ask-audience/ask-audience.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/containers/rewards-container/components/lifebuoys/components/ask-audience/ask-audience.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/rewards-container/components/lifebuoys/components/ask-audience/ask-audience.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/containers/rewards-container/components/lifebuoys/components/fifty-fifty/fifty-fifty.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/rewards-container/components/lifebuoys/components/fifty-fifty/fifty-fifty.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/containers/rewards-container/components/lifebuoys/components/fifty-fifty/fifty-fifty.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/rewards-container/components/lifebuoys/components/fifty-fifty/fifty-fifty.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/containers/rewards-container/components/lifebuoys/components/phone-friend/phone-friend.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/rewards-container/components/lifebuoys/components/phone-friend/phone-friend.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/containers/rewards-container/components/lifebuoys/components/phone-friend/phone-friend.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/rewards-container/components/lifebuoys/components/phone-friend/phone-friend.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/containers/rewards-container/components/lifebuoys/lifebuoys.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/rewards-container/components/lifebuoys/lifebuoys.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/containers/rewards-container/components/rewards/rewards.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/rewards-container/components/rewards/rewards.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/containers/rewards-container/components/rewards/rewards.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/rewards-container/components/rewards/rewards.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/containers/rewards-container/rewards-container.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/rewards-container/rewards-container.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/millionaires.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/millionaires.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/millionaires.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/millionaires.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/global/global.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/global/global.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/variables/sizes/sizes.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/variables/sizes/sizes.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/game-data/questions.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/game-data/rewards.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/game-data/rewards.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2haO8LTfIyHVAYtAmxJT40gdWup" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/tint/millionaires/millionaires",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "settings.javascript.prettier",
+    "ts.external.directory.path": "/Users/tint/millionaires/millionaires/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7629cb43-546d-4b5c-9612-2251ec511348" name="Changes" comment="" />
+      <created>1717828560600</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1717828560600</updated>
+      <workItem from="1717828563631" duration="8775000" />
+      <workItem from="1717839468967" duration="8485000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

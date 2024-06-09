@@ -10,7 +10,7 @@ interface Answers {
   answers: SingleAnswer[],
 }
 
-const Answers = ({answers}: Answers) => {
+const Answers = ({ answers }: Answers) => {
   return (
     <ul className='answers'>
       {answers.map((answer, index) => {

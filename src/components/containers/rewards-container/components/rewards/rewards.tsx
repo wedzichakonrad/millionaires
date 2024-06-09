@@ -11,10 +11,10 @@ const Rewards = () => {
                 {rewards.map((reward, index) => {
                     const rewardNumber = index + 1;
                     return (
-                        <li key={`${reward.price}-${index}`} className={`reward ${rewardNumber === 1 || rewardNumber % 5 === 0 ? 'reward--white-theme' : '' }`}>
+                        <li key={`${reward}-${index}`} className={`reward ${rewardNumber === 1 || rewardNumber % 5 === 0 ? 'reward--white-theme' : '' }`}>
                             <span className='reward__number'>{rewardNumber}</span>
                             <span className='reward__diamond'/>
-                            <span className='reward__price'>{formatPriceValue(reward.price)}</span>
+                            <span className='reward__price'>{formatPriceValue(reward)}</span>
                             <span className='reward__currency'> {currency}</span>
                         </li>
                     )

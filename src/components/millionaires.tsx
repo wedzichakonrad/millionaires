@@ -3,6 +3,7 @@ import RewardsContainer from './containers/rewards-container/rewards-container'
 import './millionaires.sass'
 
 const Millionaires = () => {
+
   return (
     <div className='millionaires'>
         <AnswersContainer/>

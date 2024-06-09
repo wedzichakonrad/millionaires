@@ -10,7 +10,6 @@ const SingleAnswer = ({ text, isCorrect }: AnswerProps) => {
   return (
       <Tile className='single-answer' tileTag='li'>
           <>
-              <span>{isCorrect.toString()}</span>
               <p>{text}</p>
           </>
       </Tile>

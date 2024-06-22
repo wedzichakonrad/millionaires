@@ -25,29 +25,23 @@
     position: relative
     margin: 0 1rem
 
-    &:before
+    &:before, &:after
       content: ""
       position: absolute
-      top: 0.6rem
-      right: -0.02rem
+      top: 0.4rem
       border-top: 0.6rem solid transparent
       border-bottom: 0.6rem solid transparent
-      border-right: 0.5rem solid $c-white
       width: 0
       height: 0
       z-index: 2
 
+    &:before
+      right: -0.02rem
+      border-right: 0.5rem solid $c-white
+
     &:after
-      content: ""
-      position: absolute
-      top: 0.6rem
       left: -0.01rem
-      border-top: 0.6rem solid transparent
-      border-bottom: 0.6rem solid transparent
       border-left: 0.5rem solid $c-white
-      width: 0
-      height: 0
-      z-index: 2
 
   &__prize
     padding-right: 0.5rem

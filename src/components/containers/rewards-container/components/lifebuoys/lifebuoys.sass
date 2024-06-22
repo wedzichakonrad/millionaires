@@ -16,16 +16,21 @@
   justify-content: center
   align-items: center
   position: relative
-  width: 7rem
-  height: 4rem
+  width: 5rem
+  height: 5rem
   border-radius: 50%
-  margin: 2.5rem
+  margin: 0.8rem
   background: $c-lifebuoys
   border: 0.15rem solid $c-white
 
   &:hover
     cursor: pointer
     box-shadow: 0 0 2rem 1rem $c-hover-blue-glow
+
+  +mdm
+    width: 7rem
+    height: 4rem
+    margin: 2.5rem
 
   +xxl
     margin: 1rem

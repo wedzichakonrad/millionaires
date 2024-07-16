@@ -3,7 +3,7 @@ import React, {ComponentType, ReactElement} from "react";
 
 interface TileProps {
     className: string,
-    children: ReactElement,
+    children?: ReactElement,
     tileTag: ComponentType | keyof JSX.IntrinsicElements,
 }
 
@@ -12,6 +12,8 @@ const Tile = ({children, className, tileTag}: TileProps) => {
     return (
         <Tag className={`tile ${className}`}>
             <div className='tile__inner'>
+                <div className='tile__triangle tile__triangle--left'/>
+                <div className='tile__triangle tile__triangle--right'/>
                 <div className='tile__children-wrapper'>
                     {children}
                 </div>

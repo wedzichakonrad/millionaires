@@ -1,21 +1,34 @@
 @import '../../../../../style/variables/variables'
 
 .question-container
+  position: relative
   +flex-center-center
   width: 100%
 
-  +xxl
-    position: relative
-
 .question
-  +xxl
-    position: static !important
+  .tile
+    &__line-break-through
+      top: 4.5rem
 
+  +xxl
     .tile
+      &__triangle
+        width: 6rem
+        height: 6rem
+
+      &__triangle--right
+        top: 1.25rem
+        right: -3.4rem
+
+      &__triangle--left
+        left: -3.4rem
+        top: 1.25rem
+
       &__line-break-through
+        display: block
         width: 100%
         left: 0
-        top: 5.9rem
+        top: 5.8rem
 
       &__inner
         &:before, &:after

@@ -1,6 +1,9 @@
 @import '../../../../../../../style/variables/variables'
 
 .single-answer
+  position: relative
+  pointer-events: none
+
   +mdm
     position: static
     width: 50%
@@ -42,6 +45,7 @@
 
   &__button
     @include flex-center-center
+    pointer-events: initial
     width: 100%
     height: 100%
     background: none
@@ -49,6 +53,15 @@
     color: $c-white
     cursor: pointer
     padding: 0
+
+    &:hover
+      .tile
+        &__triangle
+          background: red
+          box-shadow: 0 0.5rem 2rem 1.4rem $c-hover-blue-glow
+
+          &:before, &:after
+            box-shadow: 0 0 2rem 0.4rem $c-hover-blue-glow
 
   &--pending
     .tile
@@ -68,12 +81,5 @@
   .tile
     &__triangle
       cursor: pointer
+      pointer-events: initial
 
-    &__inner
-      &:hover
-        &__triangle
-          &:hover
-            box-shadow: 0 0.5rem 2rem 1.4rem $c-hover-blue-glow
-
-            &:before, &:after
-              box-shadow: 0 0 2rem 0.4rem $c-hover-blue-glow

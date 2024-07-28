@@ -2,11 +2,15 @@ import './rewards-container.sass'
 import Lifebuoys from "./components/lifebuoys/lifebuoys";
 import Rewards from "./components/rewards/rewards";
 
-const RewardsContainer = () => {
+type RewardsContainerProps = {
+    questionNumber: number;
+}
+
+const RewardsContainer = ({questionNumber}: RewardsContainerProps) => {
   return (
     <section className='rewards-container'>
       <Lifebuoys/>
-      <Rewards/>
+      <Rewards questionNumber={questionNumber}/>
     </section>
   )
 }

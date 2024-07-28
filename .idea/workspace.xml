@@ -5,32 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7629cb43-546d-4b5c-9612-2251ec511348" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/api/get-game-data.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/common/preloaders/preloader.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/common/preloaders/preloader.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/game-data/game-data.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/common/tile/tile.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/tile/tile.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/containers/answers-container/answers-container.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/answers-container/answers-container.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/tile/tile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/tile/tile.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/containers/answers-container/answers-container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/answers-container/answers-container.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/containers/answers-container/components/answers/answers.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/answers-container/components/answers/answers.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/containers/answers-container/components/answers/answers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/answers-container/components/answers/answers.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/containers/answers-container/components/answers/components/single-answer/single-answer.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/answers-container/components/answers/components/single-answer/single-answer.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/containers/answers-container/components/answers/components/single-answer/single-answer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/answers-container/components/answers/components/single-answer/single-answer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/containers/rewards-container/components/lifebuoys/components/ask-audience/ask-audience.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/rewards-container/components/lifebuoys/components/ask-audience/ask-audience.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/containers/rewards-container/components/lifebuoys/components/ask-audience/ask-audience.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/rewards-container/components/lifebuoys/components/ask-audience/ask-audience.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/containers/rewards-container/components/lifebuoys/components/fifty-fifty/fifty-fifty.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/rewards-container/components/lifebuoys/components/fifty-fifty/fifty-fifty.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/containers/rewards-container/components/lifebuoys/components/fifty-fifty/fifty-fifty.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/rewards-container/components/lifebuoys/components/fifty-fifty/fifty-fifty.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/containers/rewards-container/components/lifebuoys/components/phone-friend/phone-friend.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/rewards-container/components/lifebuoys/components/phone-friend/phone-friend.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/containers/rewards-container/components/lifebuoys/components/phone-friend/phone-friend.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/rewards-container/components/lifebuoys/components/phone-friend/phone-friend.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/containers/rewards-container/components/lifebuoys/lifebuoys.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/rewards-container/components/lifebuoys/lifebuoys.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/containers/rewards-container/components/rewards/rewards.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/rewards-container/components/rewards/rewards.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/containers/rewards-container/components/rewards/rewards.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/rewards-container/components/rewards/rewards.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/containers/rewards-container/rewards-container.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/rewards-container/rewards-container.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/millionaires.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/millionaires.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/millionaires.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/millionaires.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style/global/global.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/global/global.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style/variables/sizes/sizes.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/variables/sizes/sizes.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/game-data/questions.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/game-data/rewards.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/game-data/rewards.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/containers/answers-container/components/question/question.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/answers-container/components/question/question.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/variables/mixins/components/components.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/variables/mixins/components/components.sass" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,22 +33,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/tint/millionaires/millionaires",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "settings.javascript.prettier",
-    "ts.external.directory.path": "/Users/tint/millionaires/millionaires/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/tint/millionaires/millionaires&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/tint/millionaires/millionaires/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.TypeScript&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/tint/millionaires/millionaires/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -74,10 +60,26 @@
       <updated>1717828560600</updated>
       <workItem from="1717828563631" duration="8775000" />
       <workItem from="1717839468967" duration="8485000" />
+      <workItem from="1719038732033" duration="19879000" />
+      <workItem from="1719212871395" duration="579000" />
+      <workItem from="1719994793535" duration="1193000" />
+      <workItem from="1720530863893" duration="589000" />
+      <workItem from="1720684760157" duration="598000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

@@ -13,3 +13,9 @@ export const formatPriceValue = price => {
 
     return mappedPrices.join('').split('').reverse()
 }
+
+export const shuffleArray = (a, b) => {
+    a = Math.round(Math.random() * (10 - 1) + 1);
+    b = Math.round(Math.random() * (10 - 1) + 1);
+    return a - b;
+}

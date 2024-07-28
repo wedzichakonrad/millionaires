@@ -3,12 +3,15 @@ import Logo from './components/logo/logo'
 import Question from './components/question/question'
 import Answers from './components/answers/answers'
 import {mockData} from '../../../utils/game-data/game-data'
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {getGameData} from "../../../api/get-game-data";
 import Preloader from "../../common/preloaders/preloader";
 
-const AnswersContainer = () => {
-    const [questionNumber, setQuestionNumber] = useState<number>(0);
+type AnswersContainerProps = {
+    questionNumber: number;
+    setQuestionNumber: React.Dispatch<React.SetStateAction<number>>,
+}
+const AnswersContainer = ({questionNumber, setQuestionNumber}: AnswersContainerProps) => {
     const [questions, setQuestions] = useState(mockData);
     const [isFetchingData, setIsFetchingData] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);

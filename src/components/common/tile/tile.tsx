@@ -1,26 +1,36 @@
-import './tile.sass'
-import React, {ComponentType, ReactElement} from "react";
+import "./tile.sass";
+import React, { ComponentType, ReactElement } from "react";
 
 interface TileProps {
-    className: string,
-    children?: ReactElement,
-    tileTag: ComponentType | keyof JSX.IntrinsicElements,
+  className: string;
+  children: ReactElement;
+  tileTag?: ComponentType | keyof JSX.IntrinsicElements;
+  innerTag?: ComponentType | keyof JSX.IntrinsicElements;
+  onClick?: () => void;
+  disabled?: boolean;
 }
 
-const Tile = ({children, className, tileTag}: TileProps) => {
-    const Tag = tileTag;
-    return (
-        <Tag className={`tile ${className}`}>
-            <div className='tile__inner'>
-                <div className='tile__triangle tile__triangle--left'/>
-                <div className='tile__triangle tile__triangle--right'/>
-                <div className='tile__children-wrapper'>
-                    {children}
-                </div>
-            </div>
-            <div className='tile__line-break-through'/>
-        </Tag>
-    )
-}
+const Tile: React.FC<TileProps> = ({
+  children,
+  className,
+  tileTag = 'div',
+  innerTag = 'div',
+  onClick = undefined,
+  disabled = undefined,
+}) => {
+  const Tag = tileTag;
+  const InnerTag = innerTag;
 
-export default Tile
+  return (
+    <Tag className={`tile ${className}`}>
+      <InnerTag className="tile__inner" onClick={onClick} disabled={disabled}>
+        <div className="tile__triangle tile__triangle--left" />
+        <div className="tile__triangle tile__triangle--right" />
+        <div className="tile__children-wrapper">{children}</div>
+      </InnerTag>
+      <div className="tile__line-break-through" />
+    </Tag>
+  );
+};
+
+export default Tile;

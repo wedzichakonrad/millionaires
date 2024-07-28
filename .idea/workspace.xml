@@ -5,10 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7629cb43-546d-4b5c-9612-2251ec511348" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/common/tile/tile.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/tile/tile.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/tile/tile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/tile/tile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/containers/answers-container/answers-container.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/answers-container/answers-container.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/containers/answers-container/components/answers/answers.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/answers-container/components/answers/answers.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/containers/answers-container/components/answers/answers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/answers-container/components/answers/answers.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/containers/answers-container/components/answers/components/single-answer/single-answer.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/answers-container/components/answers/components/single-answer/single-answer.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/containers/answers-container/components/answers/components/single-answer/single-answer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/answers-container/components/answers/components/single-answer/single-answer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/containers/answers-container/components/question/question.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/answers-container/components/question/question.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/variables/mixins/components/components.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/variables/mixins/components/components.sass" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

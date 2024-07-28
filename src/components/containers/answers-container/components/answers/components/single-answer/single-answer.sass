@@ -2,14 +2,14 @@
 
 .single-answer
   position: relative
-  pointer-events: none
+  margin: 2.2rem 0
 
   +mdm
     position: static
     width: 50%
 
     &:nth-child(3)
-      margin: 1.2rem 0 2.5rem 0
+      margin: 2rem 0 2.5rem 0
 
     .tile
       &__line-break-through
@@ -24,12 +24,12 @@
     &:nth-child(2)
       .tile
         &__line-break-through
-          top: 4.5rem
+          top: 5rem
 
     &:nth-child(4)
       .tile
         &__line-break-through
-          top: 14.3rem
+          top: 15.2rem
 
   +xxl
     .tile
@@ -42,26 +42,6 @@
 
   &__letter
     color: $c-orange
-
-  &__button
-    @include flex-center-center
-    pointer-events: initial
-    width: 100%
-    height: 100%
-    background: none
-    border: none
-    color: $c-white
-    cursor: pointer
-    padding: 0
-
-    &:hover
-      .tile
-        &__triangle
-          background: red
-          box-shadow: 0 0.5rem 2rem 1.4rem $c-hover-blue-glow
-
-          &:before, &:after
-            box-shadow: 0 0 2rem 0.4rem $c-hover-blue-glow
 
   &--pending
     .tile
@@ -79,7 +59,19 @@
         background: $c-red-incorrect
 
   .tile
-    &__triangle
+    &__inner
+      display: block
+      width: calc(100% - 8rem)
       cursor: pointer
-      pointer-events: initial
+      padding: 0
+      border: 0
 
+      &:hover
+        box-shadow: 0 0.5rem 2rem 1.4rem $c-hover-blue-glow
+
+        .tile
+          &__triangle
+            box-shadow: 0 0.5rem 2rem 1.4rem $c-hover-blue-glow
+
+            &:before, &:after
+              box-shadow: 0 0 2rem 0.4rem $c-hover-blue-glow

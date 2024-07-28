@@ -8,8 +8,9 @@ import {getGameData} from "../../../api/get-game-data";
 import Preloader from "../../common/preloaders/preloader";
 
 const AnswersContainer = () => {
+    const [questionNumber, setQuestionNumber] = useState<number>(0);
     const [questions, setQuestions] = useState(mockData);
-    const [isFetchingData, setIsFetchingData] = useState(false);
+    const [isFetchingData, setIsFetchingData] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
@@ -34,10 +35,11 @@ const AnswersContainer = () => {
         fetchData();
     }, []);
 
-    const currentQuestion = questions[0];
+    const currentQuestion = questions[questionNumber];
 
     return (
         <section className='answers-container'>
+            <div style={{position: 'absolute'}}>{questionNumber}</div>
             <Logo/>
             {isFetchingData ? (
                 <Preloader/>
@@ -47,7 +49,7 @@ const AnswersContainer = () => {
                     {currentQuestion && (
                         <>
                             <Question question={currentQuestion.question}/>
-                            <Answers answers={currentQuestion.answers}/>
+                            <Answers answers={currentQuestion.answers} setQuestionNumber={setQuestionNumber}/>
                         </>
                     )}
                 </>

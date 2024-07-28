@@ -1,6 +1,6 @@
 import SingleAnswer from './components/single-answer/single-answer'
 import './answers.sass'
-import { useState } from "react";
+import React, { useState } from "react";
 
 type AnswerProps = {
     content: string,
@@ -9,10 +9,13 @@ type AnswerProps = {
 
 type AnswersProps = {
     answers: AnswerProps[],
+    setQuestionNumber: React.Dispatch<React.SetStateAction<number>>,
 }
 
-const Answers = ({ answers }: AnswersProps) => {
+const Answers = ({ answers, setQuestionNumber }: AnswersProps) => {
     const [isAnswerPending, setIsAnswerPending] = useState<boolean>(false)
+
+    const shuffledAnswers = answers;
 
     return (
         <ul className='answers'>
@@ -24,6 +27,7 @@ const Answers = ({ answers }: AnswersProps) => {
                         index={index}
                         isDisabled={isAnswerPending}
                         setIsAnswerPending={setIsAnswerPending}
+                        setQuestionNumber={setQuestionNumber}
                     />
                 )
             })}

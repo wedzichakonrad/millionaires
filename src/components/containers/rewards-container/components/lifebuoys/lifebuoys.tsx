@@ -6,11 +6,11 @@ import FiftyFifty from "./components/fifty-fifty/fifty-fifty";
 const Lifebuoys = () => {
     return (
         <div className='lifebuoys'>
-            <ul className='lifebuoys__list'>
+            <div className='lifebuoys__list'>
                 <AskAudience/>
                 <PhoneFriend/>
                 <FiftyFifty/>
-            </ul>
+            </div>
         </div>
     )
 }

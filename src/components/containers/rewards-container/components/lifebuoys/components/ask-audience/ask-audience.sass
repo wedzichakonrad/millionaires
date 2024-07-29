@@ -1,31 +1,32 @@
 @import "../../../../../../../style/variables/variables"
 
 .ask-audience
-  display: flex
-  justify-content: center
+  &__inner
+    display: flex
+    justify-content: center
 
-  span
-    position: relative
-    width: 2rem
-    height: 2rem
+    span
+      position: relative
+      width: 2rem
+      height: 2rem
 
-    &:after
-      content: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCA0OCA0OCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8IS0tIEhlYWQgLS0+CiAgPGNpcmNsZSBjeD0iMjQiIGN5PSIxNCIgcj0iMTAiIGZpbGw9IndoaXRlIi8+CiAgCiAgPCEtLSBIYWlyIC0tPgogIDxwYXRoIGQ9Ik0xNCAxNGMwIDUuNSAxMCA4IDEwIDhzMTAtMi41IDEwLThjMC01LjUtNC41LTEwLTEwLTEwcy0xMCA0LjUtMTAgMTB6IiBmaWxsPSJ3aGl0ZSIvPgogIAogIDwhLS0gQm9keSB3aXRoIGN1cnZlZCBzaG91bGRlcnMgLS0+CiAgPHBhdGggZD0iTTI0IDI0Yy02LjYgMC0xMiA1LjQtMTIgMTJ2NGgyNHYtNGMwLTYuNi01LjQtMTItMTItMTJ6IiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4=')
-      position: absolute
-      left: -0.65rem
-
-      +mdm
-        left: -0.5rem
-
-    &:first-child
       &:after
-        top: -0.6rem
-        left: -0.45rem
+        content: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCA0OCA0OCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8IS0tIEhlYWQgLS0+CiAgPGNpcmNsZSBjeD0iMjQiIGN5PSIxNCIgcj0iMTAiIGZpbGw9IndoaXRlIi8+CiAgCiAgPCEtLSBIYWlyIC0tPgogIDxwYXRoIGQ9Ik0xNCAxNGMwIDUuNSAxMCA4IDEwIDhzMTAtMi41IDEwLThjMC01LjUtNC41LTEwLTEwLTEwcy0xMCA0LjUtMTAgMTB6IiBmaWxsPSJ3aGl0ZSIvPgogIAogIDwhLS0gQm9keSB3aXRoIGN1cnZlZCBzaG91bGRlcnMgLS0+CiAgPHBhdGggZD0iTTI0IDI0Yy02LjYgMC0xMiA1LjQtMTIgMTJ2NGgyNHYtNGMwLTYuNi01LjQtMTItMTItMTJ6IiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4=')
+        position: absolute
+        left: -0.65rem
 
         +mdm
-          left: -0.16rem
+          left: -0.5rem
 
-    &:last-child
-      &:after
-        top: -0.6rem
-        left: -0.90rem
+      &:first-child
+        &:after
+          top: -0.6rem
+          left: -0.45rem
+
+          +mdm
+            left: -0.16rem
+
+      &:last-child
+        &:after
+          top: -0.6rem
+          left: -0.90rem

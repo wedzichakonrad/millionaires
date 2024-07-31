@@ -2,11 +2,13 @@ import './ask-audience.sass'
 
 const AskAudience = () => {
     return (
-        <li className='lifebuoy ask-audience'>
-            <span/>
-            <span/>
-            <span/>
-        </li>
+        <div className='lifebuoy ask-audience'>
+            <button className='ask-audience__inner'>
+                <span/>
+                <span/>
+                <span/>
+            </button>
+        </div>
     )
 }
 

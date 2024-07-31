@@ -1,7 +1,14 @@
 import './fifty-fifty.sass'
 
 const FiftyFifty = () => {
-    return <li className='lifebuoy fifty-fifty'>50:50</li>
+
+    return (
+        <div className='lifebuoy fifty-fifty'>
+            <button className='fifty-fifty__inner'>
+                50:50
+            </button>
+        </div>
+    )
 }
 
 export default FiftyFifty

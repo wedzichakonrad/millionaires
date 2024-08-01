@@ -5,19 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7629cb43-546d-4b5c-9612-2251ec511348" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/common/notifications/notification.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/common/notifications/notifications.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/phone-friend-message.service.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/containers/answers-container/components/answers/components/single-answer/single-answer.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/answers-container/components/answers/components/single-answer/single-answer.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/containers/rewards-container/components/lifebuoys/components/ask-audience/ask-audience.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/rewards-container/components/lifebuoys/components/ask-audience/ask-audience.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/containers/rewards-container/components/lifebuoys/components/ask-audience/ask-audience.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/rewards-container/components/lifebuoys/components/ask-audience/ask-audience.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/containers/rewards-container/components/lifebuoys/components/fifty-fifty/fifty-fifty.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/rewards-container/components/lifebuoys/components/fifty-fifty/fifty-fifty.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/containers/rewards-container/components/lifebuoys/components/fifty-fifty/fifty-fifty.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/rewards-container/components/lifebuoys/components/fifty-fifty/fifty-fifty.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/containers/rewards-container/components/lifebuoys/components/phone-friend/phone-friend.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/rewards-container/components/lifebuoys/components/phone-friend/phone-friend.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/containers/rewards-container/components/lifebuoys/components/phone-friend/phone-friend.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/rewards-container/components/lifebuoys/components/phone-friend/phone-friend.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/containers/rewards-container/components/lifebuoys/lifebuoys.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/rewards-container/components/lifebuoys/lifebuoys.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/containers/rewards-container/components/lifebuoys/lifebuoys.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/containers/rewards-container/components/lifebuoys/lifebuoys.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/notifications/notification.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/notifications/notification.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/millionaires.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/millionaires.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

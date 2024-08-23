@@ -10,7 +10,6 @@ interface TileProps {
   disabled?: boolean;
 }
 
-<<<<<<< HEAD
 const Tile: React.FC<TileProps> = ({
   children,
   className,
@@ -21,26 +20,6 @@ const Tile: React.FC<TileProps> = ({
 }) => {
   const Tag = tileTag;
   const InnerTag = innerTag;
-=======
-const Tile = ({children, className, tileTag}: TileProps) => {
-    const Tag = tileTag;
-    return (
-        <Tag className={`tile ${className}`}>
-            <div className='tile__inner'>
-                <div className='tile__triangle tile__triangle--left'/>
-                <div className='tile__triangle tile__triangle--right'/>
-                <div className='tile__children-wrapper'>
-                    {children}   
-
-
-                    
-                </div>
-            </div>
-            <div className='tile__line-break-through'/>
-        </Tag>
-    )
-}
->>>>>>> bd8dda3 (some improvements in tile component)
 
   return (
     <Tag className={`tile ${className}`}>

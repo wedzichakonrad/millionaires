@@ -4,19 +4,21 @@ import { NotificationContext } from "../../millionaires";
 
 type NotificationProps = {
   children: ReactElement;
-  isOpen: boolean;
-};
+  isNotificationOpen: boolean;
+  setIsNotificationOpen?: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
 const Notification = ({ children }: NotificationProps) => {
 
-    const isOpenObj = useContext(NotificationContext);
+    const notifcationContext = useContext(NotificationContext)
 
     const onBackdropClick = () => {
-
+      console.log('test', notifcationContext?.isNotificationOpen)
+      notifcationContext?.setIsNotificationOpen(false)
     }
 
   return (
-    <div className={`notification ${isOpenObj.isOpen ? 'notification--active' : ''}`}>
+    <div className={`notification ${notifcationContext?.isNotificationOpen ? 'notification--active' : ''}`}>
       <div className="notification__children-wrapper">{children}</div>
       <div className="notification__backdrop" onClick={onBackdropClick} />
     </div>

@@ -1,4 +1,5 @@
 import './fifty-fifty.sass'
+import Notification from './../../../../../../common/notifications/notification'
 
 const FiftyFifty = () => {
 
@@ -7,6 +8,11 @@ const FiftyFifty = () => {
             <button className='fifty-fifty__inner'>
                 50:50
             </button>
+            <Notification>
+                <div className='phone-friend__notification'>
+                    test
+                </div>
+            </Notification>
         </div>
     )
 }

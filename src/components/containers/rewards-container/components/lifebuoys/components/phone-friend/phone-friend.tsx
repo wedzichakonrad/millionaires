@@ -1,17 +1,22 @@
 import './phone-friend.sass'
 import Notification from "../../../../../../common/notifications/notification";
 import { PhoneFriendMessageService } from "../../../../../../../services/phone-friend-message.service";
+import { NotificationContext } from '../../../../../../millionaires';
+import { useContext } from 'react';
 
 const PhoneFriend = () => {
     const message = PhoneFriendMessageService.getMessage();
-    const openNotification = () => {
+    const notifcationContext = useContext(NotificationContext)
 
+
+    const openNotification = () => {
+        notifcationContext?.setIsNotificationOpen(true);
     }
 
     return (
-        <div className='lifebuoy phone-friend' onClick={openNotification}>
-            <button className='phone-friend__inner'/>
-            <Notification isOpen={false}>
+        <div className='lifebuoy phone-friend'>
+            <button className='phone-friend__inner' onClick={openNotification}/>
+            <Notification>
                 <div className='phone-friend__notification'>
                     {message}
                 </div>

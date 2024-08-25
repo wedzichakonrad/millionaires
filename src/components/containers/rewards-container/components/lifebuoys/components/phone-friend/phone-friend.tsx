@@ -14,9 +14,9 @@ const PhoneFriend = () => {
     }
 
     return (
-        <div className='lifebuoy phone-friend' onClick={openNotification}>
-            <button className='phone-friend__inner'/>
-            <Notification isNotificationOpen={false}>
+        <div className='lifebuoy phone-friend'>
+            <button className='phone-friend__inner' onClick={openNotification}/>
+            <Notification>
                 <div className='phone-friend__notification'>
                     {message}
                 </div>

@@ -5,7 +5,7 @@ import { useState } from "react";
 import { createContext } from 'react';
 
 interface NotificationContextType {
-    isNotificationOpen: boolean;
+    isNotificationOpen: { [key: string]: boolean };
     setIsNotificationOpen: React.Dispatch<React.SetStateAction<boolean>>;
   }
 
@@ -13,7 +13,7 @@ export const NotificationContext = createContext<NotificationContextType | undef
 
 const Millionaires = () => {
   const [questionNumber, setQuestionNumber] = useState<number>(0);
-  const [isNotificationOpen, setIsNotificationOpen] = useState<boolean>(false);
+  const [isNotificationOpen, setIsNotificationOpen] = useState<boolean>({});
  
   return (
       <NotificationContext.Provider value={{ isNotificationOpen, setIsNotificationOpen }}>

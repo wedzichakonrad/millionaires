@@ -20,7 +20,7 @@ const Reward = ({ questionNumber, rewardStake, index }: RewardProps) => {
 
   return (
     <li
-      key={`${rewardStake}-${index}`}
+      key={rewardStake}
       className={`reward ${rewardNumber === 1 || rewardNumber % 5 === 0 ? "reward--white-theme" : ""} ${getRewardState(rewardNumber)}`}
     >
       <div className="reward__inner">

@@ -1,14 +1,18 @@
+import { Lifebuoy } from '../common/lifebouy/lifebouy'
 import './ask-audience.sass'
 
-const AskAudience = () => {
+type AskAudienceTypes = {
+    type: string
+}
+
+
+const AskAudience = ({type}: AskAudienceTypes) => {
     return (
-        <div className='lifebuoy ask-audience'>
-            <button className='ask-audience__inner'>
-                <span/>
-                <span/>
-                <span/>
-            </button>
-        </div>
+        <Lifebuoy className='ask-audience' type={type} >
+            <div className='ask-audience__notification'>
+                ask-audience notification
+            </div>
+        </Lifebuoy>
     )
 }
 

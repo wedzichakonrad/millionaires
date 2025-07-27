@@ -1,19 +1,18 @@
 import './fifty-fifty.sass'
-import Notification from './../../../../../../common/notifications/notification'
+import { Lifebuoy } from '../common/lifebouy/lifebouy'
 
-const FiftyFifty = () => {
+type FiftyFiftyTypes = {
+    type: string
+}
+
+const FiftyFifty = ({type}:FiftyFiftyTypes) => {
 
     return (
-        <div className='lifebuoy fifty-fifty'>
-            <button className='fifty-fifty__inner'>
-                50:50
-            </button>
-            <Notification>
-                <div className='phone-friend__notification'>
-                    test
-                </div>
-            </Notification>
-        </div>
+        <Lifebuoy className='fifty-fifty' type={type} >
+            <div className='fifty-fifty__notification'>
+                50 - 50 notification
+            </div>
+        </Lifebuoy>
     )
 }
 

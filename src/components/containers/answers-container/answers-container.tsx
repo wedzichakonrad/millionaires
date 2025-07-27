@@ -42,7 +42,6 @@ const AnswersContainer = ({questionNumber, setQuestionNumber}: AnswersContainerP
 
     return (
         <section className='answers-container'>
-            <div style={{position: 'absolute'}}>{questionNumber}</div>
             <Logo/>
             {isFetchingData ? (
                 <Preloader/>

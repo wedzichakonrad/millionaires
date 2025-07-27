@@ -1,9 +1,13 @@
 @import "../../../../../../../style/variables/variables"
 
 .fifty-fifty
-  &__inner
+  & > button
     font-weight: 600
     font-size: $s-secondary
+
+    &::after
+      content: '50:50'
+      position: absolute
 
     +mdm
       font-size: $s-big

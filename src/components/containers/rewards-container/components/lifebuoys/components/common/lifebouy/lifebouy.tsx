@@ -27,7 +27,7 @@ export const Lifebuoy = ({ className, children, type}: LifebuoyProps) => {
 
   return (
       <div className={`lifebuoy ${className} ${currentLifebouy?.isUsed ? 'lifebuoy--used' : ''}`}>
-          <button onClick={openNotification}/>
+          <button onClick={openNotification} tabIndex={currentLifebouy?.isUsed ? -1 : 0}/>
           <Notification isOpen={currentLifebouy?.isOpen} type={type}>
             {children}
           </Notification>

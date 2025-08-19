@@ -10,8 +10,9 @@ import Preloader from "../../common/preloaders/preloader";
 type AnswersContainerProps = {
     questionNumber: number;
     setQuestionNumber: React.Dispatch<React.SetStateAction<number>>,
+    isGameOver: boolean,
 }
-const AnswersContainer = ({questionNumber, setQuestionNumber}: AnswersContainerProps) => {
+const AnswersContainer = ({questionNumber, setQuestionNumber, isGameOver}: AnswersContainerProps) => {
     const [questions, setQuestions] = useState(mockData);
     const [isFetchingData, setIsFetchingData] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
@@ -25,18 +26,19 @@ const AnswersContainer = ({questionNumber, setQuestionNumber}: AnswersContainerP
                     setQuestions(data);
                     setError(null);
                 } else {
-                    throw new Error("No data received");
+                    setError("No data received");
                 }
             } catch (err) {
-                console.error("Error fetching game data:", err);
                 setError("Failed to load questions. Using mock data.");
             } finally {
                 setIsFetchingData(false);
             }
         };
 
-        fetchData();
-    }, []);
+        if (!isGameOver) {
+            fetchData();
+        }
+    }, [isGameOver]);
 
     const currentQuestion = questions[questionNumber];
 

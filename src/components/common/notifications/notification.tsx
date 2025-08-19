@@ -2,6 +2,9 @@ import "./notifications.sass";
 import { ReactElement, useContext } from "react";
 import { NotificationContext } from "../../millionaires";
 
+// type prop is something like id of the notification, 
+// it helps with determining which notification is currently open 
+
 type NotificationProps = {
   children: ReactElement;
   isOpen: boolean | undefined;

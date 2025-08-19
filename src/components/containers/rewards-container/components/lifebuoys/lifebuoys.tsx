@@ -21,4 +21,4 @@ const Lifebuoys = () => {
     )
 }
 
-export default Lifebuoys
+export default Lifebuoys;

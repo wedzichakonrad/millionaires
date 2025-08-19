@@ -1,6 +1,7 @@
 import "./single-answer.sass";
 import Tile from "../../../../../../common/tile/tile";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { GameContext } from '../../../../../../millionaires';
 
 type SingleAnswerProps = {
   answer: { isCorrect: boolean; content: string },
@@ -26,16 +27,24 @@ const answerStates = {
 
 const answerLetters = ["A", "B", "C", "D"];
 
+const nextQuestionDelay = 2000;
+
 const SingleAnswer = ({
   answer,
   index,
   isDisabled,
   setIsAnswerPending,
-                        setQuestionNumber,
+  setQuestionNumber,
 }: SingleAnswerProps) => {
-  const [answerState, setAnswerState] = useState<string>("default");
+  const [answerState, setAnswerState] = useState<string>(answerStates.default);
+  const gameContext = useContext(GameContext);
 
   const getAnswerClass = () => {
+
+    if (gameContext?.isOver && answer.isCorrect) {
+      return answerClasses.correct;
+    }
+
     switch (answerState) {
       case answerStates.correct:
         return answerClasses.correct;
@@ -51,15 +60,16 @@ const SingleAnswer = ({
   const onAnswerClick = () => {
     setIsAnswerPending(true);
     setAnswerState(answerStates.pending);
-    setTimeout(markAnswer, 2000);
+    setTimeout(markAnswer, nextQuestionDelay);
   };
 
   const markAnswer = () => {
     if (answer.isCorrect) {
-      setTimeout(nextQuestion, 2000);
+      setTimeout(nextQuestion, nextQuestionDelay);
       setAnswerState(answerStates.correct);
     } else {
       setAnswerState(answerStates.incorrect);
+      gameContext?.setIsGameOver?.(true);
     }
   };
 

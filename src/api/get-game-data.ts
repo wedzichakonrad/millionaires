@@ -1,13 +1,14 @@
 export const getGameData = async () => {
-    return await fetch('https://opentdb.com/api.php?amount=15&type=multiple').then(res => res.json())
+    const apiUrl = 'https://opentdb.com/api.php?amount=15&type=multiple';
+    return await fetch(apiUrl).then(res => res.json())
         .then(data => {
                 if (data.results) {
-                    return data.results.map(element => {
+                    return data.results.map((element: any) => {
 
                         const question = element.question;
                         const answers = [
                             { content: element.correct_answer, isCorrect: true },
-                            ...element.incorrect_answers.map(answer => {
+                            ...element.incorrect_answers.map((answer: any) => {
                                 return { content: answer, isCorrect: false}
                             }),
                         ]

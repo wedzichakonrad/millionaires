@@ -11,6 +11,7 @@ type RewardProps = {
 const Reward = ({ questionNumber, rewardStake, index }: RewardProps) => {
   const currency = defaultCurrency;
   const rewardNumber = index + 1;
+  const isRewardWhiteThemed = rewardNumber === 1 || rewardNumber % 5 === 0;
 
   const getRewardState = (rewardNumber: number) => {
     if (rewardNumber === questionNumber + 1) return "reward--current-stake";
@@ -21,7 +22,7 @@ const Reward = ({ questionNumber, rewardStake, index }: RewardProps) => {
   return (
     <li
       key={rewardStake}
-      className={`reward ${rewardNumber === 1 || rewardNumber % 5 === 0 ? "reward--white-theme" : ""} ${getRewardState(rewardNumber)}`}
+      className={`reward ${isRewardWhiteThemed ? "reward--white-theme" : ""} ${getRewardState(rewardNumber)}`}
     >
       <div className="reward__inner">
         <span className="reward__number">{rewardNumber}</span>

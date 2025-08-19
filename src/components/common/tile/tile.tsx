@@ -2,7 +2,7 @@ import "./tile.sass";
 import React, { ComponentType, ReactElement } from "react";
 
 interface TileProps {
-  className: string;
+  className?: string;
   children: ReactElement;
   tileTag?: ComponentType | keyof JSX.IntrinsicElements;
   innerTag?: ComponentType | keyof JSX.IntrinsicElements;

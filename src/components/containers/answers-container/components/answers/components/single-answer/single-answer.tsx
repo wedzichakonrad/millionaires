@@ -25,7 +25,7 @@ const answerStates = {
   incorrect: "INCORRECT",
 };
 
-const answerLetters = ["A", "B", "C", "D"];
+export const answerLetters = ["A", "B", "C", "D"];
 
 const nextQuestionDelay = 2000;
 

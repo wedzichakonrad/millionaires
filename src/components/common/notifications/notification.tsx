@@ -26,12 +26,11 @@ const Notification = ({ children, isOpen, type }: NotificationProps) => {
       }
     }
 
-  return (
+  return isOpen ?
     <div className={`notification ${isOpen ? 'notification--active' : ''}`}>
       <div className="notification__children-wrapper">{children}</div>
       <div className="notification__backdrop" onClick={onBackdropClick} />
-    </div>
-  );
+    </div> : <></>
 };
 
 export default Notification;

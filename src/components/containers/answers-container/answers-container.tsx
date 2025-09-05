@@ -7,6 +7,8 @@ import {getGameData} from "../../../api/get-game-data";
 import Preloader from "../../common/preloaders/preloader";
 import { GameContext } from '../../millionaires';
 
+export const answerLetters = ["A", "B", "C", "D"];
+
 type AnswersContainerProps = {
     questionNumber: number;
     setQuestionNumber: React.Dispatch<React.SetStateAction<number>>,

@@ -1,11 +1,10 @@
 import "./single-answer.sass";
 import Tile from "../../../../../../common/tile/tile";
 import React, { useContext, useState } from "react";
-import { GameContext } from '../../../../../../millionaires';
+import { Answer, GameContext } from '../../../../../../millionaires';
 
 type SingleAnswerProps = {
-  answer: { isCorrect: boolean; content: string },
-  index: number,
+  answer: Answer,
   setIsAnswerPending: React.Dispatch<React.SetStateAction<boolean>>,
   isDisabled: boolean,
   setQuestionNumber: React.Dispatch<React.SetStateAction<number>>,
@@ -25,13 +24,10 @@ const answerStates = {
   incorrect: "INCORRECT",
 };
 
-export const answerLetters = ["A", "B", "C", "D"];
-
 const nextQuestionDelay = 2000;
 
 const SingleAnswer = ({
   answer,
-  index,
   isDisabled,
   setIsAnswerPending,
   setQuestionNumber,
@@ -87,7 +83,7 @@ const SingleAnswer = ({
       disabled={isDisabled}
     >
       <>
-        <span className="single-answer__letter">{answerLetters[index]}:</span>
+        <span className="single-answer__letter">{answer.letter}:</span>
         <p>{answer.content}{answer.isCorrect.toString()}</p>
       </>
     </Tile>

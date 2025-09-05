@@ -1,7 +1,7 @@
 import { ReactElement, useContext } from 'react';
 import './lifebouy.sass';
-import Notification from '../../../../../../../common/notifications/notification';
-import { NotificationContext } from '../../../../../../../millionaires';
+import Notification from '../../../../../../common/notifications/notification';
+import { NotificationContext } from '../../../../../../millionaires';
 
 export type LifebuoyProps = {
   className: string;

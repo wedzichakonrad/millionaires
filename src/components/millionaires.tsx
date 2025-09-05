@@ -9,6 +9,7 @@ import { createContext } from 'react';
 export interface Answer {
   content: string;
   isCorrect: boolean;
+  letter: string;
 }
 
 export interface Question {

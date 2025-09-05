@@ -1,11 +1,11 @@
 import './fifty-fifty.sass'
-import { Lifebuoy } from '../common/lifebouy/lifebouy'
+import { Lifebuoy } from '../lifebouy/lifebouy'
 
-type FiftyFiftyTypes = {
+type FiftyFiftyProps = {
     type: string
 }
 
-const FiftyFifty = ({type}:FiftyFiftyTypes) => {
+const FiftyFifty = ({type}:FiftyFiftyProps) => {
 
     return (
         <Lifebuoy className='fifty-fifty' type={type} >

@@ -1,16 +1,22 @@
-import { Lifebuoy } from '../common/lifebouy/lifebouy'
+import { useContext } from 'react'
+import { GameContext } from '../../../../../../millionaires'
+import { Lifebuoy } from '../lifebouy/lifebouy'
 import './ask-audience.sass'
+import { AskAudienceChartService } from '../../../../../../../services/ask-audience-chart.service'
+import { Chart } from '../chart/chart'
 
-type AskAudienceTypes = {
+type AskAudienceProps = {
     type: string
 }
 
+const AskAudience = ({type}: AskAudienceProps) => {
+    const gameContext = useContext(GameContext);
+    const charts = AskAudienceChartService.getCharts(gameContext?.questions[gameContext?.questionNumber])
 
-const AskAudience = ({type}: AskAudienceTypes) => {
     return (
         <Lifebuoy className='ask-audience' type={type} >
             <div className='ask-audience__notification'>
-                ask-audience notification
+                <Chart charts={charts}/>
             </div>
         </Lifebuoy>
     )

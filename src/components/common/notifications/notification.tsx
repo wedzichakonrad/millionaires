@@ -1,6 +1,6 @@
 import "./notifications.sass";
-import { ReactElement, useContext } from "react";
-import { NotificationContext } from "../../millionaires";
+import { useNotificationContext } from '../../../hooks/use-notification-context';
+import { ReactElement } from "react";
 
 // type prop is something like id of the notification, 
 // it helps with determining which notification is currently open 
@@ -12,8 +12,7 @@ type NotificationProps = {
 }
 
 const Notification = ({ children, isOpen, type }: NotificationProps) => {
-    const notifcationContext = useContext(NotificationContext)
-
+    const notifcationContext = useNotificationContext();
     const onBackdropClick = () => { 
       if(notifcationContext?.setNotificationStates) {
         notifcationContext.setNotificationStates(cl => ({

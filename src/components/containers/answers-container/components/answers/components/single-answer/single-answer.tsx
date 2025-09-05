@@ -1,7 +1,8 @@
 import "./single-answer.sass";
 import Tile from "../../../../../../common/tile/tile";
-import React, { useContext, useState } from "react";
-import { Answer, GameContext } from '../../../../../../millionaires';
+import React, { useState } from "react";
+import { Answer } from '../../../../../../millionaires';
+import { useGameContext } from '../../../../../../../hooks/use-game-context';
 
 type SingleAnswerProps = {
   answer: Answer,
@@ -33,7 +34,7 @@ const SingleAnswer = ({
   setQuestionNumber,
 }: SingleAnswerProps) => {
   const [answerState, setAnswerState] = useState<string>(answerStates.default);
-  const gameContext = useContext(GameContext);
+  const gameContext = useGameContext();
 
   const getAnswerClass = () => {
 

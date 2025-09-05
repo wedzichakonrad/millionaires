@@ -1,15 +1,14 @@
 import './phone-friend.sass'
 import { PhoneFriendMessageService } from "../../../../../../../services/phone-friend-message.service";
 import { Lifebuoy } from '../lifebouy/lifebouy';
-import { useContext } from 'react';
-import { GameContext } from '../../../../../../millionaires';
+import { useGameContext } from '../../../../../../../hooks/use-game-context';
 
 type PhoneFriendProps = {
     type: string,
 }
 
 const PhoneFriend = ({type}: PhoneFriendProps) => {
-    const gameContext = useContext(GameContext);
+    const gameContext = useGameContext();
     const message = PhoneFriendMessageService.getMessage(gameContext?.questions[gameContext?.questionNumber]);
 
     return (

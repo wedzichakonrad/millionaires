@@ -1,22 +1,19 @@
 import SingleAnswer from "./components/single-answer/single-answer";
 import "./answers.sass";
 import React, { useMemo, useState } from "react";
-import { shuffleArray } from "../../../../../helpers/helpers";
-
-type AnswerProps = {
-  content: string;
-  isCorrect: boolean;
-};
+import { Answer } from '../../../../millionaires';
+import { sortByLetter } from '../../../../../utils/helpers';
 
 type AnswersProps = {
-  answers: AnswerProps[];
+  answers: Answer[];
   setQuestionNumber: React.Dispatch<React.SetStateAction<number>>;
 };
 
 const Answers = ({ answers, setQuestionNumber }: AnswersProps) => {
   const [isAnswerPending, setIsAnswerPending] = useState<boolean>(false);
+
   const memoizedAnswers = useMemo(() => {
-    return [...answers.sort(shuffleArray)];
+    return [...answers.sort(sortByLetter)];
   }, [answers]);
 
   return (
@@ -26,7 +23,6 @@ const Answers = ({ answers, setQuestionNumber }: AnswersProps) => {
           <SingleAnswer
             key={`${answer.content}-${index}`}
             answer={answer}
-            index={index}
             isDisabled={isAnswerPending}
             setIsAnswerPending={setIsAnswerPending}
             setQuestionNumber={setQuestionNumber}

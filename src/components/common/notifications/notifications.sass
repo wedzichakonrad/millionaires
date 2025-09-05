@@ -10,7 +10,7 @@
     height: 100vh
     top: 0
     left: 0
-    z-index: 1000
+    z-index: $z-notification
 
   &__backdrop
     background: $c-black
@@ -31,4 +31,7 @@
     height: 20rem
     +flex-center-center
     border: 0.1rem solid $c-white
-    z-index: 1001
+    z-index: $z-notification-inner
+
+    +mdm
+      transform: scale(1.5)

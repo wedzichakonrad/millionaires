@@ -1,13 +1,16 @@
 import './phone-friend.sass'
 import { PhoneFriendMessageService } from "../../../../../../../services/phone-friend-message.service";
-import { Lifebuoy } from '../common/lifebouy/lifebouy';
+import { Lifebuoy } from '../lifebouy/lifebouy';
+import { useContext } from 'react';
+import { GameContext } from '../../../../../../millionaires';
 
-type PhoneFriendTypes = {
-    type: string
+type PhoneFriendProps = {
+    type: string,
 }
 
-const PhoneFriend = ({type}: PhoneFriendTypes) => {
-    const message = PhoneFriendMessageService.getMessage();
+const PhoneFriend = ({type}: PhoneFriendProps) => {
+    const gameContext = useContext(GameContext);
+    const message = PhoneFriendMessageService.getMessage(gameContext?.questions[gameContext?.questionNumber]);
 
     return (
         <Lifebuoy className='phone-friend' type={type} >

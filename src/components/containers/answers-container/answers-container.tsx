@@ -2,10 +2,12 @@ import './answers-container.sass'
 import Logo from './components/logo/logo'
 import Question from './components/question/question'
 import Answers from './components/answers/answers'
-import {mockData} from '../../../utils/game-data/game-data'
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {getGameData} from "../../../api/get-game-data";
 import Preloader from "../../common/preloaders/preloader";
+import { GameContext } from '../../millionaires';
+
+export const answerLetters = ["A", "B", "C", "D"];
 
 type AnswersContainerProps = {
     questionNumber: number;
@@ -13,9 +15,9 @@ type AnswersContainerProps = {
     isGameOver: boolean,
 }
 const AnswersContainer = ({questionNumber, setQuestionNumber, isGameOver}: AnswersContainerProps) => {
-    const [questions, setQuestions] = useState(mockData);
     const [isFetchingData, setIsFetchingData] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
+    const gameContext = useContext(GameContext);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -23,7 +25,7 @@ const AnswersContainer = ({questionNumber, setQuestionNumber, isGameOver}: Answe
             try {
                 const data = await getGameData();
                 if (data && data.length > 0) {
-                    setQuestions(data);
+                    gameContext?.setQuestions?.(data);
                     setError(null);
                 } else {
                     setError("No data received");
@@ -40,7 +42,7 @@ const AnswersContainer = ({questionNumber, setQuestionNumber, isGameOver}: Answe
         }
     }, [isGameOver]);
 
-    const currentQuestion = questions[questionNumber];
+    const currentQuestion = gameContext?.questions?.[questionNumber];
 
     return (
         <section className='answers-container'>
@@ -52,8 +54,8 @@ const AnswersContainer = ({questionNumber, setQuestionNumber, isGameOver}: Answe
                     {error && <div className="error-message">{error}</div>}
                     {currentQuestion && (
                         <>
-                            <Question question={currentQuestion.question}/>
-                            <Answers answers={currentQuestion.answers} setQuestionNumber={setQuestionNumber}/>
+                            <Question question={currentQuestion?.question}/>
+                            <Answers answers={currentQuestion?.answers} setQuestionNumber={setQuestionNumber}/>
                         </>
                     )}
                 </>

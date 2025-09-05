@@ -2,10 +2,10 @@ import './answers-container.sass'
 import Logo from './components/logo/logo'
 import Question from './components/question/question'
 import Answers from './components/answers/answers'
-import React, {useContext, useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {getGameData} from "../../../api/get-game-data";
 import Preloader from "../../common/preloaders/preloader";
-import { GameContext } from '../../millionaires';
+import { useGameContext } from '../../../hooks/use-game-context';
 
 export const answerLetters = ["A", "B", "C", "D"];
 
@@ -17,7 +17,7 @@ type AnswersContainerProps = {
 const AnswersContainer = ({questionNumber, setQuestionNumber, isGameOver}: AnswersContainerProps) => {
     const [isFetchingData, setIsFetchingData] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
-    const gameContext = useContext(GameContext);
+    const gameContext = useGameContext();
 
     useEffect(() => {
         const fetchData = async () => {

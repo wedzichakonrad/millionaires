@@ -1,6 +1,6 @@
 import "./reward.sass";
 import { defaultCurrency } from "../../../../../../utils/game-data/rewards";
-import { formatPriceValue } from "../../../../../../helpers/helpers";
+import { formatPriceValue } from '../../../../../../utils/helpers';
 
 type RewardProps = {
   questionNumber: number;

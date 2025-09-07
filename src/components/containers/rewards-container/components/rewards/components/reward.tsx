@@ -1,21 +1,23 @@
 import "./reward.sass";
 import { defaultCurrency } from "../../../../../../utils/game-data/rewards";
 import { formatPriceValue } from '../../../../../../utils/helpers';
+import { useGameContext } from '../../../../../../hooks/use-game-context';
 
 type RewardProps = {
-  questionNumber: number;
   index: number;
   rewardStake: string;
 };
 
-const Reward = ({ questionNumber, rewardStake, index }: RewardProps) => {
+const Reward = ({ rewardStake, index }: RewardProps) => {
   const currency = defaultCurrency;
+  const { questionNumber } = useGameContext(); 
   const rewardNumber = index + 1;
   const isRewardWhiteThemed = rewardNumber === 1 || rewardNumber % 5 === 0;
 
   const getRewardState = (rewardNumber: number) => {
-    if (rewardNumber === questionNumber + 1) return "reward--current-stake";
-    if (rewardNumber < questionNumber + 1) return "reward--guaranteed-stake";
+    const currentRewardNumber = questionNumber + 1;
+    if (rewardNumber === currentRewardNumber) return "reward--current-stake";
+    if (rewardNumber < currentRewardNumber) return "reward--guaranteed-stake";
     return "";
   };
 

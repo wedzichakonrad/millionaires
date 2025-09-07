@@ -9,8 +9,8 @@ type AskAudienceProps = {
 }
 
 const AskAudience = ({type}: AskAudienceProps) => {
-    const gameContext = useGameContext();
-    const charts = AskAudienceChartService.getCharts(gameContext?.questions[gameContext?.questionNumber])
+    const {questions, questionNumber} = useGameContext();
+    const charts = AskAudienceChartService.getCharts(questions[questionNumber])
 
     return (
         <Lifebuoy className='ask-audience' type={type} >

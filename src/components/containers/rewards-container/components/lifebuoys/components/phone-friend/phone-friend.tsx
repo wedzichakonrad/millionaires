@@ -8,8 +8,8 @@ type PhoneFriendProps = {
 }
 
 const PhoneFriend = ({type}: PhoneFriendProps) => {
-    const gameContext = useGameContext();
-    const message = PhoneFriendMessageService.getMessage(gameContext?.questions[gameContext?.questionNumber]);
+    const { questions, questionNumber} = useGameContext();
+    const message = PhoneFriendMessageService.getMessage(questions[questionNumber]);
 
     return (
         <Lifebuoy className='phone-friend' type={type} >

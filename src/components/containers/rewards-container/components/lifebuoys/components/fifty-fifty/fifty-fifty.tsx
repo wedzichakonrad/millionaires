@@ -1,15 +1,34 @@
 import './fifty-fifty.sass'
 import { Lifebuoy } from '../lifebouy/lifebouy'
 import { useGameContext } from '../../../../../../../hooks/use-game-context'
+import { shuffleArray } from '../../../../../../../utils/helpers'
 
 type FiftyFiftyProps = {
     type: string
 }
 
 const FiftyFifty = ({type}:FiftyFiftyProps) => {
-    const gameContext = useGameContext();
+    const { setQuestions, questions, questionNumber } = useGameContext();
 
     const onFiftyFiftyClick = () => {
+    if (!setQuestions) return;
+    
+        const questionsCopy = [...questions];
+        const currentQuestion = questionsCopy[questionNumber];
+        const currentAnswers = currentQuestion.answers;
+        const correctAnswerIndex = currentAnswers.findIndex(answer => answer.isCorrect);
+
+        const disabledAnswers = currentAnswers
+            .map((_, index) => index)
+            .filter(index => index !== correctAnswerIndex)
+            .sort(shuffleArray)
+            .slice(0, 2);
+
+        disabledAnswers.forEach(index => {
+            questionsCopy[questionNumber].answers[index].disabled = true;
+        });
+
+        setQuestions(questionsCopy);
     };
 
     return (

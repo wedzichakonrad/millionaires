@@ -9,15 +9,10 @@ import { useGameContext } from '../../../hooks/use-game-context';
 
 export const answerLetters = ["A", "B", "C", "D"];
 
-type AnswersContainerProps = {
-    questionNumber: number;
-    setQuestionNumber: React.Dispatch<React.SetStateAction<number>>,
-    isGameOver: boolean,
-}
-const AnswersContainer = ({questionNumber, setQuestionNumber, isGameOver}: AnswersContainerProps) => {
+const AnswersContainer = () => {
     const [isFetchingData, setIsFetchingData] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
-    const gameContext = useGameContext();
+    const { setQuestions, questions, questionNumber, setQuestionNumber, isOver } = useGameContext();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -25,7 +20,7 @@ const AnswersContainer = ({questionNumber, setQuestionNumber, isGameOver}: Answe
             try {
                 const data = await getGameData();
                 if (data && data.length > 0) {
-                    gameContext?.setQuestions?.(data);
+                    setQuestions?.(data);
                     setError(null);
                 } else {
                     setError("No data received");
@@ -37,12 +32,12 @@ const AnswersContainer = ({questionNumber, setQuestionNumber, isGameOver}: Answe
             }
         };
 
-        if (!isGameOver) {
+        if (!isOver) {
             fetchData();
         }
-    }, [isGameOver]);
+    }, [isOver]);
 
-    const currentQuestion = gameContext?.questions?.[questionNumber];
+    const currentQuestion = questions?.[questionNumber];
 
     return (
         <section className='answers-container'>

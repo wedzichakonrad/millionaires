@@ -8,13 +8,13 @@ type GameOverNotificationProps = {
 const gameOverNotificationType = 'GAME_OVER';
 
 const GameOverNotification = ({isOpen}: GameOverNotificationProps) => {
-  const gameContext = useGameContext();
+  const { restartGame } = useGameContext();
   
   return (
     <Notification isOpen={isOpen} type={gameOverNotificationType} >
       <div>
         <p>Game Over!</p>
-        <button onClick={gameContext?.restartGame}>
+        <button onClick={restartGame}>
           Restart
         </button>
       </div>

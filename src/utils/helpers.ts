@@ -30,4 +30,3 @@ export const formatPriceValue = (price: string) => {
 
     return mappedPrices.join('').split('').reverse();
 };
-

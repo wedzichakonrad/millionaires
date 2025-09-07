@@ -3,12 +3,12 @@ import Tile from "../../../../../../common/tile/tile";
 import React, { useState } from "react";
 import { Answer } from '../../../../../../millionaires';
 import { useGameContext } from '../../../../../../../hooks/use-game-context';
+import { questionsCount } from '../../../../../../../utils/config/game-rules';
 
 type SingleAnswerProps = {
   answer: Answer,
   setIsAnswerPending: React.Dispatch<React.SetStateAction<boolean>>,
   isDisabled: boolean | undefined,
-  setQuestionNumber: React.Dispatch<React.SetStateAction<number>>,
 };
 
 export const answerClasses = {
@@ -32,10 +32,9 @@ const SingleAnswer = ({
   answer,
   isDisabled,
   setIsAnswerPending,
-  setQuestionNumber,
 }: SingleAnswerProps) => {
   const [answerState, setAnswerState] = useState<string>(answerStates.default);
-  const { isOver, setIsGameOver } = useGameContext();
+  const { isOver, setIsGameOver, questionNumber, setQuestionNumber, setIsGameWon } = useGameContext();
 
   const getAnswerClass = () => {
 
@@ -60,6 +59,8 @@ const SingleAnswer = ({
   };
 
   const onAnswerClick = () => {
+    if (isDisabled) return;
+    
     setIsAnswerPending(true);
     setAnswerState(answerStates.pending);
     setTimeout(markAnswer, nextQuestionDelay);
@@ -76,8 +77,12 @@ const SingleAnswer = ({
   };
 
   const nextQuestion = () => {
-    setQuestionNumber(currentNumber => ++currentNumber)
-    setIsAnswerPending(false);
+    if (questionsCount === questionNumber) {
+      setIsGameWon(true);
+    } else {
+      setQuestionNumber(currentNumber => ++currentNumber)
+      setIsAnswerPending(false);
+    }
   };
 
   return (
@@ -86,7 +91,6 @@ const SingleAnswer = ({
       tileTag="li"
       innerTag="button"
       onClick={onAnswerClick}
-      disabled={isDisabled}
     >
       <>
         <span className="single-answer__letter">{answer.letter}:</span>

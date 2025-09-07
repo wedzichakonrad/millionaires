@@ -3,7 +3,7 @@ import './preloader.sass'
 const Preloader = () => {
     return (
         <div className='preloader'>
-            Loading
+            <div className='preloader__inner'/>
         </div>
     )
 }

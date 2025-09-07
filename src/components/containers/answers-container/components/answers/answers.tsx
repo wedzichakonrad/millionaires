@@ -3,13 +3,12 @@ import "./answers.sass";
 import React, { useMemo, useState } from "react";
 import { Answer } from '../../../../millionaires';
 import { sortByLetter } from '../../../../../utils/helpers';
-
+ 
 type AnswersProps = {
   answers: Answer[];
-  setQuestionNumber: React.Dispatch<React.SetStateAction<number>>;
 };
 
-const Answers = ({ answers, setQuestionNumber }: AnswersProps) => {
+const Answers = ({ answers }: AnswersProps) => {
   const [isAnswerPending, setIsAnswerPending] = useState<boolean>(false);
 
   const memoizedAnswers = useMemo(() => {
@@ -25,7 +24,6 @@ const Answers = ({ answers, setQuestionNumber }: AnswersProps) => {
             answer={answer}
             isDisabled={isAnswerPending || answer.disabled}
             setIsAnswerPending={setIsAnswerPending}
-            setQuestionNumber={setQuestionNumber}
           />
         );
       })}

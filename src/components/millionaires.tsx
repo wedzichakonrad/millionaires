@@ -1,5 +1,7 @@
+import { firstQuestionIndex, questionsCount } from '../utils/config/game-rules';
 import { mockData } from '../utils/game-data/game-data';
 import GameOverNotification from './common/notifications/game-over/game-over-notification';
+import GameWonNotification from './common/notifications/game-won/game-won-notification';
 import AnswersContainer from "./containers/answers-container/answers-container";
 import RewardsContainer from "./containers/rewards-container/rewards-container";
 import "./millionaires.sass";
@@ -25,6 +27,8 @@ export interface NotificationState {
 interface GameContextType {
     isOver: boolean;
     setIsGameOver: React.Dispatch<React.SetStateAction<boolean>>;
+    isWon: boolean;
+    setIsGameWon: React.Dispatch<React.SetStateAction<boolean>>;
     restartGame: () => void;
     questions: Question[],
     setQuestions: React.Dispatch<React.SetStateAction<Question[]>>,
@@ -41,24 +45,29 @@ export const NotificationContext = createContext<NotificationContextType | undef
 export const GameContext = createContext<GameContextType | undefined>(undefined);
 
 const Millionaires = () => {
-  const [questionNumber, setQuestionNumber] = useState<number>(0);
+  const [questionNumber, setQuestionNumber] = useState<number>(firstQuestionIndex);
   const [notificationStates, setNotificationStates] = useState<NotificationState>({});
-  const [isOver, setIsGameOver] = useState<boolean>(false);
   const [questions, setQuestions] = useState(mockData);
+  const [isOver, setIsGameOver] = useState<boolean>(false);
+  const [isWon, setIsGameWon] = useState(false);
 
   const restartGame = () => {
     setNotificationStates({});
     setIsGameOver(false);
+    setIsGameWon(false);
+    setQuestionNumber(firstQuestionIndex);
   }
 
+  console.log(questionNumber, questionsCount, questionNumber === questionsCount, )
   return (      
-    <GameContext.Provider value={{ isOver, setIsGameOver, restartGame, questions, setQuestions, questionNumber, setQuestionNumber }}>
+    <GameContext.Provider value={{ isOver, isWon, setIsGameOver, restartGame, questions, setQuestions, questionNumber, setQuestionNumber, setIsGameWon }}>
       <NotificationContext.Provider value={{ notificationStates, setNotificationStates }}>
           <div className="millionaires">
               <AnswersContainer/>
               <RewardsContainer/>
           </div>
-          <GameOverNotification isOpen={isOver}/>
+          <GameOverNotification/>
+          <GameWonNotification/>
       </NotificationContext.Provider>
     </GameContext.Provider>
 

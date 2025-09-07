@@ -15,7 +15,7 @@ const Answers = ({ answers, setQuestionNumber }: AnswersProps) => {
   const memoizedAnswers = useMemo(() => {
     return [...answers.sort(sortByLetter)];
   }, [answers]);
-
+  
   return (
     <ul className="answers">
       {memoizedAnswers.map((answer, index) => {
@@ -23,7 +23,7 @@ const Answers = ({ answers, setQuestionNumber }: AnswersProps) => {
           <SingleAnswer
             key={`${answer.content}-${index}`}
             answer={answer}
-            isDisabled={isAnswerPending}
+            isDisabled={isAnswerPending || answer.disabled}
             setIsAnswerPending={setIsAnswerPending}
             setQuestionNumber={setQuestionNumber}
           />

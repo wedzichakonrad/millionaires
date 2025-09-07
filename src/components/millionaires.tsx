@@ -10,6 +10,7 @@ export interface Answer {
   content: string;
   isCorrect: boolean;
   letter: string;
+  disabled?: boolean;
 }
 
 export interface Question {
@@ -23,16 +24,17 @@ export interface NotificationState {
 
 interface GameContextType {
     isOver: boolean;
-    setIsGameOver: React.Dispatch<React.SetStateAction<boolean>> | undefined;
+    setIsGameOver: React.Dispatch<React.SetStateAction<boolean>>;
     restartGame: () => void;
     questions: Question[],
-    setQuestions: React.Dispatch<React.SetStateAction<Question[]>> | undefined,
+    setQuestions: React.Dispatch<React.SetStateAction<Question[]>>,
     questionNumber: number,
+    setQuestionNumber: React.Dispatch<React.SetStateAction<number>>,
 }
 
 interface NotificationContextType {
     notificationStates: NotificationState | undefined;
-    setNotificationStates: React.Dispatch<React.SetStateAction<NotificationState>> | undefined;
+    setNotificationStates: React.Dispatch<React.SetStateAction<NotificationState>>;
 }
 
 export const NotificationContext = createContext<NotificationContextType | undefined>(undefined);
@@ -50,11 +52,11 @@ const Millionaires = () => {
   }
 
   return (      
-    <GameContext.Provider value={{ isOver, setIsGameOver, restartGame, questions, setQuestions, questionNumber }}>
+    <GameContext.Provider value={{ isOver, setIsGameOver, restartGame, questions, setQuestions, questionNumber, setQuestionNumber }}>
       <NotificationContext.Provider value={{ notificationStates, setNotificationStates }}>
           <div className="millionaires">
-              <AnswersContainer questionNumber={questionNumber} setQuestionNumber={setQuestionNumber} isGameOver={isOver}/>
-              <RewardsContainer questionNumber={questionNumber} />
+              <AnswersContainer/>
+              <RewardsContainer/>
           </div>
           <GameOverNotification isOpen={isOver}/>
       </NotificationContext.Provider>

@@ -2,11 +2,8 @@ import "./rewards.sass";
 import { rewards } from "../../../../../utils/game-data/rewards";
 import Reward from "./components/reward";
 
-type RewardsProps = {
-  questionNumber: number;
-};
+const Rewards = () => {
 
-const Rewards = ({ questionNumber }: RewardsProps) => {
   return (
     <div className="rewards">
       <ol className="rewards__list">
@@ -16,7 +13,6 @@ const Rewards = ({ questionNumber }: RewardsProps) => {
               rewardStake={reward}
               index={index}
               key={index}
-              questionNumber={questionNumber}
             />
           );
         })}

@@ -1,6 +1,5 @@
-import { useContext } from 'react';
+import { useGameContext } from '../../../../hooks/use-game-context';
 import Notification from '../notification'
-import { GameContext } from '../../../millionaires';
 
 type GameOverNotificationProps = {
   isOpen: boolean
@@ -9,13 +8,13 @@ type GameOverNotificationProps = {
 const gameOverNotificationType = 'GAME_OVER';
 
 const GameOverNotification = ({isOpen}: GameOverNotificationProps) => {
-  const gameContext = useContext(GameContext);
+  const { restartGame } = useGameContext();
   
   return (
     <Notification isOpen={isOpen} type={gameOverNotificationType} >
       <div>
         <p>Game Over!</p>
-        <button onClick={gameContext?.restartGame}>
+        <button onClick={restartGame}>
           Restart
         </button>
       </div>

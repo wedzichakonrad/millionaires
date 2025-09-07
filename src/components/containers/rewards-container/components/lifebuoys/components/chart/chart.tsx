@@ -20,7 +20,7 @@ export const Chart  = ({charts}: ChartProps) => {
 
     const renderColumn = (chart: SingleChart) => {
         return (
-        <li className='chart__list-element'>
+        <li key={chart.letter} className='chart__list-element'>
           <p className='chart__percent'>{chart.percent}%</p>
           <div className='chart__column' style={finishedWaiting ? { height: `${chart.percent/10}rem`} : {}}></div>
           <p className='chart__letter'>{chart.letter}</p>
@@ -31,7 +31,7 @@ export const Chart  = ({charts}: ChartProps) => {
   return (
     <div className='chart'>
       <div className='chart__grid'>
-        {Array.from({length: 11}).map((_: any) =><div className='chart__grid-element'/>)}
+        {Array.from({length: 11}).map((_:unknown, index: number ) =><div key={index} className='chart__grid-element'/>)}
       </div>
       <ul className='chart__list'>
         {charts.sort(sortByLetter).map(chart => {

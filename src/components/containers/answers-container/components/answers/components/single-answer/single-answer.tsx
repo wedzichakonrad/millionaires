@@ -1,12 +1,13 @@
 import "./single-answer.sass";
 import Tile from "../../../../../../common/tile/tile";
-import React, { useContext, useState } from "react";
-import { Answer, GameContext } from '../../../../../../millionaires';
+import React, { useState } from "react";
+import { Answer } from '../../../../../../millionaires';
+import { useGameContext } from '../../../../../../../hooks/use-game-context';
 
 type SingleAnswerProps = {
   answer: Answer,
   setIsAnswerPending: React.Dispatch<React.SetStateAction<boolean>>,
-  isDisabled: boolean,
+  isDisabled: boolean | undefined,
   setQuestionNumber: React.Dispatch<React.SetStateAction<number>>,
 };
 
@@ -15,6 +16,7 @@ export const answerClasses = {
   pending: "single-answer--pending",
   correct: "single-answer--correct",
   incorrect: "single-answer--incorrect",
+  disabled: "single-answer--disabled",
 };
 
 const answerStates = {
@@ -33,12 +35,16 @@ const SingleAnswer = ({
   setQuestionNumber,
 }: SingleAnswerProps) => {
   const [answerState, setAnswerState] = useState<string>(answerStates.default);
-  const gameContext = useContext(GameContext);
+  const { isOver, setIsGameOver } = useGameContext();
 
   const getAnswerClass = () => {
 
-    if (gameContext?.isOver && answer.isCorrect) {
+    if (isOver && answer.isCorrect) {
       return answerClasses.correct;
+    }
+
+    if (answer.disabled) {
+      return answerClasses.disabled;
     }
 
     switch (answerState) {
@@ -65,7 +71,7 @@ const SingleAnswer = ({
       setAnswerState(answerStates.correct);
     } else {
       setAnswerState(answerStates.incorrect);
-      gameContext?.setIsGameOver?.(true);
+      setIsGameOver?.(true);
     }
   };
 

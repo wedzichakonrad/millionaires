@@ -1,5 +1,5 @@
-import { answerLetters } from '../components/containers/answers-container/answers-container';
-import { Answer, Question } from '../components/millionaires';
+import { answerLetters } from '../containers/answers/answers-container';
+import { Answer, Question } from '../containers/millionaires';
 import { shuffleArray } from '../utils/helpers';
 
 const randomOptionIndexOne = 0;

@@ -1,4 +1,4 @@
-import { answerLetters } from '../components/containers/answers-container/answers-container';
+import { answerLetters } from '../containers/answers/answers-container';
 import { shuffleArray } from '../utils/helpers';
 
 export const getGameData = async () => {

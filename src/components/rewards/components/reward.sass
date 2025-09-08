@@ -1,0 +1,54 @@
+@import "../../../style/variables/variables"
+
+.reward
+  margin-bottom: 0.4rem
+
+  &--white-theme
+    color: $c-white
+
+  &--guaranteed-stake
+    color: $c-white
+    background: $c-light-green
+
+  &--current-stake
+    color: $c-white
+    background: $c-orange
+
+  &__inner
+    display: flex
+    align-items: center
+
+  &__number
+    text-align: right
+    width: 2.5rem
+
+  &__diamond
+    position: relative
+    margin: 0 1rem
+    height: 1.2rem
+
+    &:before, &:after
+      content: ""
+      position: absolute
+      border-top: 0.6rem solid transparent
+      border-bottom: 0.6rem solid transparent
+      width: 0
+      height: 0
+      z-index: 2
+
+    &:before
+      right: -0.02rem
+      border-right: 0.5rem solid $c-white
+
+    &:after
+      left: -0.01rem
+      border-left: 0.5rem solid $c-white
+
+  &__prize
+    padding-right: 0.5rem
+
+  &__currency
+    text-transform: lowercase
+
+  span
+    display: inline-block

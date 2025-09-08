@@ -1,0 +1,21 @@
+@import '../../../style/variables/variables'
+  
+.toast
+  +flex-center-center
+  flex-direction: column
+  transition: transform 1s
+  position: fixed
+  z-index: $z-notification
+  right: 100%
+  bottom: 2rem
+  width: 14rem
+  height: 5rem
+
+  &--slide-in
+    transform: translateX(16rem)
+
+  &--success
+    background: $c-light-green-correct
+
+  &--error
+    background: $c-red-incorrect

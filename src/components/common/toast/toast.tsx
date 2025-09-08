@@ -1,19 +1,15 @@
 import { useEffect, useState } from 'react';
 import './toast.sass';
 
-export const ToastTypes = {
-  ERROR: 'error',
-  SUCCESS: 'success'
-}
-
 interface ToastProps {
   message: string;
-  type: string;
+  isErrorToast: boolean;
 }
 
 const animationDelay = 300;
+const autoCloseToastDelay = 5000;
 
-export const Toast = ({message, type}: ToastProps) => {
+export const Toast = ({message, isErrorToast}: ToastProps) => {
   const [isOpen, setIsOpen] = useState(true);
   const [finishedWaiting, setFinishedWaiting] = useState(false);
   
@@ -23,12 +19,18 @@ export const Toast = ({message, type}: ToastProps) => {
     return () => clearTimeout(timeout);
   },[isOpen]);
 
+  useEffect(() => {
+    const timeout = setTimeout(() => setIsOpen(false), autoCloseToastDelay);
+
+    return () => clearTimeout(timeout);
+  },[])
+
   const onCloseClick = () => {
     setIsOpen(false);
   }
 
   return (
-    <div className={`toast ${finishedWaiting ? 'toast--slide-in' : ''} ${type === ToastTypes.SUCCESS ? 'toast--success' : 'toast--error'}`}>
+    <div className={`toast ${finishedWaiting ? 'toast--slide-in' : ''} ${isErrorToast ? 'toast--error' : 'toast--success'}`}>
       <p>{message}</p>
       <button onClick={onCloseClick}>Close</button>
     </div>

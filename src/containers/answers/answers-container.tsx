@@ -6,7 +6,7 @@ import {useEffect, useState} from "react";
 import {getGameData} from "../../api/get-game-data";
 import Preloader from "../../components/common/preloaders/preloader";
 import { useGameContext } from '../../hooks/use-game-context';
-import { Toast, ToastTypes } from '../../components/common/toast/toast';
+import { Toast } from '../../components/common/toast/toast';
 
 export const answerLetters = ["A", "B", "C", "D"];
 
@@ -47,7 +47,6 @@ const AnswersContainer = () => {
                 <Preloader/>
             ) : (
                 <>
-                    {error && <div className="error-message">{error}</div>}
                     {currentQuestion && (
                         <>
                             <Question question={currentQuestion?.question}/>
@@ -56,7 +55,7 @@ const AnswersContainer = () => {
                     )}
                 </>
             )}
-            {error && <Toast type={ToastTypes.ERROR} message={error}/>}
+            {error && <Toast isErrorToast={true} message={error}/>}
         </section>
     )
 }

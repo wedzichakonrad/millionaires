@@ -4,7 +4,7 @@ import GameOverNotification from '../components/common/notifications/game-over/g
 import GameWonNotification from '../components/common/notifications/game-won/game-won-notification';
 import AnswersContainer from './answers/answers-container';
 import RewardsContainer from './rewards/rewards-container';
-import { firstQuestionIndex, questionsCount } from '../utils/config/game-rules';
+import { firstQuestionIndex } from '../utils/config/game-rules';
 import { mockData } from '../utils/game-data/game-data';
 
 export interface Answer {
@@ -57,7 +57,6 @@ const Millionaires = () => {
     setQuestionNumber(firstQuestionIndex);
   }
 
-  console.log(questionNumber, questionsCount, questionNumber === questionsCount, )
   return (      
     <GameContext.Provider value={{ isOver, isWon, setIsGameOver, restartGame, questions, setQuestions, questionNumber, setQuestionNumber, setIsGameWon }}>
       <NotificationContext.Provider value={{ notificationStates, setNotificationStates }}>

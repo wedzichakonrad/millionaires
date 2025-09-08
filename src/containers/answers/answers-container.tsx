@@ -12,7 +12,7 @@ export const answerLetters = ["A", "B", "C", "D"];
 
 const AnswersContainer = () => {
     const [isFetchingData, setIsFetchingData] = useState<boolean>(false);
-    const [error, setError] = useState<string | null>('null');
+    const [error, setError] = useState<string | null>(null);
     const { setQuestions, questions, questionNumber, isOver } = useGameContext();
 
     useEffect(() => {
@@ -22,7 +22,7 @@ const AnswersContainer = () => {
                 const data = await getGameData();
                 if (data && data.length > 0) {
                     setQuestions?.(data);
-                    setError('null');
+                    setError(null);
                 } else {
                     setError("No data received");
                 }

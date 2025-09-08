@@ -1,4 +1,4 @@
-import Millionaires from './components/millionaires';
+import Millionaires from './containers/millionaires';
 import './style/style.sass'
 
 const App = () => <Millionaires/>

@@ -1,4 +1,4 @@
-import { Answer } from '../components/millionaires';
+import { Answer } from '../containers/millionaires';
 import { SingleChart } from '../services/ask-audience-chart.service';
 
 export const decodeHTMLEntities = (text: string) => {

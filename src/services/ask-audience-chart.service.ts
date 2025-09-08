@@ -1,4 +1,4 @@
-import { Answer, Question } from '../components/millionaires';
+import { Answer, Question } from '../containers/millionaires';
 
 export type SingleChart = {
   letter: string,

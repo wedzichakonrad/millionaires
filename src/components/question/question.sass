@@ -1,0 +1,47 @@
+@import '../../style/variables/variables'
+
+.question-container
+  position: relative
+  +flex-center-center
+  width: 100%
+
+.question
+  margin: 2.2rem 0
+
+  .tile
+    &__line-break-through
+      top: 5rem
+
+    &__triangle
+      top: 0.85rem
+
+  +xxl
+    .tile
+      &__triangle
+        top: 1.25rem
+        width: 6rem
+        height: 6rem
+
+      &__triangle--right
+        right: -3.4rem
+
+      &__triangle--left
+        left: -3.4rem
+
+      &__line-break-through
+        display: block
+        width: 100%
+        left: 0
+        top: 5.3rem
+
+      &__inner
+        &:before, &:after
+          width: 6.6rem
+          height: 6.6rem
+          top: 1.42rem
+
+        &:before
+          left: -3.7rem
+
+        &:after
+          right: -3.7rem

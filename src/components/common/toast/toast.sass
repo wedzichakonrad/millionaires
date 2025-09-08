@@ -1,0 +1,35 @@
+@import '../../../style/variables/variables'
+  
+.toast
+  +flex-center-center
+  flex-direction: column
+  transition: transform 1s
+  position: fixed
+  z-index: $z-notification
+  right: 100%
+  bottom: 2rem
+  width: 12rem
+  height: 3rem
+  padding: 1rem
+
+  &--slide-in
+    transform: translateX(16rem)
+
+  &--success
+    background: $c-light-green-correct
+
+  &--error
+    background: $c-red-incorrect
+
+  p
+    height: 5rem
+
+  button
+    height: 1rem
+    cursor: pointer
+    background: none
+    border: none
+    color: $c-white
+    
+    &:hover
+      text-decoration: underline

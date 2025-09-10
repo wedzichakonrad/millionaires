@@ -1,0 +1,49 @@
+@import '../../../style/variables/variables'
+
+.dropdown
+  position: relative
+  +button
+  width: 24rem
+  padding: 1rem
+  border-radius: 1rem
+
+  &::after
+    content: ''
+    position: absolute
+    border-top: .6rem solid $c-white
+    border-right: .4rem solid transparent
+    border-left: .4rem solid transparent
+    right: .8rem
+    top: 1.3rem
+
+  &--list-open
+    border-radius: 1rem 1rem 0 0
+
+  &__list
+    +button
+    position: absolute
+    top: 100%
+    left: -0.1rem
+    width: calc(100% - 2rem)
+    max-height: 10rem
+    overflow: auto
+    padding: 1rem
+    border-radius: 0 0 1rem 1rem
+    scrollbar-color: $c-square-light-blue $c-square-dark-blue
+
+    &:hover
+      box-shadow: none
+
+  &__list-element
+    button
+      width: 100%
+      height: 100%
+      background: none
+      border: none
+      color: $c-white
+      padding: 0.2rem 0
+
+      &:hover
+        background: $c-white
+        color: $c-black
+        cursor: pointer

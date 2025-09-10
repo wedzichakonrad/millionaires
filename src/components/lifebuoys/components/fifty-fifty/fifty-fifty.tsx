@@ -1,6 +1,6 @@
 import './fifty-fifty.sass'
 import { Lifebuoy } from '../lifebouy/lifebouy'
-import { useGameContext } from '../../../../hooks/use-game-context'
+import { useGame } from '../../../../hooks/use-game-context'
 import { shuffleArray } from '../../../../utils/helpers'
 
 type FiftyFiftyProps = {
@@ -8,7 +8,7 @@ type FiftyFiftyProps = {
 }
 
 const FiftyFifty = ({type}:FiftyFiftyProps) => {
-    const { setQuestions, questions, questionNumber } = useGameContext();
+    const { setQuestions, questions, questionNumber } = useGame();
 
     const onFiftyFiftyClick = () => {
     if (!setQuestions) return;

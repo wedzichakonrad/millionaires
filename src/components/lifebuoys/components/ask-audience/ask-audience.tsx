@@ -1,7 +1,7 @@
 import { Lifebuoy } from '../lifebouy/lifebouy'
 import './ask-audience.sass'
 import { Chart } from '../chart/chart'
-import { useGameContext } from '../../../../hooks/use-game-context'
+import { useGame } from '../../../../hooks/use-game-context'
 import { AskAudienceChartService } from '../../../../services/ask-audience-chart.service'
 
 type AskAudienceProps = {
@@ -9,7 +9,7 @@ type AskAudienceProps = {
 }
 
 const AskAudience = ({type}: AskAudienceProps) => {
-    const {questions, questionNumber} = useGameContext();
+    const {questions, questionNumber} = useGame();
     const charts = AskAudienceChartService.getCharts(questions[questionNumber])
 
     return (

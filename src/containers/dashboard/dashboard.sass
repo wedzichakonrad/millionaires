@@ -1,0 +1,16 @@
+@import '../../style/variables/variables'
+  
+.dashboard
+  position: absolute
+  top: 0
+  left: 0
+  +flex-center-center
+  width: calc(100vw - 1rem)
+  height: 100vh
+  background: $c-answers-container
+  transition: transform 1s
+  z-index: $z-dashboard
+  border-right: 1rem solid $c-white
+
+  &--hidden
+    transform: translateX(-100%)

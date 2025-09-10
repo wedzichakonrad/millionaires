@@ -1,10 +1,10 @@
-import { useGameContext } from '../../../../hooks/use-game-context';
+import { useGame } from '../../../../hooks/use-game-context';
 import Notification from '../notification'
 
 const gameWonNotificationType = 'GAME_WON';
 
 const GameWonNotification = () => {
-  const { restartGame, isWon } = useGameContext();
+  const { restartGame, isWon } = useGame();
   
   return (
     <Notification isOpen={isWon} type={gameWonNotificationType} >

@@ -1,11 +1,10 @@
-import "./millionaires.sass";
 import { useState, createContext } from "react";
 import GameOverNotification from '../components/common/notifications/game-over/game-over-notification';
 import GameWonNotification from '../components/common/notifications/game-won/game-won-notification';
-import AnswersContainer from './answers/answers-container';
-import RewardsContainer from './rewards/rewards-container';
-import { firstQuestionIndex } from '../utils/config/game-rules';
+import { gameRules } from '../utils/config/game-rules';
 import { mockData } from '../utils/game-data/game-data';
+import { GameArea } from './game-area/game-area';
+import { Dashboard } from './dashboard/dashboard';
 
 export interface Answer {
   content: string;
@@ -33,6 +32,8 @@ interface GameContextType {
     setQuestions: React.Dispatch<React.SetStateAction<Question[]>>,
     questionNumber: number,
     setQuestionNumber: React.Dispatch<React.SetStateAction<number>>,
+    startGame: () => void;
+    gameStarted: boolean;
 }
 
 interface NotificationContextType {
@@ -44,28 +45,45 @@ export const NotificationContext = createContext<NotificationContextType | undef
 export const GameContext = createContext<GameContextType | undefined>(undefined);
 
 const Millionaires = () => {
-  const [questionNumber, setQuestionNumber] = useState<number>(firstQuestionIndex);
-  const [notificationStates, setNotificationStates] = useState<NotificationState>({});
+  const [questionNumber, setQuestionNumber] = useState<number>(gameRules.firstQuestionIndex);
+  const [notificationStates, setNotificationStates] = useState<NotificationState>(gameRules.notificationsData);
   const [questions, setQuestions] = useState(mockData);
-  const [isOver, setIsGameOver] = useState<boolean>(false);
-  const [isWon, setIsGameWon] = useState(false);
+  const [isOver, setIsGameOver] = useState<boolean>(gameRules.gameLost);
+  const [isWon, setIsGameWon] = useState(gameRules.gameWon);
+  const [gameStarted, setGameStarted] = useState(false);
+
+  const startGame = () => {
+    setGameStarted(true);
+  };
 
   const restartGame = () => {
     setNotificationStates({});
     setIsGameOver(false);
     setIsGameWon(false);
-    setQuestionNumber(firstQuestionIndex);
+    setQuestionNumber(gameRules.firstQuestionIndex);
   }
 
   return (      
-    <GameContext.Provider value={{ isOver, isWon, setIsGameOver, restartGame, questions, setQuestions, questionNumber, setQuestionNumber, setIsGameWon }}>
+    <GameContext.Provider value={{ 
+      isOver, 
+      isWon, 
+      setIsGameOver, 
+      restartGame, 
+      questions, 
+      setQuestions, 
+      questionNumber, 
+      setQuestionNumber, 
+      setIsGameWon, 
+      gameStarted, 
+      startGame 
+      }}>
       <NotificationContext.Provider value={{ notificationStates, setNotificationStates }}>
-          <div className="millionaires">
-              <AnswersContainer/>
-              <RewardsContainer/>
-          </div>
-          <GameOverNotification/>
-          <GameWonNotification/>
+        <div className='millionaires'>
+          <Dashboard/>
+          {gameStarted && <GameArea/>}
+        </div>
+        <GameOverNotification/>
+        <GameWonNotification/>
       </NotificationContext.Provider>
     </GameContext.Provider>
 

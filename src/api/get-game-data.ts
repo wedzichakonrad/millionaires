@@ -1,5 +1,14 @@
 import { answerLetters } from '../containers/answers/answers-container';
+import { Question } from '../containers/millionaires';
 import { shuffleArray } from '../utils/helpers';
+
+type GetGameData = {
+    retryDelay?: number,
+    maxRetries?: number,
+    attempt?:  number,
+    category: string
+}
+
 
 type ApiQuestion = {
     category:  string,
@@ -10,8 +19,8 @@ type ApiQuestion = {
     type:  string,
 }
 
-export const getGameData = async (retryDelay = 3000, maxRetries = 5, attempt = 1):  Promise<{ question: string; answers: { content: string; isCorrect: boolean; letter: string; }[]; }[]> => {
-    const apiUrl = 'https://opentdb.com/api.php?amount=15&type=multiple';
+export const getGameData = async ({retryDelay = 3000, maxRetries = 5, attempt = 1, category}: GetGameData):  Promise<Question[]> => {
+    const apiUrl = `https://opentdb.com/api.php?amount=15&type=multiple${category ? `&category=${category}` : ''}`;
 
     try {
         const response = await fetch(apiUrl);
@@ -19,7 +28,7 @@ export const getGameData = async (retryDelay = 3000, maxRetries = 5, attempt = 1
         if (response.status === 429) {
             if (attempt < maxRetries) {
                 await new Promise(resolve => setTimeout(resolve, retryDelay));
-                return getGameData(retryDelay, maxRetries, attempt + 1);
+                return getGameData({retryDelay, maxRetries, attempt:  attempt + 1, category});
             } else {
                 throw new Error(`Max retries reached for 429 error`);
             }

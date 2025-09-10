@@ -5,12 +5,36 @@
   top: 0
   left: 0
   +flex-center-center
+  flex-direction: column
   width: calc(100vw - 1rem)
   height: 100vh
   background: $c-answers-container
-  transition: transform 1s
   z-index: $z-dashboard
   border-right: 1rem solid $c-white
-
+  opacity: 1
+  transition: transform 1s
+  
   &--hidden
-    transform: translateX(-100%)
+    transform: translateX(-100%) 
+
+  &__welcome-msg
+    font-size: $fs-big
+    font-weight: $fw-semi-bold
+
+  &__category-label
+    font-size: $fs-secondary
+    padding: 2rem 1rem
+
+  &__category-select
+    +button
+    padding: 1rem
+    margin: 0 1rem 3rem 1rem
+    border-radius: 1rem
+
+  &__start-btn
+    +button
+    font-size: $fs-big
+    font-weight: $fw-semi-bold
+    width: 14rem
+    height: 6rem
+    border-radius: 50%

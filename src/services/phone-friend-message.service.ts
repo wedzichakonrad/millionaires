@@ -5,24 +5,43 @@ import { shuffleArray } from '../utils/helpers';
 const randomOptionIndexOne = 0;
 const randomOptionIndexTwo = 1;
 
-const getRandomHint = (correctAnswer: Answer | undefined) => {
-        const hints = [
-        `I think it can be ${answerLetters[randomOptionIndexOne]} but it also can be ${answerLetters[randomOptionIndexTwo]}`,
-        `I am sure that it is ${correctAnswer?.letter} I saw it in Galileo!`
+const getRandomHint = (correctAnswer: Answer | undefined, answers: Answer[]) => {
+    if (!correctAnswer) return;
+
+    const filteredAnswers = answers.filter(answer => !answer.isCorrect && !answer.disabled)    
+    const lettersWithCorrect = [correctAnswer.letter]
+
+    for (let i = 0; i < answerLetters.length; i++) {
+        if (lettersWithCorrect[0] !== answerLetters[i] && lettersWithCorrect.length === 1) {
+            lettersWithCorrect.push(answerLetters[i])
+        }
+    }
+
+    const shuffledLettersWithCorrect = lettersWithCorrect.sort(shuffleArray);
+    
+    const hintSure = `It must be ${correctAnswer.letter} !`;
+    const hintMixed = `I think it can be ${shuffledLettersWithCorrect[randomOptionIndexOne]} but it also can be ${shuffledLettersWithCorrect[randomOptionIndexTwo]}`;
+    const hintUnsure = `I have no idea...`;
+
+    if (filteredAnswers.length === 1) return hintSure;
+
+    const possibleHints = [
+       hintMixed,
+       hintUnsure,
+       hintSure,
     ]
 
-        hints.sort(shuffleArray)
+    possibleHints.sort(shuffleArray)
 
-    return hints[0];
+    return possibleHints[randomOptionIndexOne];
 }
 
 const getMessage = (currentQuestion: Question | undefined) => {
     if (!currentQuestion) return;
     
-    const mappedAnswers = currentQuestion.answers.map((answer, index) => ({...answer, letter: answerLetters[index]}));
-    const correctAnswer = mappedAnswers.find(answer => answer.isCorrect);
+    const correctAnswer = currentQuestion.answers.find(answer => answer.isCorrect);
 
-    return getRandomHint(correctAnswer);
+    return getRandomHint(correctAnswer, currentQuestion.answers);
 }
 
 export const PhoneFriendMessageService = {

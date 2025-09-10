@@ -7,13 +7,13 @@ import { getGameData } from '../../api/get-game-data';
 import Preloader from '../../components/common/preloaders/preloader';
 import { useGame } from '../../hooks/use-game-context';
 
-const loadingAnimationDelay = 2500;
+const loadingAnimationDelay = 2000;
 
 export const GameArea = () => {
-  const [isFetchingData, setIsFetchingData] = useState<boolean>(false);
+  const [isFetchingData, setIsFetchingData] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const { setQuestions, isOver } = useGame();
   const [finishedWaiting, setFinishedWaiting] = useState(false);
+  const { setQuestions, isOver, category } = useGame();
     
   useEffect(() => {
     const timeout = setTimeout(() => setFinishedWaiting(true), loadingAnimationDelay);
@@ -26,7 +26,7 @@ export const GameArea = () => {
       const fetchData = async () => {
           setIsFetchingData(true);
           try {
-              const data = await getGameData();
+              const data = await getGameData({category});
 
               if (data && data.length > 0) {
                   setQuestions?.(data);

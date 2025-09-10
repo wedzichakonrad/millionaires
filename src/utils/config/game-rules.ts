@@ -4,4 +4,5 @@ export const gameRules = {
   gameWon: false,
   gameLost: false,
   notificationsData: {},
+  category: '0',
 }

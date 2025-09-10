@@ -2,8 +2,8 @@ import "./single-answer.sass";
 import Tile from "../../../common/tile/tile";
 import React, { useState } from "react";
 import { useGame } from '../../../../hooks/use-game-context';
-import { gameRules } from '../../../../utils/config/game-rules';
 import { Answer } from '../../../../containers/millionaires';
+import { config } from '../../../../utils/config/config';
 
 type SingleAnswerProps = {
   answer: Answer,
@@ -77,7 +77,7 @@ const SingleAnswer = ({
   };
 
   const nextQuestion = () => {
-    if (gameRules.questionsCount === questionNumber) {
+    if (config.gameRules.questionsCount === questionNumber) {
       setIsGameWon(true);
     } else {
       setQuestionNumber(currentNumber => ++currentNumber)

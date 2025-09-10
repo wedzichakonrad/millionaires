@@ -1,10 +1,10 @@
 import { useState, createContext } from "react";
 import GameOverNotification from '../components/common/notifications/game-over/game-over-notification';
 import GameWonNotification from '../components/common/notifications/game-won/game-won-notification';
-import { gameRules } from '../utils/config/game-rules';
 import { mockData } from '../utils/game-data/game-data';
 import { GameArea } from './game-area/game-area';
 import { Dashboard } from './dashboard/dashboard';
+import { config } from '../utils/config/config';
 
 export interface Answer {
   content: string;
@@ -32,8 +32,10 @@ interface GameContextType {
     setQuestions: React.Dispatch<React.SetStateAction<Question[]>>,
     questionNumber: number,
     setQuestionNumber: React.Dispatch<React.SetStateAction<number>>,
-    startGame: () => void;
+    startGame: (category: string) => void;
     gameStarted: boolean;
+    category: string,
+    setCategory: React.Dispatch<React.SetStateAction<string>>,
 }
 
 interface NotificationContextType {
@@ -45,14 +47,16 @@ export const NotificationContext = createContext<NotificationContextType | undef
 export const GameContext = createContext<GameContextType | undefined>(undefined);
 
 const Millionaires = () => {
-  const [questionNumber, setQuestionNumber] = useState<number>(gameRules.firstQuestionIndex);
+  const { gameRules } = config;
   const [notificationStates, setNotificationStates] = useState<NotificationState>(gameRules.notificationsData);
+  const [questionNumber, setQuestionNumber] = useState(gameRules.firstQuestionIndex);
   const [questions, setQuestions] = useState(mockData);
-  const [isOver, setIsGameOver] = useState<boolean>(gameRules.gameLost);
+  const [isOver, setIsGameOver] = useState(gameRules.gameLost);
   const [isWon, setIsGameWon] = useState(gameRules.gameWon);
   const [gameStarted, setGameStarted] = useState(false);
+  const [category, setCategory] = useState(gameRules.category);
 
-  const startGame = () => {
+  const startGame = (category: string) => {
     setGameStarted(true);
   };
 
@@ -75,7 +79,9 @@ const Millionaires = () => {
       setQuestionNumber, 
       setIsGameWon, 
       gameStarted, 
-      startGame 
+      startGame,
+      category,
+      setCategory,
       }}>
       <NotificationContext.Provider value={{ notificationStates, setNotificationStates }}>
         <div className='millionaires'>

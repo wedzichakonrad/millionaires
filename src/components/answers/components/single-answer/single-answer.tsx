@@ -1,8 +1,8 @@
 import "./single-answer.sass";
 import Tile from "../../../common/tile/tile";
 import React, { useState } from "react";
-import { useGameContext } from '../../../../hooks/use-game-context';
-import { questionsCount } from '../../../../utils/config/game-rules';
+import { useGame } from '../../../../hooks/use-game-context';
+import { gameRules } from '../../../../utils/config/game-rules';
 import { Answer } from '../../../../containers/millionaires';
 
 type SingleAnswerProps = {
@@ -11,7 +11,7 @@ type SingleAnswerProps = {
   isDisabled: boolean | undefined,
 };
 
-export const answerClasses = {
+const answerClasses = {
   default: "",
   pending: "single-answer--pending",
   correct: "single-answer--correct",
@@ -34,7 +34,7 @@ const SingleAnswer = ({
   setIsAnswerPending,
 }: SingleAnswerProps) => {
   const [answerState, setAnswerState] = useState<string>(answerStates.default);
-  const { isOver, setIsGameOver, questionNumber, setQuestionNumber, setIsGameWon } = useGameContext();
+  const { isOver, setIsGameOver, questionNumber, setQuestionNumber, setIsGameWon } = useGame();
 
   const getAnswerClass = () => {
 
@@ -77,7 +77,7 @@ const SingleAnswer = ({
   };
 
   const nextQuestion = () => {
-    if (questionsCount === questionNumber) {
+    if (gameRules.questionsCount === questionNumber) {
       setIsGameWon(true);
     } else {
       setQuestionNumber(currentNumber => ++currentNumber)

@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { GameContext } from '../containers/millionaires';
 
-export const useGameContext = () => {
+export const useGame = () => {
       const gameContext = useContext(GameContext);
   
       if (!gameContext) {

@@ -1,10 +1,10 @@
-import { useGameContext } from '../../../../hooks/use-game-context';
+import { useGame } from '../../../../hooks/use-game-context';
 import Notification from '../notification'
 
 const gameOverNotificationType = 'GAME_OVER';
 
 const GameOverNotification = () => {
-  const { restartGame, isOver } = useGameContext();
+  const { restartGame, isOver } = useGame();
   
   return (
     <Notification isOpen={isOver} type={gameOverNotificationType} >

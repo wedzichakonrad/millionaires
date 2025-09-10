@@ -1,6 +1,6 @@
 import './phone-friend.sass'
 import { Lifebuoy } from '../lifebouy/lifebouy';
-import { useGameContext } from '../../../../hooks/use-game-context';
+import { useGame } from '../../../../hooks/use-game-context';
 import { PhoneFriendMessageService } from '../../../../services/phone-friend-message.service';
 
 type PhoneFriendProps = {
@@ -8,7 +8,7 @@ type PhoneFriendProps = {
 }
 
 const PhoneFriend = ({type}: PhoneFriendProps) => {
-    const { questions, questionNumber} = useGameContext();
+    const { questions, questionNumber} = useGame();
     const message = PhoneFriendMessageService.getMessage(questions[questionNumber]);
 
     return (

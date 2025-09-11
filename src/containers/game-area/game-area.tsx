@@ -7,7 +7,7 @@ import { getGameData } from '../../api/get-game-data';
 import Preloader from '../../components/common/preloaders/preloader';
 import { useGame } from '../../hooks/use-game-context';
 
-const loadingAnimationDelay = 2000;
+const loadingAnimationDelay = 2500;
 
 export const GameArea = () => {
   const [isFetchingData, setIsFetchingData] = useState(false);

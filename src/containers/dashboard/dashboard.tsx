@@ -3,6 +3,7 @@ import Logo from '../../components/logo/logo';
 import { useGame } from '../../hooks/use-game-context';
 import { config } from '../../utils/config/config';
 import { Dropdown, DropdownElement } from '../../components/common/dropdown/dropdown';
+import { Button } from '../../components/common/button/button';
 
 export const Dashboard = () => {
   const { gameStarted, startGame, setCategory, category } = useGame();
@@ -28,9 +29,7 @@ export const Dashboard = () => {
         Choose questions category and play!
       </label>
       <Dropdown list={categoryList} onChange={onCategoryChange}/>
-      <button className='dashboard__start-btn' onClick={() => startGame(category)}>
-        Start game
-      </button>
+      <Button className='dashboard__start-btn' onClick={() => startGame(category)} buttonText='Start game'/>
     </div>
 )
 }

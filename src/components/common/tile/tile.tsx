@@ -1,11 +1,11 @@
 import "./tile.sass";
-import React, { ComponentType, ReactElement } from "react";
+import React, { ReactElement } from "react";
 
 interface TileProps {
   className?: string;
   children: ReactElement;
-  tileTag?: ComponentType | keyof JSX.IntrinsicElements;
-  innerTag?: ComponentType | keyof JSX.IntrinsicElements;
+  tileTag?: keyof JSX.IntrinsicElements;
+  innerTag?: keyof JSX.IntrinsicElements;
   onClick?: () => void;
 }
 

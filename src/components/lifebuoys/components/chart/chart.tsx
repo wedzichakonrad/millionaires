@@ -1,7 +1,7 @@
+import { useSetAfterDelay } from '../../../../hooks/use-set-after-delay';
 import { SingleChart } from '../../../../services/ask-audience-chart.service';
 import { sortByLetter } from '../../../../utils/helpers';
 import './chart.sass'
-import { useEffect, useState } from 'react'
 
 type ChartProps = {
     charts: SingleChart[]
@@ -10,13 +10,7 @@ type ChartProps = {
 const loadingChartsDelay = 500;
 
 export const Chart  = ({charts}: ChartProps) => {
-    const [finishedWaiting, setFinishedWaiting] = useState(false);
-    
-    useEffect(() => {
-      const timeout = setTimeout(() => setFinishedWaiting(true), loadingChartsDelay);
-
-      return () => clearTimeout(timeout);
-    },[]);
+    const [finishedWaiting] = useSetAfterDelay({delay: loadingChartsDelay, value: true})
 
     const renderColumn = (chart: SingleChart) => {
         return (

@@ -1,36 +1,24 @@
-import { useEffect, useState } from 'react';
 import './toast.sass';
+import { useSetAfterDelay } from '../../../hooks/use-set-after-delay';
 
 interface ToastProps {
   message: string;
   isErrorToast: boolean;
 }
 
-const animationDelay = 300;
+const toastSlideAnimationDelay = 300;
 const autoCloseToastDelay = 5000;
 
 export const Toast = ({message, isErrorToast}: ToastProps) => {
-  const [isOpen, setIsOpen] = useState(true);
-  const [finishedWaiting, setFinishedWaiting] = useState(false);
+  const [isOpen, setIsOpen] = useSetAfterDelay({delay: toastSlideAnimationDelay, value: true})
+  const [autoClose] = useSetAfterDelay({delay: autoCloseToastDelay, value: true})
   
-  useEffect(() => {
-    const timeout = setTimeout(() => setFinishedWaiting(isOpen), animationDelay);
-
-    return () => clearTimeout(timeout);
-  },[isOpen]);
-
-  useEffect(() => {
-    const timeout = setTimeout(() => setIsOpen(false), autoCloseToastDelay);
-
-    return () => clearTimeout(timeout);
-  },[])
-
   const onCloseClick = () => {
-    setIsOpen(false);
+    setIsOpen?.(false);
   }
 
   return (
-    <div className={`toast ${finishedWaiting ? 'toast--slide-in' : ''} ${isErrorToast ? 'toast--error' : 'toast--success'}`}>
+    <div className={`toast ${isOpen && !autoClose ? 'toast--slide-in' : ''} ${isErrorToast ? 'toast--error' : 'toast--success'}`}>
       <p>{message}</p>
       <button onClick={onCloseClick}>Close</button>
     </div>

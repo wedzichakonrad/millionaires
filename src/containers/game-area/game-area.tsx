@@ -6,21 +6,16 @@ import { useEffect, useState } from 'react';
 import { getGameData } from '../../api/get-game-data';
 import Preloader from '../../components/common/preloaders/preloader';
 import { useGame } from '../../hooks/use-game-context';
+import { useSetAfterDelay } from '../../hooks/use-set-after-delay';
+import { Button } from '../../components/common/button/button';
 
 const loadingAnimationDelay = 2500;
 
 export const GameArea = () => {
   const [isFetchingData, setIsFetchingData] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [finishedWaiting, setFinishedWaiting] = useState(false);
-  const { setQuestions, isOver, category } = useGame();
-    
-  useEffect(() => {
-    const timeout = setTimeout(() => setFinishedWaiting(true), loadingAnimationDelay);
-
-    return () => clearTimeout(timeout);
-  },[]);
-
+  const { setQuestions, isOver, category, setGameStarted, restartGame } = useGame();
+  const [finishedWaiting] = useSetAfterDelay({delay: loadingAnimationDelay, value: true})
 
   useEffect(() => {
       const fetchData = async () => {
@@ -35,7 +30,6 @@ export const GameArea = () => {
                   setError("No data received");
               }
           } catch (err) {
-            console.log(err === 429, err)
               setError("Failed to load questions. Using mock data.");
           } finally {
               setIsFetchingData(false);
@@ -45,12 +39,19 @@ export const GameArea = () => {
       if (!isOver) {
           fetchData();
       }
-  }, [isOver]);
+  }, [isOver, category]);
+  
+  const openMenu = () => {
+    setGameStarted(false);
+    restartGame();
+  }
+
 
   return (
     <div className="game-area">
       {isFetchingData || !finishedWaiting ? <Preloader/> : (
         <>
+          <Button className='game-area__back-btn' buttonText='Back to menu' onClick={openMenu}/>
           <AnswersContainer/>
           <RewardsContainer/>
         </>

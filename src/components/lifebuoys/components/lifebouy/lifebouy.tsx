@@ -16,7 +16,7 @@ export const Lifebuoy = ({ className, children= <></>, type, disableNotification
   const currentLifebouy = notifcationContext?.notificationStates?.[type];
  
   const openNotification = () => {
-    if (!notifcationContext?.setNotificationStates || currentLifebouy?.isUsed) return;
+    if (!notifcationContext?.setNotificationStates) return;
 
     notifcationContext.setNotificationStates(cl => ({
       ...cl,
@@ -31,6 +31,7 @@ export const Lifebuoy = ({ className, children= <></>, type, disableNotification
       <div className={`lifebuoy ${className} ${currentLifebouy?.isUsed ? 'lifebuoy--used' : ''}`}>
           <button 
             onClick={() => {
+              if (currentLifebouy?.isUsed) return;
               openNotification();
               onClick?.();
             }} 

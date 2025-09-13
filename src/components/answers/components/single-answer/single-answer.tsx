@@ -34,7 +34,7 @@ const SingleAnswer = ({
   setIsAnswerPending,
 }: SingleAnswerProps) => {
   const [answerState, setAnswerState] = useState<string>(answerStates.default);
-  const { isOver, setIsGameOver, questionNumber, setQuestionNumber, setIsGameWon } = useGame();
+  const { isOver, setIsGameOver, questionNumber, setQuestionNumber, setIsGameWon, animateAnswers } = useGame();
 
   const getAnswerClass = () => {
 
@@ -87,7 +87,7 @@ const SingleAnswer = ({
 
   return (
     <Tile
-      className={`single-answer ${getAnswerClass()}`}
+      className={`single-answer ${getAnswerClass()} ${animateAnswers ? 'single-answer--animated' : ''}`}
       tileTag="li"
       innerTag="button"
       onClick={onAnswerClick}

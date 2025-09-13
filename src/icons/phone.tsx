@@ -5,7 +5,7 @@ export const PhoneIcon = () => {
     height="48" 
     viewBox="0 0 24 24"
     fill="none"
-    stroke="currentColor"
+    stroke="#ffffff"
     strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"

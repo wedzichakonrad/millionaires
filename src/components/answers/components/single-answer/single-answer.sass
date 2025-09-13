@@ -90,3 +90,7 @@
           .tile
             &__triangle
               box-shadow: none
+  &--animated
+    .tile
+      &__children-wrapper, &__triangle--left, &__triangle--right
+        animation: blink-color 1.2s infinite

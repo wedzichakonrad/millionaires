@@ -1,5 +1,32 @@
 @keyframes preloader-spin 
-  0%
+  from
     transform: rotate(-45deg)
-  100%
+  to
     transform: rotate(315deg)
+
+@keyframes blink 
+  0%
+    opacity: 0
+
+  50%
+    opacity: 1
+
+  100%
+    opacity: 0
+
+@keyframes show-up 
+  0%
+    opacity: 0
+
+  100%
+    opacity: 1
+
+@keyframes blink-color 
+  0%
+    background: $c-darker-yellow
+
+  50%
+    background: $c-orange
+
+  100%
+    background: $c-darker-yellow

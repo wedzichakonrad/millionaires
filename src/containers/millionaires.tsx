@@ -40,6 +40,8 @@ interface GameContextType {
     gameStarted: boolean;
     category: string,
     setCategory: React.Dispatch<React.SetStateAction<string>>,
+    animateAnswers: boolean,
+    setAnimateAnswers:  React.Dispatch<React.SetStateAction<boolean>>,
 }
 
 interface NotificationContextType {
@@ -59,6 +61,7 @@ const Millionaires = () => {
   const [isWon, setIsGameWon] = useState(gameRules.gameWon);
   const [gameStarted, setGameStarted] = useState(false);
   const [category, setCategory] = useState(gameRules.category);
+  const [animateAnswers, setAnimateAnswers] = useState(gameRules.animateAnswers);
   const [gameStartedDelay] = useSetAfterDelay({delay: backToMenuAnimationDelay, value: gameStarted})
 
   const startGame = () => {
@@ -88,6 +91,8 @@ const Millionaires = () => {
       startGame,
       category,
       setCategory,
+      setAnimateAnswers,
+      animateAnswers,
       }}>
       <NotificationContext.Provider value={{ notificationStates, setNotificationStates }}>
         <div className='millionaires'>

@@ -5,4 +5,5 @@ export const gameRules = {
   gameLost: false,
   notificationsData: {},
   category: '0',
+  animateAnswers: false,
 }

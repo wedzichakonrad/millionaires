@@ -14,7 +14,7 @@ export const Toast = ({message, isErrorToast}: ToastProps) => {
   const [autoClose] = useSetAfterDelay({delay: autoCloseToastDelay, value: true})
   
   const onCloseClick = () => {
-    setIsOpen?.(false);
+    setIsOpen(false);
   }
 
   return (

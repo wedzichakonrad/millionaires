@@ -9,9 +9,10 @@ export type LifebuoyProps = {
   type: string;
   disableNotification?: boolean;
   onClick?: () => void;
+  icon?: ReactElement;
 }
 
-export const Lifebuoy = ({ className, children= <></>, type, disableNotification, onClick}: LifebuoyProps) => {
+export const Lifebuoy = ({ className, children= <></>, type, disableNotification, onClick, icon}: LifebuoyProps) => {
   const notifcationContext = useNotificationContext();
   const currentLifebouy = notifcationContext?.notificationStates?.[type];
  
@@ -36,7 +37,9 @@ export const Lifebuoy = ({ className, children= <></>, type, disableNotification
               onClick?.();
             }} 
             tabIndex={currentLifebouy?.isUsed ? -1 : 0}
-          />
+          >
+            {icon}
+          </button>
           <Notification isOpen={currentLifebouy?.isOpen} type={type}>
             {children}
           </Notification>

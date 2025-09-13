@@ -7,6 +7,8 @@ import { Dashboard } from './dashboard/dashboard';
 import { config } from '../utils/config/config';
 import { useSetAfterDelay } from '../hooks/use-set-after-delay';
 
+const backToMenuAnimationDelay = 2000;
+
 export interface Answer {
   content: string;
   isCorrect: boolean;
@@ -57,7 +59,7 @@ const Millionaires = () => {
   const [isWon, setIsGameWon] = useState(gameRules.gameWon);
   const [gameStarted, setGameStarted] = useState(false);
   const [category, setCategory] = useState(gameRules.category);
-  const [gameStartedDelay] = useSetAfterDelay({delay: 2000, value: gameStarted})
+  const [gameStartedDelay] = useSetAfterDelay({delay: backToMenuAnimationDelay, value: gameStarted})
 
   const startGame = () => {
     setGameStarted(true);

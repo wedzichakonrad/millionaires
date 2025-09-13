@@ -5,6 +5,9 @@ import { mockData } from '../utils/game-data/game-data';
 import { GameArea } from './game-area/game-area';
 import { Dashboard } from './dashboard/dashboard';
 import { config } from '../utils/config/config';
+import { useSetAfterDelay } from '../hooks/use-set-after-delay';
+
+const backToMenuAnimationDelay = 2000;
 
 export interface Answer {
   content: string;
@@ -33,6 +36,7 @@ interface GameContextType {
     questionNumber: number,
     setQuestionNumber: React.Dispatch<React.SetStateAction<number>>,
     startGame: (category: string) => void;
+    setGameStarted: React.Dispatch<React.SetStateAction<boolean>>,
     gameStarted: boolean;
     category: string,
     setCategory: React.Dispatch<React.SetStateAction<string>>,
@@ -55,8 +59,9 @@ const Millionaires = () => {
   const [isWon, setIsGameWon] = useState(gameRules.gameWon);
   const [gameStarted, setGameStarted] = useState(false);
   const [category, setCategory] = useState(gameRules.category);
+  const [gameStartedDelay] = useSetAfterDelay({delay: backToMenuAnimationDelay, value: gameStarted})
 
-  const startGame = (category: string) => {
+  const startGame = () => {
     setGameStarted(true);
   };
 
@@ -79,6 +84,7 @@ const Millionaires = () => {
       setQuestionNumber, 
       setIsGameWon, 
       gameStarted, 
+      setGameStarted,
       startGame,
       category,
       setCategory,
@@ -86,7 +92,7 @@ const Millionaires = () => {
       <NotificationContext.Provider value={{ notificationStates, setNotificationStates }}>
         <div className='millionaires'>
           <Dashboard/>
-          {gameStarted && <GameArea/>}
+          {(gameStartedDelay || gameStarted) && <GameArea/>}
         </div>
         <GameOverNotification/>
         <GameWonNotification/>

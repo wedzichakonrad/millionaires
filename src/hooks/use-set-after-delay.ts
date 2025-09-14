@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 
-type SetAfterDelayProps = {
-  delay: number,  
-  value: any,
-  defaultValue?: boolean,
+interface SetAfterDelayProps {
+  delay: number;
+  value: any;
+  defaultValue?: boolean;
 }
 
 export const useSetAfterDelay = ({ delay, value, defaultValue = false}: SetAfterDelayProps) => {

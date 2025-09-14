@@ -51,7 +51,7 @@ export const GameArea = () => {
     <div className="game-area">
       {isFetchingData || !finishedWaiting ? <Preloader/> : (
         <>
-          <Button className='game-area__back-btn' buttonText='Back to menu' onClick={openMenu}/>
+          <Button className='game-area__back-btn' onClick={openMenu}>Back to menu</Button>
           <AnswersContainer/>
           <RewardsContainer/>
         </>

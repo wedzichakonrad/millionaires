@@ -1,5 +1,5 @@
 import "./tile.sass";
-import React, { ReactElement } from "react";
+import { ReactElement } from "react";
 
 interface TileProps {
   className?: string;
@@ -9,13 +9,13 @@ interface TileProps {
   onClick?: () => void;
 }
 
-const Tile: React.FC<TileProps> = ({
+const Tile = ({
   children,
   className,
   tileTag = 'div',
   innerTag = 'div',
   onClick = undefined,
-}) => {
+}:TileProps) => {
   const Tag = tileTag;
   const InnerTag = innerTag;
 

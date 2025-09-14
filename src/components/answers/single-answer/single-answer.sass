@@ -1,0 +1,99 @@
+@import '../../../style/variables/variables'
+
+.single-answer
+  position: relative
+  margin: 2.2rem 0
+
+  &__letter
+    color: $c-orange
+
+  &__content
+    text-align: center
+
+  &:last-child
+    margin: 2.2rem 0 4rem 0
+
+  p
+    font-weight: $fw-bold
+
+  +mdm
+    position: static
+
+    &:nth-child(3)
+      margin: 2.2rem 0 4rem 0
+
+    .tile
+      &__line-break-through
+        display: none
+
+    &:nth-child(2), &:nth-child(4)
+      .tile
+        &__line-break-through
+          display: block
+          left: 0
+
+    &:nth-child(2)
+      .tile
+        &__line-break-through
+          top: 5rem
+
+    &:nth-child(4)
+      .tile
+        &__line-break-through
+          top: 15.8rem
+
+  +xxl
+    .tile
+      &__line-break-through
+        width: 100%
+
+  .tile
+    &__inner
+      display: block
+      width: calc(100% - 8rem)
+      cursor: pointer
+      padding: 0
+      border: 0
+
+      &:hover, &:focus
+        outline: none
+        box-shadow: 0 0.5rem 2rem 1.4rem $c-hover-blue-glow
+
+        .tile
+          &__triangle
+            box-shadow: 0 0.5rem 2rem 1.4rem $c-hover-blue-glow
+
+            &:before, &:after
+              box-shadow: 0 0 2rem 0.4rem $c-hover-blue-glow
+
+  &--pending
+    .tile
+      &__children-wrapper, &__triangle--left, &__triangle--right
+        background: $c-orange
+
+  &--correct
+    .tile
+      &__children-wrapper, &__triangle--left, &__triangle--right
+        background: $c-light-green-correct
+
+  &--incorrect
+    .tile
+      &__children-wrapper, &__triangle--left, &__triangle--right
+        background: $c-red-incorrect
+
+  &--disabled
+    .tile
+      &__children-wrapper, &__triangle--left, &__triangle--right
+        background: $c-grey
+        
+      &__inner
+        &:hover, &:focus
+          box-shadow: none
+
+          .tile
+            &__triangle
+              box-shadow: none
+  &--animated
+    .tile
+      &__children-wrapper, &__triangle--left, &__triangle--right
+        animation: blink-color 1.2s infinite

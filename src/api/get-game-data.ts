@@ -2,7 +2,7 @@ import { answerLetters } from '../containers/answers/answers-container';
 import { Question } from '../containers/millionaires';
 import { shuffleArray } from '../utils/helpers';
 
-type GetGameData = {
+interface GetGameDataProps {
     retryDelay?: number,
     maxRetries?: number,
     attempt?:  number,
@@ -19,7 +19,7 @@ type ApiQuestion = {
     type:  string,
 }
 
-export const getGameData = async ({retryDelay = 3000, maxRetries = 5, attempt = 1, category}: GetGameData):  Promise<Question[]> => {
+export const getGameData = async ({retryDelay = 3000, maxRetries = 5, attempt = 1, category}: GetGameDataProps):  Promise<Question[]> => {
     const apiUrl = `https://opentdb.com/api.php?amount=15&type=multiple${category ? `&category=${category}` : ''}`;
 
     try {

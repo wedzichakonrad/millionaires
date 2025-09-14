@@ -1,6 +1,6 @@
 import { useState, createContext } from "react";
-import GameOverNotification from '../components/common/notifications/game-over/game-over-notification';
-import GameWonNotification from '../components/common/notifications/game-won/game-won-notification';
+import GameOverNotification from '../components/game-over-notification/game-over-notification';
+import GameWonNotification from '../components/game-won-notification/game-won-notification';
 import { mockData } from '../utils/game-data/game-data';
 import { GameArea } from './game-area/game-area';
 import { Dashboard } from './dashboard/dashboard';
@@ -9,19 +9,19 @@ import { useSetAfterDelay } from '../hooks/use-set-after-delay';
 
 const backToMenuAnimationDelay = 2000;
 
-export interface Answer {
+export type Answer = {
   content: string;
   isCorrect: boolean;
   letter: string;
   disabled?: boolean;
 }
 
-export interface Question {
+export type Question = {
   question: string;
   answers: Answer[];
 }
 
-export interface NotificationState {
+export type NotificationState = {
  [key: string]: { [key: string]: boolean }
 }
 
@@ -31,17 +31,18 @@ interface GameContextType {
     isWon: boolean;
     setIsGameWon: React.Dispatch<React.SetStateAction<boolean>>;
     restartGame: () => void;
-    questions: Question[],
-    setQuestions: React.Dispatch<React.SetStateAction<Question[]>>,
-    questionNumber: number,
-    setQuestionNumber: React.Dispatch<React.SetStateAction<number>>,
+    questions: Question[];
+    setQuestions: React.Dispatch<React.SetStateAction<Question[]>>;
+    questionNumber: number;
+    setQuestionNumber: React.Dispatch<React.SetStateAction<number>>;
     startGame: (category: string) => void;
-    setGameStarted: React.Dispatch<React.SetStateAction<boolean>>,
+    setGameStarted: React.Dispatch<React.SetStateAction<boolean>>;
     gameStarted: boolean;
-    category: string,
-    setCategory: React.Dispatch<React.SetStateAction<string>>,
-    animateAnswers: boolean,
-    setAnimateAnswers:  React.Dispatch<React.SetStateAction<boolean>>,
+    category: string;
+    setCategory: React.Dispatch<React.SetStateAction<string>>;
+    animateAnswers: boolean;
+    setAnimateAnswers:  React.Dispatch<React.SetStateAction<boolean>>;
+    openMenu: () => void;
 }
 
 interface NotificationContextType {
@@ -75,6 +76,11 @@ const Millionaires = () => {
     setQuestionNumber(gameRules.firstQuestionIndex);
   }
 
+  const openMenu = () => {
+    restartGame();
+    setGameStarted(false);
+  };
+
   return (      
     <GameContext.Provider value={{ 
       isOver, 
@@ -93,6 +99,7 @@ const Millionaires = () => {
       setCategory,
       setAnimateAnswers,
       animateAnswers,
+      openMenu
       }}>
       <NotificationContext.Provider value={{ notificationStates, setNotificationStates }}>
         <div className='millionaires'>

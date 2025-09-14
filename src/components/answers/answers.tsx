@@ -1,10 +1,10 @@
-import SingleAnswer from "./components/single-answer/single-answer";
+import SingleAnswer from "./single-answer/single-answer";
 import "./answers.sass";
 import { useMemo, useState } from "react";
 import { sortByLetter } from '../../utils/helpers';
 import { Answer } from '../../containers/millionaires';
  
-type AnswersProps = {
+interface AnswersProps {
   answers: Answer[];
 };
 

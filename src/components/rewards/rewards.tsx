@@ -1,9 +1,8 @@
 import "./rewards.sass";
 import { rewards } from "../../utils/game-data/rewards";
-import Reward from "./components/reward";
+import Reward from "./reward/reward";
 
 const Rewards = () => {
-
   return (
     <div className="rewards">
       <ol className="rewards__list">

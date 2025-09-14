@@ -37,7 +37,8 @@ export const Dropdown = ({list, onChange}: DropdownProps) => {
         {currentElement.name}
       </div>
       {isListOpen && (
-        <ul className='dropdown__list'>
+              <div className='dropdown__list'>
+                <ul>
           {list.map(listElement => {
             return <li className='dropdown__list-element'>
               <button onClick={() => {
@@ -48,7 +49,8 @@ export const Dropdown = ({list, onChange}: DropdownProps) => {
               </button>
             </li>
           })}
-        </ul>)
+        </ul>
+      </div>)
       }
     </button>
     )

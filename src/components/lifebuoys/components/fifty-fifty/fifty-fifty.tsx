@@ -2,33 +2,37 @@ import './fifty-fifty.sass'
 import { Lifebuoy } from '../lifebouy/lifebouy'
 import { useGame } from '../../../../hooks/use-game-context'
 import { shuffleArray } from '../../../../utils/helpers'
+import { Answer, Question } from '../../../../containers/millionaires'
 
 type FiftyFiftyProps = {
     type: string
 }
 
 const FiftyFifty = ({type}:FiftyFiftyProps) => {
-    const { setQuestions, questions, questionNumber } = useGame();
+    const { setQuestions, questions, questionNumber, setAnimateAnswers } = useGame();
 
     const onFiftyFiftyClick = () => {
     if (!setQuestions) return;
-    
-        const questionsCopy = [...questions];
+        setAnimateAnswers(true)
+        const questionsCopy = JSON.parse(JSON.stringify(questions));
+
         const currentQuestion = questionsCopy[questionNumber];
         const currentAnswers = currentQuestion.answers;
-        const correctAnswerIndex = currentAnswers.findIndex(answer => answer.isCorrect);
+        const correctAnswerIndex = currentAnswers.findIndex((answer: Answer) => answer.isCorrect);
 
         const disabledAnswers = currentAnswers
-            .map((_, index) => index)
-            .filter(index => index !== correctAnswerIndex)
+            .map((_:Answer, index: number) => index)
+            .filter((index: number) => index !== correctAnswerIndex)
             .sort(shuffleArray)
             .slice(0, 2);
 
-        disabledAnswers.forEach(index => {
+        disabledAnswers.forEach((index: number) => {
             questionsCopy[questionNumber].answers[index].disabled = true;
         });
-
-        setQuestions(questionsCopy);
+        setTimeout(() => {
+            setAnimateAnswers(false);
+            setQuestions(questionsCopy)
+        }, 4000)
     };
 
     return (

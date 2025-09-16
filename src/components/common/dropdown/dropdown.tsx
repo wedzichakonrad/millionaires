@@ -2,20 +2,19 @@ import { useEffect, useRef, useState } from 'react'
 import './dropdown.sass';
 
 export type DropdownElement = {
-  name: string,
-  value: string,
+  name: string;
+  value: string;
 }
 
-type DropdownProps = {
-  list: DropdownElement[],
-  onChange: (element: DropdownElement) => void,
+interface DropdownProps {
+  list: DropdownElement[];
+  onChange: (element: DropdownElement) => void;
 }
 
 export const Dropdown = ({list, onChange}: DropdownProps) => {
   const dropdownRef = useRef<HTMLButtonElement>(null);
   const [isListOpen, setIsListOpen] = useState(false);
   const [currentElement, setCurrentElement] = useState(list[0]);
-
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -37,8 +36,8 @@ export const Dropdown = ({list, onChange}: DropdownProps) => {
         {currentElement.name}
       </div>
       {isListOpen && (
-              <div className='dropdown__list'>
-                <ul>
+      <div className='dropdown__list'>
+        <ul>
           {list.map(listElement => {
             return <li className='dropdown__list-element'>
               <button onClick={() => {
@@ -50,8 +49,8 @@ export const Dropdown = ({list, onChange}: DropdownProps) => {
             </li>
           })}
         </ul>
-      </div>)
-      }
+      </div>
+      )}
     </button>
     )
 }

@@ -1,0 +1,27 @@
+@import '../../../style/variables/variables'
+
+.lifebuoy
+  & > button
+      +button
+      +flex-center-center
+      position: relative
+      width: 5rem
+      height: 5rem
+      margin: .8rem
+      padding: .8rem
+
+      +mdm
+        width: 7rem
+        height: 4rem
+        margin: 2.5rem
+
+      +xxl
+        margin: 1rem
+
+  &--used 
+    & > button
+      background: $c-grey
+
+      &:hover, &:focus
+        box-shadow: none
+

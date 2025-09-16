@@ -1,0 +1,74 @@
+@import '../../../style/variables/variables'
+
+.chart
+  position: relative
+  display: flex
+  align-items: flex-end
+  height: 12rem
+
+  &__grid
+    position: absolute
+    z-index: $z-under
+    bottom: 2rem
+    height: 10rem
+    left: 0
+    width: 100%
+
+  &__grid-element
+    background: $c-grey
+    width: 100%
+    height: 0.1rem
+    margin-bottom: 0.9rem
+
+    &:first-child
+      &::after
+        content: '100%'
+
+    &:last-child
+      margin: 0
+
+      &::after
+        content: '0%'
+
+    &:first-child, &:last-child
+      position: relative
+
+      &::after
+        position: absolute
+        font-size: $fs-small
+        left: calc(100% + .2rem)
+        top: -.325rem
+
+  &__list
+    display: flex
+    justify-content: center
+    align-items: flex-end
+
+  &__list-element
+    margin: 0 .5rem
+
+    &:first-child
+      margin: 0 .5rem 0 0
+
+    &:last-child
+      margin: 0 0 0 .5rem
+
+  &__column
+    height: 0
+    transition: height 1.5s
+    width: 3rem
+    background: $c-orange
+
+    +mdm
+      width: 5rem
+
+  &__percent
+    margin-bottom: .25rem
+
+  &__letter
+    +flex-center-center
+    height: 2rem
+
+  &__percent, &__letter
+    text-align: center
+    font-weight: $fw-bold

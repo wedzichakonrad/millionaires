@@ -29,7 +29,7 @@ export const Dashboard = () => {
         Choose questions category and play!
       </label>
       <Dropdown list={categoryList} onChange={onCategoryChange}/>
-      <Button className='dashboard__start-btn' onClick={() => startGame(category)} buttonText='Start game'/>
+      <Button className='dashboard__start-btn' onClick={() => startGame(category)}>Start game</Button>
     </div>
 )
 }

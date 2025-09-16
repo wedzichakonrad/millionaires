@@ -12,7 +12,7 @@ const Question = ({ question }: QuestionProps) => {
   return (
       <div className='question-container'>
           <Tile className='question' tileTag='div'>
-              <span>{decodedQuestion}</span>
+              <span className='question__content'>{decodedQuestion}</span>
           </Tile>
       </div>
   )

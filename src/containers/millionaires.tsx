@@ -1,7 +1,6 @@
 import { useState, createContext } from "react";
 import GameOverNotification from '../components/game-over-notification/game-over-notification';
 import GameWonNotification from '../components/game-won-notification/game-won-notification';
-import { mockData } from '../utils/game-data/game-data';
 import { GameArea } from './game-area/game-area';
 import { Dashboard } from './dashboard/dashboard';
 import { config } from '../utils/config/config';
@@ -57,11 +56,11 @@ const Millionaires = () => {
   const { gameRules } = config;
   const [notificationStates, setNotificationStates] = useState<NotificationState>(gameRules.notificationsData);
   const [questionNumber, setQuestionNumber] = useState(gameRules.firstQuestionIndex);
-  const [questions, setQuestions] = useState(mockData);
+  const [questions, setQuestions] = useState<Question[]>(gameRules.questions);
   const [isOver, setIsGameOver] = useState(gameRules.gameLost);
   const [isWon, setIsGameWon] = useState(gameRules.gameWon);
   const [gameStarted, setGameStarted] = useState(false);
-  const [category, setCategory] = useState(gameRules.category);
+  const [category, setCategory] = useState(gameRules.categoryId);
   const [animateAnswers, setAnimateAnswers] = useState(gameRules.animateAnswers);
   const [gameStartedDelay] = useSetAfterDelay({delay: backToMenuAnimationDelay, value: gameStarted})
 
@@ -70,7 +69,7 @@ const Millionaires = () => {
   };
 
   const restartGame = () => {
-    setNotificationStates({});
+    setNotificationStates(gameRules.notificationsData);
     setIsGameOver(false);
     setIsGameWon(false);
     setQuestionNumber(gameRules.firstQuestionIndex);

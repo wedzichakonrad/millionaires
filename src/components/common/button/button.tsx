@@ -1,6 +1,5 @@
+import { SoundEffectService } from '../../../services/sound-effect.service';
 import './button.sass';
-import buttonClickSound from '../../../assets/sounds/button.mp3';
-import buttonHoverSound from './../../../assets/sounds/button-hover.mp3';
 import { ReactElement } from 'react';
 
 interface ButtonProps {
@@ -8,22 +7,18 @@ interface ButtonProps {
   onClick: () => void;
   className?: string;
   tabIndex?: number;
+  disabled?: boolean;
 }
 
-export const Button = ({onClick, className, children, tabIndex}: ButtonProps) => {
-  const btnHoverSound = new Audio(buttonHoverSound);
-
-  const handleMouseEnter = () => {
-    btnHoverSound.currentTime = 0;
-    btnHoverSound.play();
-  };
-
+export const Button = ({onClick, className, children, tabIndex, disabled}: ButtonProps) => {
+  const { playButtonClickSound, playButtonHoverSound } = SoundEffectService;
+  console.log(disabled)
   return (
     <button className={`button ${className}`} tabIndex={tabIndex} 
-      onMouseEnter={handleMouseEnter}
+      onMouseEnter={playButtonHoverSound}
+      onFocus={!disabled ? playButtonHoverSound : undefined}
       onClick={() => {
-        const btnClickSound = new Audio(buttonClickSound);
-        btnClickSound.play();
+        !disabled && playButtonClickSound();
         onClick();
       }}
     >

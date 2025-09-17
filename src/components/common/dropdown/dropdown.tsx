@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import './dropdown.sass';
+import { SoundEffectService } from '../../../services/sound-effect.service';
 
 export type DropdownElement = {
   name: string;
@@ -15,6 +16,7 @@ export const Dropdown = ({list, onChange}: DropdownProps) => {
   const dropdownRef = useRef<HTMLButtonElement>(null);
   const [isListOpen, setIsListOpen] = useState(false);
   const [currentElement, setCurrentElement] = useState(list[0]);
+  const { playButtonClickSound, playButtonHoverSound } = SoundEffectService;
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -31,7 +33,16 @@ export const Dropdown = ({list, onChange}: DropdownProps) => {
   }, []);
 
   return (
-    <button className={`dropdown ${isListOpen ? 'dropdown--list-open' : ''}`} onClick={() => setIsListOpen(state => !state)} ref={dropdownRef}>
+    <button 
+      className={`dropdown ${isListOpen ? 'dropdown--list-open' : ''}`} 
+      onClick={() => {
+        playButtonClickSound();
+        setIsListOpen(state => !state)
+      }} 
+      ref={dropdownRef}
+      onMouseEnter={playButtonHoverSound}
+      onFocus={playButtonHoverSound}
+    >
       <div className='dropdown__header'>
         {currentElement.name}
       </div>
@@ -40,10 +51,15 @@ export const Dropdown = ({list, onChange}: DropdownProps) => {
         <ul>
           {list.map(listElement => {
             return <li className='dropdown__list-element'>
-              <button onClick={() => {
-                setCurrentElement(listElement)
-                onChange(listElement)
-              }}>
+              <button 
+                onClick={() => {
+                  playButtonClickSound();
+                  setCurrentElement(listElement);
+                  onChange(listElement);
+                }}
+                onMouseEnter={playButtonHoverSound}
+                onFocus={playButtonHoverSound}
+              >
                 {listElement.name}
               </button>
             </li>

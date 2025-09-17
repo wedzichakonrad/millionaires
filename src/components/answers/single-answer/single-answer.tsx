@@ -89,8 +89,9 @@ const SingleAnswer = ({
     <Tile
       className={`single-answer ${getAnswerClass()} ${animateAnswers ? 'single-answer--animated' : ''}`}
       tileTag="li"
-      innerTag="button"
+      isButton={true}
       onClick={onAnswerClick}
+      disabled={isDisabled}
     >
       <>
         <span className="single-answer__letter">{answer.letter}:</span>

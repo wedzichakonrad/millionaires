@@ -3,7 +3,8 @@ export const gameRules = {
   questionsCount: 14,
   gameWon: false,
   gameLost: false,
+  questions: [],
   notificationsData: {},
-  category: '0',
+  categoryId: '0',
   animateAnswers: false,
 }

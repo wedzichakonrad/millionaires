@@ -25,9 +25,9 @@ export const Dashboard = () => {
       <header className='dashboard__welcome-msg'>
         Welcome to Millionaires!
       </header>
-      <label className='dashboard__category-label'>
+      <span className='dashboard__category-label'>
         Choose questions category and play!
-      </label>
+      </span>
       <Dropdown list={categoryList} onChange={onCategoryChange}/>
       <Button className='dashboard__start-btn' onClick={() => startGame(category)}>Start game</Button>
     </div>

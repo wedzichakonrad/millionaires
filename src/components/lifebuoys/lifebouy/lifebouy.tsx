@@ -39,6 +39,7 @@ export const Lifebuoy = ({ className, children= <></>, type, disableNotification
               
             }}
             tabIndex={currentLifebouy?.isUsed ? -1 : 0}
+            disabled={currentLifebouy?.isUsed}
           >
             {icon}
           </Button>

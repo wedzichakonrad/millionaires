@@ -1,3 +1,14 @@
+@import '../../style/variables/variables'
+  
 .game-won-notification
-  p
+  &__message
     padding: 1rem
+    font-weight: $fw-bold
+    text-align: center
+
+  &__buttons-wrapper
+    margin-top: 1rem
+
+    .button
+      &:first-child
+        margin-right: 1rem

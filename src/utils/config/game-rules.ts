@@ -1,8 +1,9 @@
 export const gameRules = {
-  firstQuestionIndex: 0,
+  firstQuestionIndex: 13,
   questionsCount: 14,
   gameWon: false,
   gameLost: false,
+  soundOn: false,
   questions: [],
   notificationsData: {},
   categoryId: '0',

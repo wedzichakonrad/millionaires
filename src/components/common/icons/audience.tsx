@@ -1,4 +1,4 @@
-export const Audience = () => (
+export const AudienceIcon = () => (
   <svg
     width="64"
     height="48"
@@ -21,4 +21,4 @@ export const Audience = () => (
   </svg>
 );
 
-export default Audience;
+export default AudienceIcon;

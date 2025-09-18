@@ -11,11 +11,11 @@
   height: 100%
   background: $c-answers-container
   z-index: $z-dashboard
-  border: 1rem solid $c-white
   opacity: 1
   transition: transform 1s
   padding: 1rem
   box-sizing: border-box
+  user-select: none
 
   &--hidden
     transform: translateX(-100%)
@@ -25,7 +25,7 @@
     font-weight: $fw-semi-bold
     text-align: center
 
-  &__category-label
+  &__choose-category-msg
     font-size: $fs-secondary
     padding: 2rem 1rem
     text-align: center
@@ -34,3 +34,10 @@
     +button
     font-size: $fs-secondary
     margin-top: 6rem
+
+  &__toggle-sound-btn
+    +flex-center-center
+    +button
+    position: fixed
+    top: 1rem
+    left: 1rem

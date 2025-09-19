@@ -11,9 +11,11 @@ const GameOverNotification = () => {
   return (
     <Notification isOpen={isOver} type={gameOverNotificationType} >
       <div className='game-over-notification'>
-        <p>Wrong! Game Over!</p>
-        <Button onClick={restartGame}>Restart</Button>
-        <Button onClick={openMenu}>Back to menu</Button>
+        <p className='game-over-notification__message'>Wrong! Game Over!</p>
+        <div className='game-over-notification__buttons-wrapper'>
+          <Button onClick={restartGame}>Restart</Button>
+          <Button onClick={openMenu}>Back to menu</Button>
+        </div>
       </div>
     </Notification>
   )

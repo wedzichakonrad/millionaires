@@ -11,9 +11,11 @@ const GameWonNotification = () => {
   return (
     <Notification isOpen={isWon} type={gameWonNotificationType} >
       <div className='game-won-notification'>
-        <p>Game Won!</p>
-        <Button onClick={restartGame}>Another game ?</Button>
-        <Button className='game-area__back-btn' onClick={openMenu}>Back to menu</Button>
+        <p className='game-won-notification__message'>Game Won!</p>
+        <div className='game-won-notification__buttons-wrapper'>
+          <Button onClick={restartGame}>Another game ?</Button>
+          <Button onClick={openMenu}>Back to menu</Button>
+        </div>
       </div>
     </Notification>
   )

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import './dropdown.sass';
-import { SoundEffectService } from '../../../services/sound-effect.service';
+import { useSoundEffects } from '../../../hooks/use-sound-effects';
 
 export type DropdownElement = {
   name: string;
@@ -10,13 +10,14 @@ export type DropdownElement = {
 interface DropdownProps {
   list: DropdownElement[];
   onChange: (element: DropdownElement) => void;
+  value: any;
 }
 
-export const Dropdown = ({list, onChange}: DropdownProps) => {
+export const Dropdown = ({list, onChange, value}: DropdownProps) => {
   const dropdownRef = useRef<HTMLButtonElement>(null);
   const [isListOpen, setIsListOpen] = useState(false);
-  const [currentElement, setCurrentElement] = useState(list[0]);
-  const { playButtonClickSound, playButtonHoverSound } = SoundEffectService;
+  const [currentElement, setCurrentElement] = useState(list.find(listEl => listEl.value === value) || list[0]);
+  const { playButtonClickSound, playButtonHoverSound } = useSoundEffects();
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -42,6 +43,7 @@ export const Dropdown = ({list, onChange}: DropdownProps) => {
       ref={dropdownRef}
       onMouseEnter={playButtonHoverSound}
       onFocus={playButtonHoverSound}
+      tabIndex={2}
     >
       <div className='dropdown__header'>
         {currentElement.name}
@@ -49,19 +51,21 @@ export const Dropdown = ({list, onChange}: DropdownProps) => {
       {isListOpen && (
       <div className='dropdown__list'>
         <ul>
-          {list.map(listElement => {
-            return <li className='dropdown__list-element'>
-              <button 
-                onClick={() => {
-                  playButtonClickSound();
-                  setCurrentElement(listElement);
-                  onChange(listElement);
-                }}
-                onMouseEnter={playButtonHoverSound}
-                onFocus={playButtonHoverSound}
-              >
-                {listElement.name}
-              </button>
+          {list.map((listElement,index) => {
+            return <li 
+              className='dropdown__list-element' 
+              key={listElement.value}
+              onClick={() => {
+                console.log('x')
+                playButtonClickSound();
+                setCurrentElement(listElement);
+                onChange(listElement);
+              }}
+              onMouseEnter={playButtonHoverSound}
+              onFocus={playButtonHoverSound}
+              tabIndex={index + 3}
+            >
+              {listElement.name}
             </li>
           })}
         </ul>

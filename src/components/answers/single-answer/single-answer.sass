@@ -54,17 +54,15 @@
       cursor: pointer
       padding: 0
       border: 0
+      border-radius: 0
 
       &:hover, &:focus
         outline: none
-        box-shadow: 0 0.5rem 2rem 1.4rem $c-hover-blue-glow
+        box-shadow: 0 0 3rem 1.5rem $c-hover-blue-glow
 
         .tile
           &__triangle
-            box-shadow: 0 0.5rem 2rem 1.4rem $c-hover-blue-glow
-
-            &:before, &:after
-              box-shadow: 0 0 2rem 0.4rem $c-hover-blue-glow
+            box-shadow: 0 0 2rem 1rem $c-hover-blue-glow
 
   &--pending
     .tile

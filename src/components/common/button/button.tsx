@@ -1,4 +1,4 @@
-import { SoundEffectService } from '../../../services/sound-effect.service';
+import { useSoundEffects } from '../../../hooks/use-sound-effects';
 import './button.sass';
 import { ReactElement } from 'react';
 
@@ -10,12 +10,11 @@ interface ButtonProps {
   disabled?: boolean;
 }
 
-export const Button = ({onClick, className, children, tabIndex, disabled}: ButtonProps) => {
-  const { playButtonClickSound, playButtonHoverSound } = SoundEffectService;
-  console.log(disabled)
+export const Button = ({onClick, className = '', children, tabIndex, disabled}: ButtonProps) => {
+  const { playButtonClickSound, playButtonHoverSound } = useSoundEffects();
   return (
     <button className={`button ${className}`} tabIndex={tabIndex} 
-      onMouseEnter={playButtonHoverSound}
+      onMouseEnter={!disabled ? playButtonHoverSound : undefined}
       onFocus={!disabled ? playButtonHoverSound : undefined}
       onClick={() => {
         !disabled && playButtonClickSound();

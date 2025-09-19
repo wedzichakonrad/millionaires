@@ -1,8 +1,9 @@
 import { ReactElement } from 'react';
 import './lifebouy.sass';
-import { useNotificationContext } from '../../../hooks/use-notification-context';
+import { useNotification } from '../../../hooks/use-notification-context';
 import Notification from '../../common/notification/notification'
 import { Button } from '../../common/button/button';
+import { useGame } from '../../../hooks/use-game-context';
 
 interface LifebuoyProps {
   className: string;
@@ -14,13 +15,12 @@ interface LifebuoyProps {
 }
 
 export const Lifebuoy = ({ className, children= <></>, type, disableNotification, onClick, icon}: LifebuoyProps) => {
-  const notifcationContext = useNotificationContext();
-  const currentLifebouy = notifcationContext?.notificationStates?.[type];
+  const { notificationStates, setNotificationStates } = useNotification();
+  const { isPendingAnswer } = useGame();
+  const currentLifebouy = notificationStates?.[type];
  
   const openNotification = () => {
-    if (!notifcationContext?.setNotificationStates) return;
-
-    notifcationContext.setNotificationStates(cl => ({
+    setNotificationStates(cl => ({
       ...cl,
       [type]: {
         isOpen: !disableNotification,
@@ -33,13 +33,11 @@ export const Lifebuoy = ({ className, children= <></>, type, disableNotification
       <div className={`lifebuoy ${className} ${currentLifebouy?.isUsed ? 'lifebuoy--used' : ''}`}>
           <Button 
             onClick={() => {
-              if (currentLifebouy?.isUsed) return;
               openNotification();
-              onClick?.();
-              
+              onClick?.();              
             }}
             tabIndex={currentLifebouy?.isUsed ? -1 : 0}
-            disabled={currentLifebouy?.isUsed}
+            disabled={currentLifebouy?.isUsed || isPendingAnswer}
           >
             {icon}
           </Button>

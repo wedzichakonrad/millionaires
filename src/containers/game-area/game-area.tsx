@@ -3,49 +3,35 @@ import AnswersContainer from '../answers/answers-container';
 import RewardsContainer from '../rewards/rewards-container';
 import { Toast } from '../../components/common/toast/toast';
 import { useEffect, useState } from 'react';
-import { getGameData } from '../../api/get-game-data';
+import { fetchData } from '../../api/get-game-data';
 import Preloader from '../../components/common/preloaders/preloader';
 import { useGame } from '../../hooks/use-game-context';
 import { useSetAfterDelay } from '../../hooks/use-set-after-delay';
 import { Button } from '../../components/common/button/button';
 
-const loadingAnimationDelay = 2500;
+const loadingAnimationDelay = 2000;
 
 export const GameArea = () => {
   const [isFetchingData, setIsFetchingData] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const { setQuestions, isOver, category, setGameStarted, restartGame } = useGame();
+  const { setQuestions, isOver, isWon, category, setGameStarted, restartGame } = useGame();
   const [finishedWaiting] = useSetAfterDelay({delay: loadingAnimationDelay, value: true})
 
   useEffect(() => {
-      const fetchData = async () => {
-          setIsFetchingData(true);
-          try {
-              const data = await getGameData({category});
-
-              if (data && data.length > 0) {
-                  setQuestions?.(data);
-                  setError(null);
-              } else {
-                  setError("No data received");
-              }
-          } catch (err) {
-              setError("Failed to load questions. Using mock data.");
-          } finally {
-              setIsFetchingData(false);
-          }
-      };
-
-      if (!isOver) {
-          fetchData();
+      if (!isOver && !isWon) {
+        fetchData({
+          setError,
+          setData: setQuestions,
+          setIsFetching: setIsFetchingData,
+          category,
+        });
       }
-  }, [isOver, category]);
+  }, [isOver, isWon, category, setQuestions]);
   
   const openMenu = () => {
-    setGameStarted(false);
     restartGame();
+    setGameStarted(false);
   }
-
 
   return (
     <div className="game-area">

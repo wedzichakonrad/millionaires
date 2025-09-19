@@ -2,8 +2,8 @@ import './fifty-fifty.sass'
 import { Lifebuoy } from '../lifebouy/lifebouy'
 import { useGame } from '../../../hooks/use-game-context'
 import { shuffleArray } from '../../../utils/helpers'
-import { Answer } from '../../../containers/millionaires'
 import { LifebuoyTypes } from '../lifebuoys'
+import { Answer } from '../../../utils/types/types'
 
 const FiftyFifty = () => {
     const { setQuestions, questions, questionNumber, setAnimateAnswers } = useGame();

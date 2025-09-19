@@ -1,7 +1,7 @@
 import { useContext } from 'react';
-import { NotificationContext } from '../containers/millionaires';
+import { NotificationContext } from '../context/notification-context';
 
-export const useNotificationContext = () => {
+export const useNotification = () => {
   const notificationContext = useContext(NotificationContext);
 
   if (!notificationContext) {

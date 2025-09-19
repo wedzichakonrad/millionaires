@@ -1,23 +1,22 @@
-import buttonClickSound from '../assets/sounds/button.mp3';
-import buttonHoverSound from '../assets/sounds/button-hover.mp3';
 import { useGame } from './use-game-context';
+import { useRef } from 'react';
 
-export const useSoundEffects = () => {
+interface SoundEffectsProps {
+  soundSrc: string;
+}
+
+export const useSoundEffects = ({soundSrc}: SoundEffectsProps) => {
   const { isSoundOn } = useGame();
+  const sound = new Audio(soundSrc);
+  const audioRef = useRef(sound);
+  const audio = audioRef.current;
 
-  const playButtonClickSound = () => {
-    if (isSoundOn) {
-      const btnClickSound = new Audio(buttonClickSound);
-      btnClickSound?.play();
+  const play = () => {
+    if (isSoundOn && audio) {
+      audio.currentTime = 0;
+      audio?.play();
     }
   };
 
-  const playButtonHoverSound = () => {
-    if (isSoundOn) {
-      const btnHoverSound = new Audio(buttonHoverSound);
-      btnHoverSound?.play();
-    }
-  };
-
-  return {playButtonClickSound, playButtonHoverSound}
+  return { play }
 }

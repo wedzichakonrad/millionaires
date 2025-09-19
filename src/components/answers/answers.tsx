@@ -2,14 +2,15 @@ import SingleAnswer from "./single-answer/single-answer";
 import "./answers.sass";
 import { useMemo, useState } from "react";
 import { sortByLetter } from '../../utils/helpers';
-import { Answer } from '../../containers/millionaires';
+import { Answer } from '../../utils/types/types';
+import { useGame } from '../../hooks/use-game-context';
  
 interface AnswersProps {
   answers: Answer[];
 };
 
 const Answers = ({ answers }: AnswersProps) => {
-  const [isAnswerPending, setIsAnswerPending] = useState<boolean>(false);
+  const { isPendingAnswer } = useGame();
 
   const memoizedAnswers = useMemo(() => {
     return [...answers.sort(sortByLetter)];
@@ -22,8 +23,7 @@ const Answers = ({ answers }: AnswersProps) => {
           <SingleAnswer
             key={`${answer.content}-${index}`}
             answer={answer}
-            isDisabled={isAnswerPending || answer.disabled}
-            setIsAnswerPending={setIsAnswerPending}
+            isDisabled={isPendingAnswer || answer.disabled}
           />
         );
       })}

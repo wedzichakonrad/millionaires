@@ -1,4 +1,4 @@
-import { Answer, Question } from '../containers/millionaires';
+import { Answer, Question } from '../utils/types/types';
 
 export type SingleChart = {
   letter: string,
@@ -6,6 +6,8 @@ export type SingleChart = {
 }
 
 const maxPercentValue = 100;
+const firstAnswerIndex = 0;
+const secondAnswerIndex = 1;
 
 const getRandomNumber = () => Math.round(Math.random() * 100)
 
@@ -34,6 +36,16 @@ const findRandomPercentValues = () => {
   return calculatedPercents;
 };
 
+const randomSwapFirstTwoIndexes = (indexNum: number, randomNumber:number) => {
+  let newIndex = indexNum;
+  const shuffleCorrectAnswer = randomNumber > (maxPercentValue / 3); 
+  
+  if (shuffleCorrectAnswer && indexNum === firstAnswerIndex) newIndex += 1;
+  if (shuffleCorrectAnswer && indexNum === secondAnswerIndex) newIndex -= 1;
+
+  return newIndex;
+}
+
 const getCharts = (currentQuestion: Question | undefined) => {
   const percentValues = findRandomPercentValues()
 
@@ -41,13 +53,16 @@ const getCharts = (currentQuestion: Question | undefined) => {
 
   const sortedAnswers = currentQuestion?.answers.sort(sortByCorrectAnswer)
   const sortedPercents = percentValues.sort((a,b) => b - a);
+  const randomNumber = getRandomNumber()
 
   for (const index in sortedAnswers) {
     const indexNum = Number(index);
     const currentAnswer = sortedAnswers[indexNum];
     
+    const newIndex = randomSwapFirstTwoIndexes(indexNum, randomNumber)
+
     const chart = {
-      percent: sortedPercents[indexNum],
+      percent: sortedPercents[newIndex],
       letter: currentAnswer?.letter
     }
     charts.push(chart)

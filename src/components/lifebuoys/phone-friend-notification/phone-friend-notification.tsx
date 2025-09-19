@@ -14,10 +14,10 @@ export const PhoneFriendNotification = () => {
   const splitMessage = message?.split(' ')
 
   return (
-    <div className={`phone-friend__notification ${false ? 'phone-friend__notification--popup' : ''}`}>
+    <div className={`phone-friend__notification ${waitForAnswer ? 'phone-friend__notification--popup' : ''}`}>
         <div className='phone-friend__message'>
             <span className='phone-friend__message-pre'>Friend:</span> {splitMessage?.map((word, index) => (
-              <span className='phone-friend__message-word' style={{
+              <span className='phone-friend__message-word' key={word} style={{
                 animationDelay: `${index * wordByWordDelay}ms`
               }}>
                 {` ${word} `}

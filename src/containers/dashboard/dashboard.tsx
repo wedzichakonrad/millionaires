@@ -23,7 +23,7 @@ export const Dashboard = () => {
 
   return (
     <div className={`dashboard ${gameStarted ? 'dashboard--hidden' : ''}`}>
-      <Button  tabIndex={1} className='dashboard__toggle-sound-btn' onClick={() => setIsSoundOn(isOn => !isOn)}>
+      <Button className='dashboard__toggle-sound-btn' onClick={() => setIsSoundOn(isOn => !isOn)}>
         {isSoundOn ? <SoundOnIcon/> : <SoundOffIcon/>}
       </Button>
       <Logo/>

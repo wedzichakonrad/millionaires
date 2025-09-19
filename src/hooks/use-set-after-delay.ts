@@ -2,12 +2,11 @@ import { useEffect, useState } from 'react';
 
 interface SetAfterDelayProps {
   delay: number;
-  value: any;
-  defaultValue?: boolean;
+  value: boolean;
 }
 
-export const useSetAfterDelay = ({ delay, value, defaultValue = false}: SetAfterDelayProps) => {
-  const [finishedWaiting, setFinishedWaiting] = useState(defaultValue);
+export const useSetAfterDelay = ({ delay, value}: SetAfterDelayProps) => {
+  const [finishedWaiting, setFinishedWaiting] = useState(false);
 
   useEffect(() => {
     const timeout = setTimeout(() => setFinishedWaiting(value), delay);

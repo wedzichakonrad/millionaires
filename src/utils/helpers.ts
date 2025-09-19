@@ -1,5 +1,5 @@
-import { Answer } from '../containers/millionaires';
 import { SingleChart } from '../services/ask-audience-chart.service';
+import { Answer } from './types/types';
 
 export const decodeHTMLEntities = (text: string) => {
   const txt = document.createElement("textarea");

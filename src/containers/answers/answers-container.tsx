@@ -4,8 +4,6 @@ import Question from '../../components/question/question'
 import Answers from '../../components/answers/answers'
 import { useGame } from '../../hooks/use-game-context';
 
-export const answerLetters = ["A", "B", "C", "D"];
-
 const AnswersContainer = () => {
     const { questions, questionNumber } = useGame();
     const currentQuestion = questions?.[questionNumber];

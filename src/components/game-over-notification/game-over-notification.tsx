@@ -7,7 +7,7 @@ const gameOverNotificationType = 'GAME_OVER';
 
 const GameOverNotification = () => {
   const { restartGame, isOver, openMenu } = useGame();
-  
+
   return (
     <Notification isOpen={isOver} type={gameOverNotificationType} >
       <div className='game-over-notification'>

@@ -1,5 +1,5 @@
 import "./notification.sass";
-import { useNotificationContext } from '../../../hooks/use-notification-context';
+import { useNotification } from '../../../hooks/use-notification-context';
 import { ReactElement } from "react";
 
 // type prop is something like id of the notification, 
@@ -12,7 +12,7 @@ interface NotificationProps {
 }
 
 const Notification = ({ children, isOpen, type }: NotificationProps) => {
-    const notifcationContext = useNotificationContext();
+    const notifcationContext = useNotification();
     const onBackdropClick = () => { 
       if(notifcationContext?.setNotificationStates) {
         notifcationContext.setNotificationStates(cl => ({

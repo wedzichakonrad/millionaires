@@ -1,0 +1,1 @@
+export const answerLetters = ["A", "B", "C", "D"];

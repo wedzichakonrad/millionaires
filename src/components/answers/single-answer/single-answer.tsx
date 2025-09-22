@@ -2,12 +2,11 @@ import "./single-answer.sass";
 import Tile from "../../common/tile/tile";
 import React, { useState } from "react";
 import { useGame } from '../../../hooks/use-game-context';
-import { Answer } from '../../../containers/millionaires';
 import { config } from '../../../utils/config/config';
+import { Answer } from '../../../utils/types/types';
 
 interface SingleAnswerProps {
   answer: Answer,
-  setIsAnswerPending: React.Dispatch<React.SetStateAction<boolean>>,
   isDisabled: boolean | undefined,
 };
 
@@ -31,20 +30,16 @@ const nextQuestionDelay = 2000;
 const SingleAnswer = ({
   answer,
   isDisabled,
-  setIsAnswerPending,
 }: SingleAnswerProps) => {
   const [answerState, setAnswerState] = useState<string>(answerStates.default);
   const { isOver, setIsGameOver, questionNumber, setQuestionNumber, setIsGameWon, animateAnswers } = useGame();
+  const { setIsPendingAnswer } = useGame();
 
   const getAnswerClass = () => {
 
-    if (isOver && answer.isCorrect) {
-      return answerClasses.correct;
-    }
-
-    if (answer.disabled) {
-      return answerClasses.disabled;
-    }
+    if (isOver && answer.isCorrect) return answerClasses.correct;
+    
+    if (answer.disabled) return answerClasses.disabled;
 
     switch (answerState) {
       case answerStates.correct:
@@ -61,7 +56,7 @@ const SingleAnswer = ({
   const onAnswerClick = () => {
     if (isDisabled) return;
     
-    setIsAnswerPending(true);
+    setIsPendingAnswer(true);
     setAnswerState(answerStates.pending);
     setTimeout(markAnswer, nextQuestionDelay);
   };
@@ -73,6 +68,7 @@ const SingleAnswer = ({
     } else {
       setAnswerState(answerStates.incorrect);
       setIsGameOver?.(true);
+      setIsPendingAnswer(false);
     }
   };
 
@@ -81,8 +77,8 @@ const SingleAnswer = ({
       setIsGameWon(true);
     } else {
       setQuestionNumber(currentNumber => ++currentNumber)
-      setIsAnswerPending(false);
     }
+    setIsPendingAnswer(false);
   };
 
   return (
@@ -91,7 +87,7 @@ const SingleAnswer = ({
       tileTag="li"
       isButton={true}
       onClick={onAnswerClick}
-      disabled={isDisabled}
+      disabled={isDisabled || animateAnswers}
     >
       <>
         <span className="single-answer__letter">{answer.letter}:</span>

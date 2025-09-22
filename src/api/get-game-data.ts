@@ -1,6 +1,6 @@
-import { answerLetters } from '../containers/answers/answers-container';
-import { Question } from '../containers/millionaires';
+import { ApiQuestion, Question } from '../utils/types/types';
 import { shuffleArray } from '../utils/helpers';
+import { config } from '../utils/config/config';
 
 interface GetGameDataProps {
     retryDelay?: number,
@@ -9,17 +9,15 @@ interface GetGameDataProps {
     category: string
 }
 
-
-type ApiQuestion = {
-    category:  string,
-    correct_answer:  string,
-    difficulty:  string,
-    incorrect_answers:  string[],
-    question:  string,
-    type:  string,
+interface FetchDataProps {
+    setIsFetching: React.Dispatch<React.SetStateAction<boolean>>;
+    setData: React.Dispatch<React.SetStateAction<Question[]>>;
+    setError: React.Dispatch<React.SetStateAction<string | null>>;
+    category: string;
 }
 
-export const getGameData = async ({retryDelay = 3000, maxRetries = 5, attempt = 1, category}: GetGameDataProps):  Promise<Question[]> => {
+
+const getGameData = async ({retryDelay = 3000, maxRetries = 5, attempt = 1, category}: GetGameDataProps):  Promise<Question[]> => {
     const apiUrl = `https://opentdb.com/api.php?amount=15&type=multiple${category ? `&category=${category}` : ''}`;
 
     try {
@@ -43,7 +41,7 @@ export const getGameData = async ({retryDelay = 3000, maxRetries = 5, attempt = 
             throw new Error('No data results');
         }
         const results = data.results.map((element: ApiQuestion) => {
-            const shuffledLetters = answerLetters.sort(shuffleArray);
+            const shuffledLetters = config.answerLetters.sort(shuffleArray);
             const question = element.question;
             const answers = [
                 { content: element.correct_answer, isCorrect: true, letter: shuffledLetters[0] },
@@ -60,5 +58,24 @@ export const getGameData = async ({retryDelay = 3000, maxRetries = 5, attempt = 
 
     } catch (error) {
         throw error;
+    }
+};
+
+export const fetchData = async ({setIsFetching, setData, setError, category}: FetchDataProps) => {
+    setIsFetching(true);
+    try {
+        const data = await getGameData({category});
+
+        if (data && data.length > 0) {
+            setData?.(data);
+            setError(null);
+        } else {
+            setError("No data received");
+        }
+    } catch (err) {
+        console.error(err)
+        setError("Failed to load questions.");
+    } finally {
+        setIsFetching(false);
     }
 };

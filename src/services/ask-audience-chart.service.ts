@@ -36,7 +36,7 @@ const findRandomPercentValues = () => {
   return calculatedPercents;
 };
 
-const randomSwapFirstTwoIndexes = (indexNum: number, randomNumber:number) => {
+const randomSwapFirstTwoIndexes = (indexNum: number, randomNumber: number) => {
   let newIndex = indexNum;
   const shuffleCorrectAnswer = randomNumber > (maxPercentValue / 3); 
   

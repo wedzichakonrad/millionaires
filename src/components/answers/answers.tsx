@@ -1,6 +1,6 @@
 import SingleAnswer from "./single-answer/single-answer";
 import "./answers.sass";
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { sortByLetter } from '../../utils/helpers';
 import { Answer } from '../../utils/types/types';
 import { useGame } from '../../hooks/use-game-context';

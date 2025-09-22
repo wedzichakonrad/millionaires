@@ -91,7 +91,7 @@ const SingleAnswer = ({
     >
       <>
         <span className="single-answer__letter">{answer.letter}:</span>
-        <p className="single-answer__content">{answer.content}{answer.isCorrect.toString()}</p>
+        <p className="single-answer__content">{answer.content}</p>
       </>
     </Tile>
   );

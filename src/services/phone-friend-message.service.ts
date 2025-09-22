@@ -1,6 +1,6 @@
-import { answerLetters } from '../containers/answers/answers-container';
 import { Answer, Question } from '../utils/types/types';
 import { shuffleArray } from '../utils/helpers';
+import { config } from '../utils/config/config';
 
 const randomOptionIndexOne = 0;
 const randomOptionIndexTwo = 1;
@@ -8,12 +8,13 @@ const randomOptionIndexTwo = 1;
 const getRandomHint = (correctAnswer: Answer | undefined, answers: Answer[]) => {
     if (!correctAnswer) return;
 
+    const letters = config.answerLetters;
     const filteredAnswers = answers.filter(answer => !answer.isCorrect && !answer.disabled)    
     const lettersWithCorrect = [correctAnswer.letter]
 
-    for (let i = 0; i < answerLetters.length; i++) {
-        if (lettersWithCorrect[0] !== answerLetters[i] && lettersWithCorrect.length === 1) {
-            lettersWithCorrect.push(answerLetters[i])
+    for (let i = 0; i < letters.length; i++) {
+        if (lettersWithCorrect[0] !== letters[i] && lettersWithCorrect.length === 1) {
+            lettersWithCorrect.push(letters[i])
         }
     }
 

@@ -1,5 +1,4 @@
 import "./reward.sass";
-import { defaultCurrency } from "../../../utils/game-data/rewards";
 import { formatPriceValue } from '../../../utils/helpers';
 import { useGame } from '../../../hooks/use-game-context';
 
@@ -8,8 +7,9 @@ type RewardProps = {
   rewardStake: string;
 };
 
+const currency = 'USD';
+
 const Reward = ({ rewardStake, index }: RewardProps) => {
-  const currency = defaultCurrency;
   const { questionNumber } = useGame(); 
   const rewardNumber = index + 1;
   const isRewardWhiteThemed = rewardNumber === 1 || rewardNumber % 5 === 0;

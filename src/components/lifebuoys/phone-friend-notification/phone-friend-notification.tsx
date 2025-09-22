@@ -2,6 +2,9 @@ import { useGame } from '../../../hooks/use-game-context';
 import { useSetAfterDelay } from '../../../hooks/use-set-after-delay';
 import { PhoneIcon } from '../../common/icons/phone';
 import { PhoneFriendMessageService } from '../../../services/phone-friend-message.service';
+import { useNotification } from '../../../hooks/use-notification-context';
+import { Button } from '../../common/button/button';
+import { LifebuoyTypes } from '../lifebuoys';
 
 const callDelay = 2000;
 
@@ -12,6 +15,7 @@ export const PhoneFriendNotification = () => {
   const message = PhoneFriendMessageService.getMessage(questions[questionNumber]);
   const [waitForAnswer] = useSetAfterDelay({delay: callDelay, value: true})
   const splitMessage = message?.split(' ')
+  const {setNotificationStates} = useNotification();
 
   return (
     <div className={`phone-friend__notification ${waitForAnswer ? 'phone-friend__notification--popup' : ''}`}>
@@ -27,6 +31,17 @@ export const PhoneFriendNotification = () => {
         <div className='phone-friend__phone-animated-icon'>
             <PhoneIcon/>
         </div>
+        <Button onClick={() => {
+          setNotificationStates(cl => ({
+            ...cl,
+            [LifebuoyTypes.phoneFriend]: {
+              ...cl[LifebuoyTypes.phoneFriend],
+              isOpen: false,
+            },
+          }));
+        }}>
+          Close
+        </Button>
     </div>
   )
 } 

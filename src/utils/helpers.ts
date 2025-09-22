@@ -7,7 +7,7 @@ export const decodeHTMLEntities = (text: string) => {
   return txt.value;
 }
 
-export const shuffleArray = (a: string | number | undefined, b: string | number | undefined) => {
+export const shuffleArray = (a: any, b: any) => {
     a = Math.round(Math.random() * (10 - 1) + 1);
     b = Math.round(Math.random() * (10 - 1) + 1);
     return a - b;
@@ -23,7 +23,7 @@ export const formatPriceValue = (price: string) => {
     const priceArr = price.toString().split('').reverse();
     const mappedPrices = priceArr.map((integer, index) => {
         if ((index + 1) % 3 === 0 && index !== priceArr.length - 1) {
-            return `${integer},`;
+            return `${integer}.`;
         }
         return integer;
     });

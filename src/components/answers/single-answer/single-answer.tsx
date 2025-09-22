@@ -87,7 +87,7 @@ const SingleAnswer = ({
       tileTag="li"
       isButton={true}
       onClick={onAnswerClick}
-      disabled={isDisabled}
+      disabled={isDisabled || animateAnswers}
     >
       <>
         <span className="single-answer__letter">{answer.letter}:</span>

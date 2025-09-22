@@ -1,6 +1,6 @@
-import { answerLetters } from '../containers/answers/answers-container';
 import { ApiQuestion, Question } from '../utils/types/types';
 import { shuffleArray } from '../utils/helpers';
+import { config } from '../utils/config/config';
 
 interface GetGameDataProps {
     retryDelay?: number,
@@ -41,7 +41,7 @@ const getGameData = async ({retryDelay = 3000, maxRetries = 5, attempt = 1, cate
             throw new Error('No data results');
         }
         const results = data.results.map((element: ApiQuestion) => {
-            const shuffledLetters = answerLetters.sort(shuffleArray);
+            const shuffledLetters = config.answerLetters.sort(shuffleArray);
             const question = element.question;
             const answers = [
                 { content: element.correct_answer, isCorrect: true, letter: shuffledLetters[0] },

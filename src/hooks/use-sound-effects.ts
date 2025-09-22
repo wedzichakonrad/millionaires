@@ -1,3 +1,4 @@
+import { config } from './../utils/config/config';
 import { useGame } from './use-game-context';
 import { useRef } from 'react';
 
@@ -13,6 +14,7 @@ export const useSoundEffects = ({soundSrc}: SoundEffectsProps) => {
 
   const play = () => {
     if (isSoundOn && audio) {
+      audio.volume = config.gameRules.effectsVolume;
       audio.currentTime = 0;
       audio?.play();
     }

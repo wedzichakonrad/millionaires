@@ -15,13 +15,14 @@ interface ButtonProps {
 export const Button = ({onClick, className = '', children, tabIndex, disabled}: ButtonProps) => {
   const { play: playOnClick } = useSoundEffects({soundSrc: buttonClick});
   const { play: playOnHover } = useSoundEffects({soundSrc: buttonHover});
+  const playHoverSound = !disabled ? playOnHover : undefined;
 
   return (
     <button 
       className={`button ${className}`} 
       tabIndex={tabIndex} 
-      onMouseEnter={!disabled ? playOnHover : undefined}
-      onFocus={!disabled ? playOnHover : undefined}
+      onMouseEnter={playHoverSound}
+      onFocus={playHoverSound}
       onClick={() => {
         if (disabled) return
 

@@ -1,6 +1,6 @@
 import { useSetAfterDelay } from '../../../hooks/use-set-after-delay';
 import { SingleChart } from '../../../services/ask-audience-chart.service';
-import { sortByLetter } from '../../../utils/helpers';
+import { sortByLetter } from '../../../utils/helpers/helpers';
 import './chart.sass'
 
 interface ChartProps {

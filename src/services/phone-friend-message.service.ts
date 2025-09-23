@@ -1,5 +1,5 @@
 import { Answer, Question } from '../utils/types/types';
-import { shuffleArray } from '../utils/helpers';
+import { shuffleArray } from '../utils/helpers/helpers';
 import { config } from '../utils/config/config';
 
 const randomOptionIndexOne = 0;
@@ -21,7 +21,7 @@ const getRandomHint = (correctAnswer: Answer | undefined, answers: Answer[]) => 
     const shuffledLettersWithCorrect = lettersWithCorrect.sort(shuffleArray);
     
     const hintSure = `It must be ${correctAnswer.letter} !`;
-    const hintMixed = `I think it can be ${shuffledLettersWithCorrect[randomOptionIndexOne]} but it also can be ${shuffledLettersWithCorrect[randomOptionIndexTwo]}`;
+    const hintMixed = `I think it may be ${shuffledLettersWithCorrect[randomOptionIndexOne]} but ${shuffledLettersWithCorrect[randomOptionIndexTwo]} is also very possible.`;
     const hintUnsure = `I have no idea...`;
 
     if (filteredAnswers.length === 1) return hintSure;

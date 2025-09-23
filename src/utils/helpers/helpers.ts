@@ -1,10 +1,10 @@
-import { SingleChart } from '../services/ask-audience-chart.service';
-import { Answer } from './types/types';
+import { SingleChart } from '../../services/ask-audience-chart.service';
+import { Answer } from '../types/types';
 
 export const decodeHTMLEntities = (text: string) => {
-  const txt = document.createElement("textarea");
-  txt.innerHTML = text;
-  return txt.value;
+    const parser = new DOMParser();
+    const decodedStr = parser.parseFromString(text, "text/html").documentElement.textContent;
+    return decodedStr;
 }
 
 export const shuffleArray = (a: any, b: any) => {

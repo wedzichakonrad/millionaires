@@ -1,6 +1,6 @@
 import './question.sass'
 import Tile from "../common/tile/tile";
-import { decodeHTMLEntities } from '../../utils/helpers';
+import { decodeHTMLEntities } from '../../utils/helpers/helpers';
 
 interface QuestionProps {
   question: string,

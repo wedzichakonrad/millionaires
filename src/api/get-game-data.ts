@@ -1,5 +1,5 @@
 import { ApiQuestion, Question } from '../utils/types/types';
-import { shuffleArray } from '../utils/helpers';
+import { shuffleArray } from '../utils/helpers/helpers';
 import { config } from '../utils/config/config';
 
 interface GetGameDataProps {

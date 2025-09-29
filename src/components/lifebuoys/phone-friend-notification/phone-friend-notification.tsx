@@ -1,8 +1,8 @@
-import { useGame } from '../../../hooks/use-game-context';
+import { useGame } from '../../../hooks/use-game';
 import { useSetAfterDelay } from '../../../hooks/use-set-after-delay';
 import { PhoneIcon } from '../../common/icons/phone';
 import { PhoneFriendMessageService } from '../../../services/phone-friend-message.service';
-import { useNotification } from '../../../hooks/use-notification-context';
+import { useNotification } from '../../../hooks/use-notification';
 import { Button } from '../../common/button/button';
 import { LifebuoyTypes } from '../lifebuoys';
 

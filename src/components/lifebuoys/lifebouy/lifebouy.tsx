@@ -1,9 +1,9 @@
 import { ReactElement } from 'react';
 import './lifebouy.sass';
-import { useNotification } from '../../../hooks/use-notification-context';
+import { useNotification } from '../../../hooks/use-notification';
 import Notification from '../../common/notification/notification'
 import { Button } from '../../common/button/button';
-import { useGame } from '../../../hooks/use-game-context';
+import { useGame } from '../../../hooks/use-game';
 
 interface LifebuoyProps {
   className: string;

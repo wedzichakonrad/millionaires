@@ -1,6 +1,6 @@
 import GameOverNotification from '../components/game-over-notification/game-over-notification';
 import GameWonNotification from '../components/game-won-notification/game-won-notification';
-import { useGame } from '../hooks/use-game-context';
+import { useGame } from '../hooks/use-game';
 import { Dashboard } from './dashboard/dashboard';
 import { GameArea } from './game-area/game-area';
 

@@ -1,5 +1,5 @@
 import { config } from './../utils/config/config';
-import { useGame } from './use-game-context';
+import { useGame } from './use-game';
 import { useRef } from 'react';
 
 interface SoundEffectsProps {

@@ -1,6 +1,6 @@
 import "./reward.sass";
 import { formatPriceValue } from '../../../utils/helpers/helpers';
-import { useGame } from '../../../hooks/use-game-context';
+import { useGame } from '../../../hooks/use-game';
 
 type RewardProps = {
   index: number;

@@ -1,7 +1,7 @@
 import "./single-answer.sass";
 import Tile from "../../common/tile/tile";
 import React, { useState } from "react";
-import { useGame } from '../../../hooks/use-game-context';
+import { useGame } from '../../../hooks/use-game';
 import { config } from '../../../utils/config/config';
 import { Answer } from '../../../utils/types/types';
 

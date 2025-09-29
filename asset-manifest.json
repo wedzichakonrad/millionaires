@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/millionaires/static/css/main.ac305def.css",
-    "main.js": "/millionaires/static/js/main.72d3005e.js",
-    "static/css/500.6508816a.chunk.css": "/millionaires/static/css/500.6508816a.chunk.css",
-    "static/js/500.7d96bc1b.chunk.js": "/millionaires/static/js/500.7d96bc1b.chunk.js",
+    "main.css": "/millionaires/static/css/main.ae3d60c7.css",
+    "main.js": "/millionaires/static/js/main.93dff645.js",
+    "static/css/133.d3a7a640.chunk.css": "/millionaires/static/css/133.d3a7a640.chunk.css",
+    "static/js/133.f562632b.chunk.js": "/millionaires/static/js/133.f562632b.chunk.js",
     "static/media/logo.png": "/millionaires/static/media/logo.6d4e65e985aa58324b21.png",
     "static/media/button-hover.mp3": "/millionaires/static/media/button-hover.213f75df33019b911b17.mp3",
     "static/media/button.mp3": "/millionaires/static/media/button.f1dc105e070a7ff9246d.mp3",
     "index.html": "/millionaires/index.html",
-    "main.ac305def.css.map": "/millionaires/static/css/main.ac305def.css.map",
-    "main.72d3005e.js.map": "/millionaires/static/js/main.72d3005e.js.map",
-    "500.6508816a.chunk.css.map": "/millionaires/static/css/500.6508816a.chunk.css.map",
-    "500.7d96bc1b.chunk.js.map": "/millionaires/static/js/500.7d96bc1b.chunk.js.map"
+    "main.ae3d60c7.css.map": "/millionaires/static/css/main.ae3d60c7.css.map",
+    "main.93dff645.js.map": "/millionaires/static/js/main.93dff645.js.map",
+    "133.d3a7a640.chunk.css.map": "/millionaires/static/css/133.d3a7a640.chunk.css.map",
+    "133.f562632b.chunk.js.map": "/millionaires/static/js/133.f562632b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ac305def.css",
-    "static/js/main.72d3005e.js"
+    "static/css/main.ae3d60c7.css",
+    "static/js/main.93dff645.js"
   ]
 }

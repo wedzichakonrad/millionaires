@@ -5,15 +5,16 @@ import { config } from '../utils/config/config';
 const randomOptionIndexOne = 0;
 const randomOptionIndexTwo = 1;
 
-const getRandomHint = (correctAnswer: Answer | undefined, answers: Answer[]) => {
+const getRandomHint = ( answers: Answer[]) => {
+    const correctAnswer = answers.find(answer => answer.isCorrect);
+
     if (!correctAnswer) return;
 
     const letters = config.answerLetters;
-    const filteredAnswers = answers.filter(answer => !answer.isCorrect && !answer.disabled)    
     const lettersWithCorrect = [correctAnswer.letter]
 
     for (let i = 0; i < letters.length; i++) {
-        if (lettersWithCorrect[0] !== letters[i] && lettersWithCorrect.length === 1) {
+        if (lettersWithCorrect[randomOptionIndexOne] !== letters[i] && lettersWithCorrect.length === randomOptionIndexTwo) {
             lettersWithCorrect.push(letters[i])
         }
     }
@@ -23,8 +24,6 @@ const getRandomHint = (correctAnswer: Answer | undefined, answers: Answer[]) => 
     const hintSure = `It must be ${correctAnswer.letter} !`;
     const hintMixed = `I think it may be ${shuffledLettersWithCorrect[randomOptionIndexOne]} but ${shuffledLettersWithCorrect[randomOptionIndexTwo]} is also very possible.`;
     const hintUnsure = `I have no idea...`;
-
-    if (filteredAnswers.length === 1) return hintSure;
 
     const possibleHints = [
        hintMixed,
@@ -40,9 +39,7 @@ const getRandomHint = (correctAnswer: Answer | undefined, answers: Answer[]) => 
 const getMessage = (currentQuestion: Question | undefined) => {
     if (!currentQuestion) return;
     
-    const correctAnswer = currentQuestion.answers.find(answer => answer.isCorrect);
-
-    return getRandomHint(correctAnswer, currentQuestion.answers);
+    return getRandomHint(currentQuestion.answers);
 }
 
 export const PhoneFriendMessageService = {

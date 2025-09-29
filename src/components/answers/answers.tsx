@@ -3,7 +3,7 @@ import "./answers.sass";
 import { useMemo } from "react";
 import { sortByLetter } from '../../utils/helpers/helpers';
 import { Answer } from '../../utils/types/types';
-import { useGame } from '../../hooks/use-game-context';
+import { useGame } from '../../hooks/use-game';
  
 interface AnswersProps {
   answers: Answer[];

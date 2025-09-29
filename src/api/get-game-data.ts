@@ -16,17 +16,16 @@ interface FetchDataProps {
     category: string;
 }
 
-
-const getGameData = async ({retryDelay = 3000, maxRetries = 5, attempt = 1, category}: GetGameDataProps):  Promise<Question[]> => {
-    const apiUrl = `https://opentdb.com/api.php?amount=15&type=multiple${category ? `&category=${category}` : ''}`;
+const fetchGameData = async ({retryDelay = 3000, maxRetries = 5, attempt = 1, category}: GetGameDataProps):  Promise<Question[]> => {
+    const url = `${config.apiUrl}?amount=15&type=multiple${category ? `&category=${category}` : ''}`;
 
     try {
-        const response = await fetch(apiUrl);
+        const response = await fetch(url);
 
         if (response.status === 429) {
             if (attempt < maxRetries) {
                 await new Promise(resolve => setTimeout(resolve, retryDelay));
-                return getGameData({retryDelay, maxRetries, attempt:  attempt + 1, category});
+                return fetchGameData({retryDelay, maxRetries, attempt:  attempt + 1, category});
             } else {
                 throw new Error(`Max retries reached for 429 error`);
             }
@@ -61,10 +60,10 @@ const getGameData = async ({retryDelay = 3000, maxRetries = 5, attempt = 1, cate
     }
 };
 
-export const fetchData = async ({setIsFetching, setData, setError, category}: FetchDataProps) => {
+export const getGameData = async ({setIsFetching, setData, setError, category}: FetchDataProps) => {
     setIsFetching(true);
     try {
-        const data = await getGameData({category});
+        const data = await fetchGameData({category});
 
         if (data && data.length > 0) {
             setData?.(data);

@@ -1,5 +1,5 @@
-import { useGame } from '../../../hooks/use-game-context';
-import { useNotification } from '../../../hooks/use-notification-context';
+import { useGame } from '../../../hooks/use-game';
+import { useNotification } from '../../../hooks/use-notification';
 import { AskAudienceChartService } from '../../../services/ask-audience-chart.service';
 import { Button } from '../../common/button/button';
 import { Chart } from '../chart/chart';

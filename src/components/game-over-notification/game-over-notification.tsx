@@ -1,5 +1,5 @@
 import './game-over-notification.sass';
-import { useGame } from '../../hooks/use-game-context';
+import { useGame } from '../../hooks/use-game';
 import { Button } from '../common/button/button';
 import Notification from '../common/notification/notification';
 
@@ -13,8 +13,8 @@ const GameOverNotification = () => {
       <div className='game-over-notification'>
         <p className='game-over-notification__message'>Wrong! Game Over!</p>
         <div className='game-over-notification__buttons-wrapper'>
-          <Button onClick={restartGame}>Restart</Button>
-          <Button onClick={openMenu}>Back to menu</Button>
+          <Button onClick={restartGame} forceEnableTab={true}>Restart</Button>
+          <Button onClick={openMenu} forceEnableTab={true}>Back to menu</Button>
         </div>
       </div>
     </Notification>

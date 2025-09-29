@@ -3,7 +3,7 @@ import { config } from '../utils/config/config';
 import { useSetAfterDelay } from '../hooks/use-set-after-delay';
 import { Question } from '../utils/types/types';
 import { GameContext } from '../context/game-context';
-import { useNotification } from '../hooks/use-notification-context';
+import { useNotification } from '../hooks/use-notification';
 
 const backToMenuAnimationDelay = 1000;
 
@@ -38,24 +38,33 @@ export interface GameContextType {
 
 export const GameProvider = ({ children }: GameProviderProps) => {
   const { setNotificationStates } = useNotification();
-  const { gameRules } = config;
+  const { 
+    firstQuestionIndex, 
+    questions: defaultQuestions, 
+    gameLost, 
+    gameWon, 
+    categoryId, 
+    animateAnswers: defaultAnimateAnswers, 
+    soundOn, 
+    notificationsData 
+  } = config.gameRules;
 
-  const [questionNumber, setQuestionNumber] = useState(gameRules.firstQuestionIndex);
+  const [questionNumber, setQuestionNumber] = useState(firstQuestionIndex);
   const [isPendingAnswer, setIsPendingAnswer] = useState<boolean>(false);
-  const [questions, setQuestions] = useState<Question[]>(gameRules.questions);
-  const [isOver, setIsGameOver] = useState(gameRules.gameLost);
-  const [isWon, setIsGameWon] = useState(gameRules.gameWon);
-  const [category, setCategory] = useState(gameRules.categoryId);
-  const [animateAnswers, setAnimateAnswers] = useState(gameRules.animateAnswers);
-  const [isSoundOn, setIsSoundOn] = useState(gameRules.soundOn);
+  const [questions, setQuestions] = useState<Question[]>(defaultQuestions);
+  const [isOver, setIsGameOver] = useState(gameLost);
+  const [isWon, setIsGameWon] = useState(gameWon);
+  const [category, setCategory] = useState(categoryId);
+  const [animateAnswers, setAnimateAnswers] = useState(defaultAnimateAnswers);
+  const [isSoundOn, setIsSoundOn] = useState(soundOn);
   const [gameStarted, setGameStarted] = useState(false);
   const [gameStartedDelay] = useSetAfterDelay({delay: backToMenuAnimationDelay, value: gameStarted});
 
   const restartGame = () => {
-    setNotificationStates(gameRules.notificationsData);
+    setNotificationStates(notificationsData);
     setIsGameOver(false);
     setIsGameWon(false);
-    setQuestionNumber(gameRules.firstQuestionIndex);
+    setQuestionNumber(firstQuestionIndex);
   }
 
   const startGame = () => {

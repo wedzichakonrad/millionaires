@@ -1,6 +1,6 @@
 import './fifty-fifty.sass'
 import { Lifebuoy } from '../lifebouy/lifebouy'
-import { useGame } from '../../../hooks/use-game-context'
+import { useGame } from '../../../hooks/use-game'
 import { shuffleArray } from '../../../utils/helpers/helpers'
 import { LifebuoyTypes } from '../lifebuoys'
 import { Answer } from '../../../utils/types/types'

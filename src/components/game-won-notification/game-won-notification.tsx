@@ -1,5 +1,5 @@
 import './game-won-notification.sass';
-import { useGame } from '../../hooks/use-game-context';
+import { useGame } from '../../hooks/use-game';
 import { Button } from '../common/button/button';
 import Notification from '../common/notification/notification';
 
@@ -13,8 +13,8 @@ const GameWonNotification = () => {
       <div className='game-won-notification'>
         <p className='game-won-notification__message'>Game Won!</p>
         <div className='game-won-notification__buttons-wrapper'>
-          <Button onClick={restartGame}>Another game ?</Button>
-          <Button onClick={openMenu}>Back to menu</Button>
+          <Button onClick={restartGame} forceEnableTab={true}>Another game ?</Button>
+          <Button onClick={openMenu} forceEnableTab={true}>Back to menu</Button>
         </div>
       </div>
     </Notification>

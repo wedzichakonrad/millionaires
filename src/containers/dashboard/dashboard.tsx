@@ -1,6 +1,6 @@
 import './dashboard.sass';
 import Logo from '../../components/logo/logo';
-import { useGame } from '../../hooks/use-game-context';
+import { useGame } from '../../hooks/use-game';
 import { config } from '../../utils/config/config';
 import { Dropdown, DropdownElement } from '../../components/common/dropdown/dropdown';
 import { Button } from '../../components/common/button/button';

@@ -3,9 +3,9 @@ import AnswersContainer from '../answers/answers-container';
 import RewardsContainer from '../rewards/rewards-container';
 import { Toast } from '../../components/common/toast/toast';
 import { useEffect, useState } from 'react';
-import { fetchData } from '../../api/get-game-data';
+import { getGameData } from '../../api/get-game-data';
 import Preloader from '../../components/common/preloaders/preloader';
-import { useGame } from '../../hooks/use-game-context';
+import { useGame } from '../../hooks/use-game';
 import { useSetAfterDelay } from '../../hooks/use-set-after-delay';
 import { Button } from '../../components/common/button/button';
 
@@ -19,7 +19,7 @@ export const GameArea = () => {
 
   useEffect(() => {
       if (!isOver && !isWon) {
-        fetchData({
+        getGameData({
           setError,
           setData: setQuestions,
           setIsFetching: setIsFetchingData,

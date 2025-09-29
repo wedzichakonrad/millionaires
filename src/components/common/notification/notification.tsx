@@ -1,5 +1,5 @@
 import "./notification.sass";
-import { useNotification } from '../../../hooks/use-notification-context';
+import { useNotification } from '../../../hooks/use-notification';
 import { ReactElement } from "react";
 
 // type prop is something like id of the notification, 

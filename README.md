@@ -1,7 +1,7 @@
 # Millionaire - React TypeScript Quiz Game with SASS
 
 Millionaire is an interactive quiz game based on the popular TV show format "Who Wants to Be a Millionaire".
-
+Available at: https://wedzichakonrad.github.io/millionaires/
 ---
 
 ## Features

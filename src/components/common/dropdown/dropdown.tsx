@@ -13,11 +13,12 @@ interface DropdownProps {
   list: DropdownElement[];
   onChange: (element: DropdownElement) => void;
   value: any;
+  className?: string;
 }
 
 const enterKeyName = 'Enter';
 
-export const Dropdown = ({list, onChange, value}: DropdownProps) => {
+export const Dropdown = ({list, onChange, value, className}: DropdownProps) => {
   const dropdownRef = useRef<HTMLButtonElement>(null);
   const [isListOpen, setIsListOpen] = useState(false);
   const [currentElement, setCurrentElement] = useState(list.find(listEl => listEl.value === value) || list[0]);
@@ -46,7 +47,7 @@ export const Dropdown = ({list, onChange, value}: DropdownProps) => {
 
   return (
     <button 
-      className={`dropdown ${isListOpen ? 'dropdown--list-open' : ''}`} 
+      className={`dropdown ${isListOpen ? 'dropdown--list-open' : ''} ${className}`} 
       onClick={() => {
         playOnClick();
         setIsListOpen(state => !state)

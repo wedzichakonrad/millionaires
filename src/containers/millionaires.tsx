@@ -1,7 +1,7 @@
 import GameOverNotification from '../components/game-over-notification/game-over-notification';
 import GameWonNotification from '../components/game-won-notification/game-won-notification';
 import { useGame } from '../hooks/use-game';
-import { Dashboard } from './dashboard/dashboard';
+import { Menu } from './dashboard/menu';
 import { GameArea } from './game-area/game-area';
 
 const Millionaires = () => {
@@ -9,7 +9,7 @@ const Millionaires = () => {
 
   return (
     <div className='millionaires'>
-      <Dashboard />
+      <Menu />
       {(gameStartedDelay || gameStarted) && <GameArea/>}
       <GameOverNotification />
       <GameWonNotification />

@@ -1,4 +1,4 @@
-import './dashboard.sass';
+import './menu.sass';
 import Logo from '../../components/logo/logo';
 import { useGame } from '../../hooks/use-game';
 import { config } from '../../utils/config/config';
@@ -7,7 +7,7 @@ import { Button } from '../../components/common/button/button';
 import { SoundOnIcon } from '../../components/common/icons/sound-on';
 import { SoundOffIcon } from '../../components/common/icons/sound-off';
 
-export const Dashboard = () => {
+export const Menu = () => {
   const { gameStarted, startGame, setCategory, category, isSoundOn, setIsSoundOn } = useGame();
 
   const onCategoryChange = (element: DropdownElement) => {
@@ -22,19 +22,21 @@ export const Dashboard = () => {
   })
 
   return (
-    <div className={`dashboard ${gameStarted ? 'dashboard--hidden' : ''}`}>
-      <Button className='dashboard__toggle-sound-btn' onClick={() => setIsSoundOn(isOn => !isOn)}>
-        {isSoundOn ? <SoundOnIcon/> : <SoundOffIcon/>}
-      </Button>
-      <Logo/>
-      <header className='dashboard__welcome-msg'>
-        Welcome to Millionaires!
-      </header>
-      <span className='dashboard__choose-category-msg'>
-        Choose questions category and play!
-      </span>
-      <Dropdown list={categoryList} onChange={onCategoryChange} value={category}/>
-      <Button className='dashboard__start-btn' onClick={() => startGame(category)}>Start game</Button>
+    <div className={`menu ${gameStarted ? 'menu--hidden' : ''}`}>
+      <div className='menu__inner'>
+        <Button className='menu__toggle-sound-btn' onClick={() => setIsSoundOn(isOn => !isOn)}>
+          {isSoundOn ? <SoundOnIcon/> : <SoundOffIcon/>}
+        </Button>
+        <Logo/>
+        <header className='menu__welcome-msg'>
+          Welcome to Millionaires!
+        </header>
+        <p className='menu__choose-category-msg'>
+          Choose questions category and play!
+        </p>
+        <Dropdown className='menu__category-dropdown' list={categoryList} onChange={onCategoryChange} value={category}/>
+        <Button className='menu__start-btn' onClick={() => startGame(category)}>Start Game</Button>
+      </div>
     </div>
 )
 }

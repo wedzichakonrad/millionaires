@@ -1,15 +1,11 @@
 @import '../../style/variables/variables'
   
-.dashboard
-  position: fixed
-  top: 0
-  left: 0
+.menu
   +flex-center-center
+  position: fixed
   flex-direction: column
-  width: 100%
-  min-height: 44rem
-  min-width: 22rem
-  height: 100%
+  width: 100vw
+  height: 100vh
   background: $c-gradient-dark-rotated
   z-index: $z-dashboard
   opacity: 1
@@ -17,24 +13,36 @@
   padding: 1rem
   box-sizing: border-box
   user-select: none
+  overflow: auto
 
   &--hidden
     transform: translateX(-100%)
 
   &__welcome-msg
-    font-size: $fs-big
+    font-size: $fs-secondary
     font-weight: $fw-semi-bold
     text-align: center
 
+    +xsm
+      font-size: $fs-big
+
   &__choose-category-msg
-    font-size: $fs-secondary
     padding: 2rem 1rem
     text-align: center
+    margin: auto
+
+    +xsm
+      font-size: $fs-secondary
+
+  &__category-dropdown
+    display: block
+    margin: auto
 
   &__start-btn
     +button
+    display: block
     font-size: $fs-secondary
-    margin-top: 4rem
+    margin: 2rem auto
 
   &__toggle-sound-btn
     +flex-center-center
@@ -44,3 +52,4 @@
     left: 1rem
     width: 4rem
     height: 4rem
+    z-index: $z-notification

@@ -1,11 +1,10 @@
 @import '../../../style/variables/variables'
 
 .dropdown
-  position: relative
   +button
+  position: relative
   padding: 1rem 2rem 1rem 1rem
   border-radius: 1rem
-  min-width: 16rem
 
   +xsm
     min-width: 24rem
@@ -34,9 +33,7 @@
     height: 10rem
     overflow: hidden
     border-radius: 0 0 1rem 1rem
-
-    &:hover
-      box-shadow: none
+    box-shadow: 0 0 2rem 1rem $c-hover-blue-glow
 
     ul
       height: 8rem

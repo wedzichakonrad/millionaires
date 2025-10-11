@@ -17,10 +17,10 @@ const sortByCorrectAnswer = (a: Answer,b: Answer) => {
     return 0;
 }
 
-const findRandomPercentValues = () => {
+const findRandomPercentValues = (answersCount: number) => {
   const calculatedPercents = [] as number[];
 
-  while (calculatedPercents.length < 3) {
+  while (calculatedPercents.length < answersCount) {
     const value = getRandomNumber();
     const tempSum = calculatedPercents.reduce((acc, cur) => acc + cur, 0) + value;
 
@@ -47,14 +47,12 @@ const randomSwapFirstTwoIndexes = (indexNum: number, randomNumber: number) => {
 }
 
 const getCharts = (currentQuestion: Question | undefined) => {
-  const percentValues = findRandomPercentValues()
-
-  const charts = [] as SingleChart[];
-
-  const sortedAnswers = currentQuestion?.answers.sort(sortByCorrectAnswer)
+  const sortedAnswers = currentQuestion?.answers.sort(sortByCorrectAnswer).filter(answer => !answer.disabled) || [];
+  const percentValues = findRandomPercentValues(sortedAnswers.length - 1)
   const sortedPercents = percentValues.sort((a,b) => b - a);
+  const charts = [] as SingleChart[];
   const randomNumber = getRandomNumber()
-
+  
   for (const index in sortedAnswers) {
     const indexNum = Number(index);
     const currentAnswer = sortedAnswers[indexNum];

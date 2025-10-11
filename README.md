@@ -3,8 +3,6 @@
 https://wedzichakonrad.github.io/millionaires/
 
 Millionaire is an interactive quiz game based on the popular TV show format "Who Wants to Be a Millionaire".
-        
----
 
 ## Features
 

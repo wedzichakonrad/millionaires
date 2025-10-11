@@ -16,7 +16,7 @@ interface LifebuoyProps {
 
 export const Lifebuoy = ({ className, children= <></>, type, disableNotification, onClick, icon}: LifebuoyProps) => {
   const { notificationStates, setNotificationStates } = useNotification();
-  const { isPendingAnswer } = useGame();
+  const { isPendingAnswer, animateAnswers } = useGame();
   const currentLifebouy = notificationStates?.[type];
  
   const openNotification = () => {
@@ -37,7 +37,7 @@ export const Lifebuoy = ({ className, children= <></>, type, disableNotification
               onClick?.();              
             }}
             tabIndex={currentLifebouy?.isUsed ? -1 : 0}
-            disabled={currentLifebouy?.isUsed || isPendingAnswer}
+            disabled={currentLifebouy?.isUsed || isPendingAnswer || animateAnswers}
           >
             {icon}
           </Button>

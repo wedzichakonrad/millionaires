@@ -6,21 +6,29 @@ const randomOptionIndexOne = 0;
 const randomOptionIndexTwo = 1;
 
 const getRandomHint = ( answers: Answer[]) => {
-    const correctAnswer = answers.find(answer => answer.isCorrect);
+    const filteredAnswers = answers.filter(answer => !answer.disabled)
+    const correctAnswer = filteredAnswers.find(answer => answer.isCorrect);
 
     if (!correctAnswer) return;
 
     const letters = config.answerLetters;
-    const lettersWithCorrect = [correctAnswer.letter]
+    let lettersWithCorrect = []
 
-    for (let i = 0; i < letters.length; i++) {
-        if (lettersWithCorrect[randomOptionIndexOne] !== letters[i] && lettersWithCorrect.length === randomOptionIndexTwo) {
-            lettersWithCorrect.push(letters[i])
+    if (filteredAnswers.length === 2) {
+        for (const answer of filteredAnswers) {
+            lettersWithCorrect.push(answer.letter)
+        }
+    } else {
+        lettersWithCorrect.push(correctAnswer.letter)
+        if (letters[randomOptionIndexOne] === correctAnswer.letter) {
+            lettersWithCorrect.push(letters[randomOptionIndexTwo])
+        } else {
+            lettersWithCorrect.push(letters[randomOptionIndexOne])
         }
     }
 
     const shuffledLettersWithCorrect = lettersWithCorrect.sort(shuffleArray);
-    
+
     const hintSure = `It must be ${correctAnswer.letter} !`;
     const hintMixed = `I think it may be ${shuffledLettersWithCorrect[randomOptionIndexOne]} but ${shuffledLettersWithCorrect[randomOptionIndexTwo]} is also very possible.`;
     const hintUnsure = `I have no idea...`;
